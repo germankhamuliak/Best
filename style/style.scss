@@ -3,5 +3,15 @@
     padding: 0;
     text-decoration: none;
     box-sizing: border-box;
-    transition-duration: .3s;
+    transition: .2s ;
 }
+
+.container{
+    width: 100%;
+    max-width: 1440px;
+    padding: 0 15px;
+    margin: 0 auto;
+}
+
+@import 'variables';
+@import 'header';
