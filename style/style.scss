@@ -1,7 +1,15 @@
+@import "/style/cards.scss";
+
 *{
     margin: 0;
     padding: 0;
     text-decoration: none;
     box-sizing: border-box;
     transition-duration: .3s;
+}
+
+.container {
+   max-width: 1400px;
+   margin: 0 auto;
+   padding: 0 20px;
 }
