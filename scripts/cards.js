@@ -24,7 +24,26 @@ window.onload = () => {
 
 const cardsList = document.querySelector(".cards__list");
 
-const getCardHtml = (data) => `<div class="cards__item"><div class="cards__item-img"><img src="${data.image}" alt="image" /><button class="cards__item-view">Быстрый просмотр</button></div><div class="cards__item-prices"><p class="cards__item-currPrice"></p><p class="cards__item-oldPrice"></p></div><p class="cards__item-text"></p><div class="cards__item-group"><button class="cards__item-addToCart">В корзину</button><div class="cards__item-btns btns"><button class="btns__minus">-</button><p class="btns-number"></p><button class="btns__plus">+</button></div></div></div>`;
+const getCardHtml = (data) => 
+`<div class="cards__item">
+<div class="cards__item-img">
+    <img src="${data.image}" alt="image" />
+    <button class="cards__item-view">Быстрый просмотр</button>
+</div>
+<div class="cards__item-prices">
+    <p class="cards__item-currPrice"></p>
+    <p class="cards__item-oldPrice"></p>
+</div>
+<p class="cards__item-text"></p>
+<div class="cards__item-group">
+    <button class="cards__item-addToCart">В корзину</button>
+    <div class="cards__item-btns btns">
+        <button class="btns__minus">-</button>
+        <p class="btns-number"></p>
+        <button class="btns__plus">+</button>
+    </div>
+</div>
+</div>`;
 
 const renderCards = () => {
   cardsList.innerHTML = "";
