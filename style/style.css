@@ -1,106 +1,106 @@
-
-
-/* body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
-
-.slideshow {
-    width: 50vw;
-    height: 50vh;
-    box-shadow: 0px 0px 10px gray;
-    position: relative;
-}
-
-.slide {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    overflow: hidden;
-    opacity: 0;
-    transition: opacity 2s;
-}
-
-.slide-bild {
-    width: 100%;
-}
-
-.slide-textbereich {
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    top: 70%;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    text-align: center;
-    font-family: sans-serif;
-    padding: 0 15% 0 15%;
-}
-
-.slide-ueberschrift {
-    font-size: 2em;
-    margin: 10px 0;
-}
-
-.slide-beschreibung {
-    font-size: 1.4em;
-    margin: 0;
-}
-
-.pfeil {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    font-size: 50px;
-    font-weight: bold;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 15%;
-    color: rgba(255, 255, 255, 0.5);
-    user-select: none;
-    cursor: pointer;
-}
-
-.pfeil:hover {
-    color: white;
-}
-
-.pfeil-links {
-    left: 0;
-}
-
-.pfeil-rechts {
-    right: 0;
-}
-
-.indikatorenliste {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    list-style-type: none;
-    font-size: 40px;
-    display: flex;
-    justify-content: center;
+*{
     margin: 0;
     padding: 0;
+    text-decoration: none;
+    box-sizing: border-box;
+    transition-duration: .3s;
 }
 
-.indikator {
-    padding: 0 10px;
-    user-select: none;
-    cursor: pointer;
-    opacity: 0.5;
-    transition: opacity 2s;
+.mySlides {
+    display: none
+
+}
+img {
+    vertical-align: middle;
+    height: 300px;
+    border-radius: 16px;
 }
 
-.aktiv {
-    opacity: 1;
-} */
+.slider__slideshow-container {
+  max-width: 80%;
+  position: relative;
+  margin: auto;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+.slider__dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.active, .slider__dot:hover {
+  background-color: #717171;
+}
+
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+.slider__dot{
+ height: 10px;
+  width: 10px;
+}
+@media only screen and (max-width: 500px) {
+  .prev, .next,.text {font-size: 14px}
+}}
+
+
