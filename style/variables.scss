@@ -9,7 +9,10 @@ $header_search_bg_colar:rgba(240,240,243,.3);
 $header_search_active:rgb(133, 133, 133);
 
 
-
+$footer_bg_colar:#481173;
+$footer_links_colar:hsla(0,0%,100%,.7);
+$footer_info_colar:hsla(0,0%,100%,.8);
+$footer_line_colar: hsla(0,0%,100%,.2);
 ///////////Font-Size
 
 $small: 14px;
@@ -22,5 +25,6 @@ $search: 20px;
 
 $large: 24px;
 
+//////////Font-Weight
 
-
+$fat: 600;
