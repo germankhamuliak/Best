@@ -1,0 +1,34 @@
+.cards {
+    &__name {
+      font-family: Arial, sans-serif;
+      font-weight: 400;
+      font-size: 24px;
+      line-height: 1.33333;
+      margin-bottom: 28px;
+    }
+  
+    &__list {
+      display: flex;
+      justify-content: space-between;
+    }
+  
+    &__item {
+      width: 18%;
+    }
+  
+    &__item-img {
+      width: 100%;
+      position: relative;
+  
+      img {
+        width: 100%;
+        height: auto;
+      }
+  
+      &__item-view {
+        position: absolute;
+      }
+    }
+  
+  }
+  
