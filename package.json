@@ -1,11 +1,10 @@
 {
   "name": "kursachjs",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel index.html --open"
+    "start": "parcel index.html --open "
   },
   "repository": {
     "type": "git",
@@ -20,5 +19,6 @@
   "devDependencies": {
     "@parcel/transformer-sass": "^2.8.3",
     "parcel": "^2.8.3"
-  }
+  },
+  "description": ""
 }
