@@ -1,0 +1,51 @@
+.slider{
+  max-width: 90%;
+  overflow: hidden;
+  margin: 0 auto;
+  max-height: 360px;
+  border-radius: 15px;
+}
+
+.slider__line{
+  position: relative;
+  display: flex;
+  align-items: center;
+  transition: all 1s;
+}
+
+.slider__btn-prev{
+position: absolute;
+left: 100px;
+top: 300px;
+}
+
+
+.slider__btn-next{
+position: absolute;
+right: 100px;
+top: 300px;
+}
+
+.slider__wrapper{
+  display: flex;
+  justify-content: center;
+}
+
+.slider__dot{
+  width: 10px;
+  height: 10px;
+  border: 1px solid palevioletred;
+  border-radius: 50%;
+  background-color: gray;
+  margin: 10px 5px;
+  cursor: pointer;
+}
+
+.slider__dot:hover{
+  background-color: purple;
+}
+
+.active-dot{
+  background-color: purple;
+  transform: scale(1.5);
+}

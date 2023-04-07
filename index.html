@@ -11,30 +11,24 @@
 <body>
     <header class="header"></header>
     <main>
-        <section class="slider">
-            <div class="slider__slideshow-container">     
-                <div class="mySlides fade">
-                    <img src="images/Slider/1.jpg" style="width:100%">
-                </div>
-                <div class="mySlides fade">
-                    <img src="images/Slider/2.jpg" style="width:100%">
-                </div>
-                <div class="mySlides fade">
-                    <img src="images/Slider/3.jpg" style="width:100%">
-                </div>
-                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        <div class="slider">
+
+            <div class="slider__line">
+                <img class="slider__img" src="./images/slider/1.jpg" alt="Image">
+                <img class="slider__img" src="./images/slider/2.jpg" alt="Image">
+                <img class="slider__img" src="./images/slider/3.jpg" alt="Image">
             </div>
-            <br>
-            <div style="text-align:center">
-                <span class="slider__dot" onclick="currentSlide(1)"></span>
-                <span class="slider__dot" onclick="currentSlide(2)"></span>
-                <span class="slider__dot" onclick="currentSlide(3)"></span>
-            </div>
-        </section>
+    
+        </div>
+        <button class="slider__btn-prev">prev</button>
+        <button class="slider__btn-next">next</button>
+    
+        <div class="slider__wrapper">
+            <div class="slider__dot active-dot"></div>
+            <div class="slider__dot"></div>
+            <div class="slider__dot"></div>
+        </div>
         
-
-
 
 
         <section class="cards"></section>

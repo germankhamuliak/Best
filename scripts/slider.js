@@ -1,25 +1,61 @@
-var slideIndex = 1;
-showSlides(slideIndex);
-function plusSlides(n) {
-    showSlides(slideIndex += n);
-}
-function currentSlide(n) {
-    showSlides(slideIndex = n);
-}
-function showSlides(n) {
-    var i;
-    var slides = document.getElementsByClassName("mySlides");
-    var dots = document.getElementsByClassName("slider__dot");
-    if (n > slides.length) { slideIndex = 1 }
-    if (n < 1) { slideIndex = slides.length }
-    for (i = 0; i < slides.length; i++) {
-        slides[i].style.display = "none";
-    }
-    for (i = 0; i < dots.length; i++) {
-        dots[i].className = dots[i].className.replace(" active", "");
-    }
-    slides[slideIndex - 1].style.display = "block";
-    dots[slideIndex - 1].className += " active";
-}
+const sliderImages = document.querySelectorAll('.slider__img'),
+sliderLine = document.querySelector('.slider__line'),
+sliderDots = document.querySelectorAll('.slider__dot'),
+sliderBtnNext = document.querySelector('.slider__btn-next')
+sliderBtnPrev = document.querySelector('.slider__btn-prev');
 
 
+let sliderCount = 0,
+    sliderWidth;
+
+
+window.addEventListener('resize', showSlide)
+
+
+sliderBtnNext.addEventListener('click', nextSlide)
+sliderBtnPrev.addEventListener('click',prevSlide)
+
+
+function showSlide(){
+    sliderWidth = document.querySelector('.slider').offsetWidth
+    sliderLine.style.width = sliderWidth*sliderImages.length + 'px';
+    sliderImages.forEach(item => item.style.width = sliderWidth + 'px');
+    rollSlider()
+}
+showSlide()
+
+function nextSlide(){
+    sliderCount++;
+    if (sliderCount >= sliderImages.length)sliderCount=0;
+    rollSlider();
+    thisSlide(sliderCount)
+}
+
+function prevSlide(){
+    sliderCount--;
+    if(sliderCount<0) sliderCount = sliderImages.length-1;
+    rollSlider();
+    thisSlide(sliderCount)
+}
+
+function rollSlider(){
+    sliderLine.style.transform = `translateX(${-sliderCount * sliderWidth}px)`;
+}
+
+function thisSlide(index){
+    sliderDots.forEach(item => item.classList.remove('active-dot'));
+    sliderDots[index].classList.add('active-dot')
+}
+
+sliderDots.forEach((dot,index) =>{
+    dot.addEventListener('click', () => {
+        sliderCount = index;
+        rollSlider();
+        thisSlide(sliderCount);
+    })
+})
+
+
+setInterval(() => {
+    nextSlide()
+}, 10000)
