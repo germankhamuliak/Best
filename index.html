@@ -9,7 +9,7 @@
     <title>Document</title>
 </head>
 
-<body>
+<body class="body">
     <header class="header">
         <div class="container">
             <div class="header__top">
@@ -17,7 +17,7 @@
                     <span class="currency-name">BYN</span>
                 </div>
                 <div class="header__map">
-                    <svg class="map" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    <svg class="map-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                         viewBox="0,0,256,256" fill-rule="nonzero">
                         <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
                             stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
@@ -122,32 +122,51 @@
             </div>
         </div>
     </header>
-    <main>
-        
+    <main class="main">
             <div class="slider">
-
                 <div class="slider__line">
                     <img class="slider__img" src="./images/slider/1.jpg" alt="Image">
                     <img class="slider__img" src="./images/slider/2.jpg" alt="Image">
                     <img class="slider__img" src="./images/slider/3.jpg" alt="Image">
-                </div>
-        
+                </div>       
             </div>
             <button class="slider__btn-prev">prev</button>
-            <button class="slider__btn-next">next</button>
-        
+            <button class="slider__btn-next">next</button>        
             <div class="slider__wrapper">
                 <div class="slider__dot active-dot"></div>
                 <div class="slider__dot"></div>
                 <div class="slider__dot"></div>
             </div>
-        
-
-
         <section class="cards">
             <div class="container">
                 <h3 class="cards__name">Хиты продаж</h3>
                 <div class="cards__list"></div>
+            </div>
+        </section>
+        <section class="category">
+            <div class="container">
+                <div class="category__content">
+                    <div class="category__card">
+                        <a class="category__link" href="#">
+                            <img src="images/category/1.webp" alt="image">
+                        </a>
+                    </div>
+                    <div class="category__card">
+                        <a class="category__link" href="#">
+                            <img src="images/category/2.webp" alt="image">
+                        </a>
+                    </div>
+                    <div class="category__card">
+                        <a class="category__link" href="#">
+                            <img src="images/category/3.webp" alt="image">
+                        </a>
+                    </div>
+                    <div class="category__card">
+                        <a class="category__link" href="#">
+                            <img src="images/category/4.webp" alt="image">
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
@@ -242,9 +261,19 @@
             </div>
         </div>
     </footer>
+    <div class="modal">
+        <div class="map modal__content">
+            <h2>Способ доставки</h2>
+            <div class="map__btns">
+                <button>В пункт выдачи</button>
+                <button>Доставка курьером</button>
+            </div>
+            <a href="https://www.google.com/maps/search/wildberries/@53.896124,27.4933838,12z" target="_blank"><button class="map__adres">Выбрать адрес</button></a>
+        </div>
+    </div>
 </body>
 <script type="moduls" src="scripts/slider.js"></script>
 <script type="moduls" src="scripts/cards.js"></script>
-
+<script type="moduls" src="scripts/modals.js"></script>
 </html>
 
