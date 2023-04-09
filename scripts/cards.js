@@ -23,26 +23,24 @@ window.onload = () => {
 };
 
 const cardsList = document.querySelector(".cards__list");
+const currency = document.querySelector(".currency-name");
 
-const getCardHtml = (data) => 
-`<div class="cards__item">
-<div class="cards__item-img">
-    <img src="${data.image}" alt="image" />
-    <button class="cards__item-view">Быстрый просмотр</button>
-</div>
-<div class="cards__item-prices">
-    <p class="cards__item-currPrice"></p>
-    <p class="cards__item-oldPrice"></p>
-</div>
-<p class="cards__item-text"></p>
-<div class="cards__item-group">
-    <button class="cards__item-addToCart">В корзину</button>
-    <div class="cards__item-btns btns">
-        <button class="btns__minus">-</button>
-        <p class="btns-number"></p>
-        <button class="btns__plus">+</button>
+const getCardHtml = (data) =>
+  `<div class="cards__item">
+  <div class="cards__item-img">
+      <img src="${data.image}" alt="image" />
+      <a href="#" class="cards__item-view">Быстрый просмотр</a>
     </div>
-</div>
+    <p class="cards__item-price">${data.price} ${currency.innerHTML}</p>
+    <p class="cards__item-text">${data.description}</p>
+    <div class="cards__item-group">
+      <button class="cards__item-addToCart">В корзину</button>
+      <div class="cards__item-btns btns">
+        <button class="btns__minus">-</button>
+        <p class="btns__number">13</p>
+        <button class="btns__plus">+</button>
+      </div>
+    </div>
 </div>`;
 
 const renderCards = () => {
@@ -50,3 +48,33 @@ const renderCards = () => {
   cards.forEach((el) => (cardsList.innerHTML += getCardHtml(el)));
   localStorage.setItem("cards", JSON.stringify(cards));
 };
+
+//корзина
+
+const basket = [];
+// localStorage.getItem('basket', )
+
+const btnAddToCart = document.querySelector(".cards__item-addToCart");
+btnAddToCart.addEventListener("click", (e) => {
+  // console.log(e.id);
+  // localStorage.setItem("toCart", JSON.stringify(basket));
+});
+
+const cart = document.querySelector(".header__cart");
+cart.addEventListener("click", () => {});
+
+const getBasketHTML = (data) =>
+  `<div class="basket">
+    <div class="basket__list">
+        <div class="basket__item">
+            <div class="basket__image">
+              <img src="${data.image}" alt="image">
+            </div>
+            <div class="basket__text">
+                // <h3 class="basket__text-title"></h3>
+                <p class="basket__text-description">${data.description}</p>
+                <p class="basket__text-price">${data.price} ${currency.innerHTML}</p>
+            </div>
+        </div>
+    </div>
+</div>`;
