@@ -1,32 +1,123 @@
 .cards {
-    &__name {
-      font-family: Arial, sans-serif;
-      font-weight: 400;
-      font-size: 24px;
-      line-height: 1.33333;
-      margin-bottom: 28px;
-    }
-  
-    &__list {
-      display: flex;
-      justify-content: space-between;
-    }
-  
-    &__item {
-      width: 18%;
-    }
-  
-    &__item-img {
-      width: 100%;
+  &__name {
+    font-family: Arial, sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.33333;
+    margin-bottom: 28px;
+  }
+
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    width: 18%;
+    margin-bottom: 40px;
+
+    &-img {
+      max-width: 250px;
       position: relative;
-  
+      margin-bottom: 8px;
+
       img {
         width: 100%;
-        height: auto;
+        height: 100%;
+        border-radius: 5px;
       }
-      &__item-view {
-        position: absolute;
+
+      &:hover {
+        .cards__item-view {
+          opacity: 100%;
+        }
       }
     }
+
+    &-view {
+      position: absolute;
+      top: 0;
+      left: 0;
+      // z-index: 1;
+      opacity: 0;
+      border-radius: 5px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &-price {
+      font-weight: $regular;
+      font-size: $large;
+      margin-bottom: 5px;
+    }
+
+    &-text {
+      margin-bottom: 10px;
+      font-size: $small;
+    }
+
+    &-group {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    &-addToCart {
+      width: 48%;
+      height: 32px;
+      color: white;
+      font-size: $small;
+      font-weight: $fat;
+      line-height: 17px;
+      background-color: #cb11ab;
+      border: none;
+      border-radius: 5px;
+
+      &:hover {
+        background-color: #e313bf;
+        cursor: pointer;
+      }
+    }
+
+    &-btns {
+      width: 40%;
+    }
   }
-  
+
+  .btns {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &__minus {
+      width: 27%;
+      height: 25px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &__number {
+      width: 30%;
+      text-align: center;
+    }
+
+    &__plus {
+      width: 27%;
+      height: 25px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+  }
+}
