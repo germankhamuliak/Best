@@ -6,17 +6,16 @@
    position: fixed;
    top: 10%;
    left: 22%;
+   display: none;
    
    &__list {
-      // display: flex;
-      // flex-direction: column;
       width: 85%;
       padding: 20px 0;
+      
 
       &__item {
-         // min-height: 50px;
          padding: 10px;
-         margin-bottom: 20px;
+
          display: flex;
          justify-content: space-between;
 

@@ -4,7 +4,7 @@ const options = {
   method: "GET",
 };
 
-let cards = [];
+const cards = [];
 const request = new Request(URL, options);
 fetch(request)
   .then((res) => res.json())
@@ -43,25 +43,25 @@ const getCardHtml = (data) =>
     </div>
 </div>`;
 
+const cart = JSON.parse(localStorage.getItem("Cart")) || [];
+
 const renderCards = () => {
   cardsList.innerHTML = "";
   cards.forEach((el) => (cardsList.innerHTML += getCardHtml(el)));
   localStorage.setItem("cards", JSON.stringify(cards));
+  const btnsAddToCart = document.querySelectorAll(".cards__item-addToCart");
+  btnsAddToCart.forEach((el, id) => {
+    el.addEventListener("click", () => {
+      cart.push(cards[id]);
+      localStorage.setItem("Cart", JSON.stringify(cart));
+    });
+  });
 };
 
 //корзина
 
-const basket = [];
-// localStorage.getItem('basket', )
-
-const btnAddToCart = document.querySelector(".cards__item-addToCart");
-btnAddToCart.addEventListener("click", (e) => {
-  // console.log(e.id);
-  // localStorage.setItem("toCart", JSON.stringify(basket));
-});
-
-const cart = document.querySelector(".header__cart");
-cart.addEventListener("click", () => {});
+const cartHTML = document.querySelector(".header__cart");
+cartHTML.addEventListener("click", () => {});
 
 const getBasketHTML = (data) =>
   `<div class="basket">
