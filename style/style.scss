@@ -7,17 +7,16 @@
     font-family: Arial,sans-serif;
 }
 
-.container{
-    width: 100%;
-    max-width: 1440px;
-    padding: 0 15px;
-    margin: 0 auto;
-}
-
 @import 'variables';
 @import 'fonts';
 @import 'header';
+@import 'main';
 @import 'slider';
 @import 'cards';
 @import 'footer';
 @import 'basket';
+@import 'category';
+@import 'footer';
+@import 'modals/modal';
+@import 'modals/map';
+

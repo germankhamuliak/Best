@@ -1,0 +1,51 @@
+.map{
+    font-family: 'Roboto Mono', monospace;
+    width: 650px;
+    height: 450px;
+    padding: 20px;
+    position: relative;
+    h2{
+        font-size: 24px;
+        margin-bottom: 4px;
+    }
+    &__btns {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 15px;
+        button{
+            width: calc(50% - 4px);
+            height: 40px;
+            border-radius: 20px;
+            border: 2px solid $modal_map_btn_border_colar;
+            padding: 10px 12px;
+            cursor: pointer;
+            font-size: $extra_small;
+            font-weight: $fat;
+            &:hover{
+                border: 2px solid $modal_map_btn_border_active_colar;
+            }
+        }
+    }
+    &__adres{
+        position: absolute;
+        bottom: 20px;
+        background:$modal_map_btn_border_active_colar;
+        color: $white_color;
+        border: none;
+        padding: 0 50px;
+        height: 44px;
+        border-radius: 8px;
+        font-size: $normal;
+        font-weight: $fat;
+        cursor: pointer;
+    }
+    .close{
+        position: absolute;
+        right: 20px;
+        top:15px;
+        text-decoration: none;
+        font-size: $large;
+        font-weight: $fat;
+        color: $modal_map_btn_border_active_colar;
+    }
+}
