@@ -60,7 +60,6 @@ const renderCards = () => {
   });
 };
 
-
 const basketList = document.querySelector(".basket__list");
 
 const getCartItem = (el) => `<div class="basket__item">
@@ -74,34 +73,21 @@ const getCartItem = (el) => `<div class="basket__item">
     </div>
     </div>`;
 
+const bodyCart = document.querySelector(".body");
 const cartHTML = document.querySelector(".header__cart");
 cartHTML.addEventListener("click", () => {
   basketList.innerHTML = "";
-  JSON.parse(localStorage.getItem("Cart"));
   if (cart && cart.length > 0) {
     cart.forEach((el) => {
       basketList.innerHTML += getCartItem(el);
     });
   }
-  basket.classList.add('basket__active');
+  basket.classList.add("basket__active");
+  bodyCart.classList.add("body--modal");
 });
 
 const basketClose = document.querySelector(".basket__close");
-basketClose.addEventListener('click',()=>{
-  basket.classList.remove('basket__active')
-})
-// const getBasketHTML = (data) =>
-//   `<div class="basket">
-//     <div class="basket__list">
-//         <div class="basket__item">
-//             <div class="basket__image">
-//               <img src="${data.image}" alt="image">
-//             </div>
-//             <div class="basket__text">
-//                 // <h3 class="basket__text-title"></h3>
-//                 <p class="basket__text-description">${data.description}</p>
-//                 <p class="basket__text-price">${data.price} ${currency.innerHTML}</p>
-//             </div>
-//         </div>
-//     </div>
-// </div>`;
+basketClose.addEventListener("click", () => {
+  basket.classList.remove("basket__active");
+  bodyCart.classList.remove("body--modal");
+});
