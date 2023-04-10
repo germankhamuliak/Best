@@ -37,14 +37,14 @@ const getCardHtml = (data) =>
       <button class="cards__item-addToCart">В корзину</button>
       <div class="cards__item-btns btns">
         <button class="btns__minus">-</button>
-        <p class="btns__number">13</p>
+        <p class="btns__number">0</p>
         <button class="btns__plus">+</button>
       </div>
     </div>
 </div>`;
 
 //корзина и карточки
-
+const basket = document.querySelector(".basket");
 const cart = JSON.parse(localStorage.getItem("Cart")) || [];
 
 const renderCards = () => {
@@ -60,11 +60,7 @@ const renderCards = () => {
   });
 };
 
-const divCartHTML = () => `<div class="basket">
-  <div class="basket__list">
-  </div>
-</div>
-`;
+
 const basketList = document.querySelector(".basket__list");
 
 const getCartItem = (el) => `<div class="basket__item">
@@ -72,7 +68,7 @@ const getCartItem = (el) => `<div class="basket__item">
     <img src="${el.image}" alt="image">
     </div>
     <div class="basket__text">
-    // <h3 class="basket__text-title"></h3>
+    <h3 class="basket__text-title">${el.title}</h3>
     <p class="basket__text-description">${el.description}</p>
     <p class="basket__text-price">${el.price} ${currency.innerHTML}</p>
     </div>
@@ -80,7 +76,6 @@ const getCartItem = (el) => `<div class="basket__item">
 
 const cartHTML = document.querySelector(".header__cart");
 cartHTML.addEventListener("click", () => {
-  divCartHTML();
   basketList.innerHTML = "";
   JSON.parse(localStorage.getItem("Cart"));
   if (cart && cart.length > 0) {
@@ -88,8 +83,13 @@ cartHTML.addEventListener("click", () => {
       basketList.innerHTML += getCartItem(el);
     });
   }
+  basket.classList.add('basket__active');
 });
 
+const basketClose = document.querySelector(".basket__close");
+basketClose.addEventListener('click',()=>{
+  basket.classList.remove('basket__active')
+})
 // const getBasketHTML = (data) =>
 //   `<div class="basket">
 //     <div class="basket__list">
