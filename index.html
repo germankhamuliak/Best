@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="images/Logo/icon.jpg" type="image/png">
     <link rel="stylesheet" href="style/style.scss">
-    <title>Document</title>
+    <title>Milalberis</title>
 </head>
 
 <body class="body">
@@ -14,7 +15,13 @@
         <div class="container">
             <div class="header__top">
                 <div class="header__currency">
-                    <span class="currency-name">BYN</span>
+                    <img class="flag-icon header__flag" src="images/header/currency/RB.jpg" alt="rb"><span class="currency-name">BYN</span>
+                    <ul class="currency-list">
+                        <li><h3>Выберите валюту</h3></li>
+                        <li><img class="flag-icon" src="images/header/currency/RB.jpg" alt="rb"><span class="val">BYN</span><span>Белорусский рубль</span> </li>
+                        <li><img class="flag-icon" src="images/header/currency/RF.webp" alt="rf"><span class="val">RUB</span><span>Российский рубль</span></li>
+                        <li><img class="flag-icon" src="images/header/currency/USA.webp" alt="usa"><span class="val">USA</span><span>Доллар США</span></li>
+                    </ul>
                 </div>
                 <div class="header__map">
                     <svg class="map-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -46,11 +53,7 @@
                     <span></span>
                 </div>
                 <div class="header__logo">
-                    <svg class="logo" viewBox="0 0 215 25" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M6.54 24.543 0 .432h4.29L9.316 18.95 14.7.43h4l5.404 18.618L29.154.436l4.29-.006L26.9 24.54l-4.973-.005-5.224-18.006-5.23 18.01-4.932.005ZM36.403.444h4.084v24.084h-4.084V.444ZM49.218 20.75h9.943v3.778H45.219V.444h4V20.75ZM71.723.472c3.352 0 6.14 1.167 8.337 3.472 2.225 2.306 3.352 5.167 3.352 8.556 0 3.361-1.127 6.222-3.352 8.555-2.197 2.306-4.985 3.473-8.337 3.473h-9.605V.444h9.605v.028Zm0 20.306c2.31 0 4.197-.778 5.605-2.334 1.465-1.555 2.197-3.555 2.197-5.916 0-2.417-.732-4.361-2.197-5.917-1.436-1.556-3.323-2.333-5.605-2.333h-5.577v16.5h5.577ZM104.959 17.648c0 1.973-.704 3.613-2.141 4.919-1.436 1.306-3.126 1.973-5.21 1.973h-10.45V.444h9.69c1.999 0 3.689.667 5.069 1.918 1.408 1.278 2.084 2.863 2.084 4.752 0 2.113-.845 3.725-2.478 4.92 2.14 1.111 3.436 3.112 3.436 5.614ZM91.186 4.168v6.337h5.69c1.774 0 3.126-1.39 3.126-3.168 0-1.779-1.352-3.168-3.127-3.168h-5.69Zm6.45 16.648c1.859 0 3.323-1.473 3.323-3.363s-1.464-3.363-3.323-3.363h-6.45v6.754h6.45v-.028ZM112.761 20.76h10.816v3.78h-14.815V.444h14.646v3.78h-10.647v6.253h9.774v3.752h-9.774v6.531ZM141.096 24.54l-5.182-8.782h-4.732v8.782h-4V.444h9.774c2.197 0 4.056.75 5.548 2.28 1.521 1.472 2.31 3.307 2.31 5.474 0 3.057-1.943 5.864-4.845 6.976l5.549 9.366h-4.422ZM131.182 4.17v8.06h5.746c2.14 0 3.83-1.78 3.83-4.03 0-2.224-1.718-4.03-3.83-4.03h-5.746ZM162.474 24.54l-5.154-8.787h-4.732v8.787h-4V.432h9.774c2.197 0 4.056.75 5.549 2.28 1.521 1.474 2.309 3.309 2.309 5.478 0 3.059-1.943 5.867-4.844 6.98l5.548 9.37h-4.45Zm-9.886-20.382v8.064h5.746c2.14 0 3.83-1.78 3.83-4.032 0-2.225-1.718-4.032-3.83-4.032h-5.746ZM169.854.435h3.999V24.54h-3.999V.435ZM182.585 20.76h10.816v3.78h-14.816V.444h14.647v3.78h-10.647v6.253h9.773v3.752h-9.773v6.531ZM196.189 19.056l3.464-2c.986 2.722 2.986 4.055 6.056 4.055 3.042 0 4.535-1.278 4.535-3.167 0-1-.423-1.722-1.211-2.222-.789-.528-2.254-1.11-4.338-1.722-2.338-.694-3.492-1.139-5.126-2.194-1.577-1.112-2.366-2.695-2.366-4.862 0-2.138.76-3.805 2.31-5.055C201.034.61 202.893 0 205.061 0c3.915 0 6.929 2 8.506 5.306l-3.379 1.916c-1.014-2.222-2.733-3.36-5.127-3.36-2.337 0-3.83 1.166-3.83 3 0 1.777 1.183 2.61 4.929 3.75.929.305 1.605.527 2.028.694.45.138 1.042.388 1.802.694.789.306 1.409.667 1.775.972 1.295 1 2.676 2.64 2.507 4.945 0 2.166-.789 3.916-2.394 5.194C210.3 24.39 208.216 25 205.625 25c-4.732-.028-8.169-2.25-9.436-5.944Z">
-                        </path>
-                    </svg>
+                   <a href="#">Milalberis</a>
                 </div>
                 <div class="header__search">
                     <input type="search" name="search" id="search" placeholder="Я ищу...">
@@ -287,6 +290,7 @@
         </div>
     </div>
 </body>
+<script type="moduls" src="scripts/currency.js"></script>
 <script type="moduls" src="scripts/slider.js"></script>
 <script type="moduls" src="scripts/cards.js"></script>
 <script type="moduls" src="scripts/modals.js"></script>

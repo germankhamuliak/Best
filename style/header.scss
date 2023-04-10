@@ -10,26 +10,73 @@
     }
     &__currency {
         color: $header_normal_colar;
-        padding-left: 15px;
-        margin-right: 15px;
+        padding-left: 20px;
+        position: relative;
         &:hover{
             color: $white_color;
             cursor: pointer;
         }
+        .currency-list {
+            position: absolute;
+            list-style: none;
+            width: 300px;
+            border-radius: 16px;
+            margin-top: 10px;
+            top: 20px;
+            left: 0;
+            display: none;
+            li{
+                position: relative;
+                z-index: 1;
+                background-color: $white_color;
+                color: $black_color;
+                font-size: $middle;
+                padding: 12px 0 12px 30px;
+                &:hover{
+                    background-color: $header_currency_color;
+                }
+                .val{
+                    padding-right: 30px;
+                }
+                &:first-of-type {
+                border-radius: 16px 16px 0 0;
+                &:hover{
+                    background-color: $white_color;
+                    cursor: auto;
+                }
+                }
+                &:last-of-type {
+                    border-radius: 0 0 16px 16px ;
+                }
+            }
+            
+        }
+        .flag-icon {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            position: absolute;
+            left: 5px;
+        }
+        .header__flag{
+            left: 0;
+        }
     }
-    
+    .active{
+        display: block;
+    }
     &__map {
         color: $header_normal_colar;
         padding-left: 15px;
-         .map-icon{
-        height: 16px;
-        width: 16px;
-        fill: $header_normal_colar;
+        .map-icon{
+            height: 16px;
+            width: 16px;
+            fill: $header_normal_colar;
         }
         &:hover{
             color: $white_color;
             cursor: pointer;
-            .map{
+            .map-icon{
                 fill: $white_color;
             }
         }
@@ -107,11 +154,12 @@
     }
     &__logo {
         margin-left: 16px;
-        .logo{
-            fill: $white_color;
-            height:  25px;
-            width: 215px;
-        }  
+        width: 215px;
+        a{
+            font-size: $gaint; 
+            text-decoration: none;
+            color: $white_color;
+        }
     }
     
     &__search {
