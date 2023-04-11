@@ -1,6 +1,6 @@
-const currency = document.querySelector('.header__currency')
+const currencyBtn = document.querySelector('.header__currency')
 const currencyList = document.querySelector('.currency-list')
 
-currency.addEventListener('click', ()=>{
+currencyBtn.addEventListener('click', ()=>{
     currencyList.classList.toggle('active')
 })

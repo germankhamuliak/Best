@@ -20,18 +20,18 @@
     transition: .8s ease;
     cursor:auto;
 }
-.modal--visibl{
+.modal-visibl{
     opacity: 1;
     visibility: visible;
 }
-.moddal--content--visibl{
+.moddal__content-visibl{
     opacity: 1;
     visibility: visible;
 }
 .body{
     transition: 0s;
 }
-.body--modal{
+.body-modal{
     padding-right: 17px;
     overflow-y: hidden;
     

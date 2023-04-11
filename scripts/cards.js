@@ -83,11 +83,11 @@ cartHTML.addEventListener("click", () => {
     });
   }
   basket.classList.add("basket__active");
-  bodyCart.classList.add("body--modal");
+  bodyCart.classList.add("body-modal");
 });
 
 const basketClose = document.querySelector(".basket__close");
 basketClose.addEventListener("click", () => {
   basket.classList.remove("basket__active");
-  bodyCart.classList.remove("body--modal");
+  bodyCart.classList.remove("body-modal");
 });

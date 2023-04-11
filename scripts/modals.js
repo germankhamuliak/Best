@@ -5,19 +5,19 @@ const mapBtn = document.querySelector('.header__map')
 const close = document.querySelector('.close')
 
 mapBtn.addEventListener('click',()=>{
-    modal.classList.add('modal--visibl');
-    modalContent.classList.add('moddal--content--visibl');
-    body.classList.add('body--modal')
+    modal.classList.add('modal-visibl');
+    modalContent.classList.add('moddal__content-visibl');
+    body.classList.add('body-modal')
 })
 
 document.addEventListener('click', ({target})=>{
     if (target == modal||target == close){
-        modal.classList.remove('modal--visibl');
-        modalContent.classList.remove('moddal--content--visibl');
+        modal.classList.remove('modal-visibl');
+        modalContent.classList.remove('moddal__content-visibl');
         setTimeout(bodyOut,800)
     }
 })
 
 function bodyOut(){
-    body.classList.remove('body--modal')
+    body.classList.remove('body-modal')
 }
