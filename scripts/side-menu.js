@@ -2,7 +2,6 @@ import {bodyOut,headerOut, modal,body,header} from './map.js';
 
 const catalogBtn = document.querySelector('.header__catalog')
 const catalog = document.querySelector('.side-catalog__content')
-let key = false;
 
 
 catalogBtn.addEventListener('click', ()=>{
@@ -11,7 +10,6 @@ catalogBtn.addEventListener('click', ()=>{
     modal.classList.toggle('modal-visibl');
     modal.classList.toggle('side-catalog-modal');
     header.classList.toggle('header-modal')
-    
 })
 
 
@@ -23,6 +21,7 @@ document.addEventListener('click', ({target})=>{
         modal.classList.remove('side-catalog-modal')
         setTimeout(bodyOut,800)
         setTimeout(headerOut,800)
+        
     }
 })
 
