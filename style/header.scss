@@ -90,8 +90,11 @@
     &__link-for-traders {
         background: $header_traders_bg_color;
         border-radius: 16px;
-        padding: 5px 12px 7px;
+        display: flex;
+        align-items: center;
+        
         & a{
+            padding: 5px 12px 7px;
             color: $white_color;
         }
         

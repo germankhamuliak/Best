@@ -1,4 +1,4 @@
-import {bodyOut, modal, body} from './modals.js';
+import {bodyOut, modal,body} from './modals.js';
 
 const catalogBtn = document.querySelector('.header__catalog')
 const catalog = document.querySelector('.side-catalog__content')
