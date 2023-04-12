@@ -11,15 +11,16 @@
     visibility: hidden;
     transition: .8s ease;
     cursor: pointer;    
+    &__content {
+        background: $white_color;
+        border-radius: 16px;
+        opacity: 0;
+        visibility: hidden;
+        transition: .8s ease;
+        cursor:auto;
+    }
 }
-.modal__content {
-    background: $white_color;
-    border-radius: 16px;
-    opacity: 0;
-    visibility: hidden;
-    transition: .8s ease;
-    cursor:auto;
-}
+
 .modal-visibl{
     opacity: 1;
     visibility: visible;

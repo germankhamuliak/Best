@@ -21,3 +21,5 @@ document.addEventListener('click', ({target})=>{
 function bodyOut(){
     body.classList.remove('body-modal')
 }
+
+export {bodyOut, modal,body}
