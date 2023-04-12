@@ -6,11 +6,11 @@ let key = false;
 
 
 catalogBtn.addEventListener('click', ()=>{
-    catalog.classList.add('side-catalog__content-active');
-    body.classList.add('body-modal');
-    modal.classList.add('modal-visibl');
-    modal.classList.add('side-catalog-modal');
-    header.classList.add('header-modal')
+    catalog.classList.toggle('side-catalog__content-active');
+    body.classList.toggle('body-modal');
+    modal.classList.toggle('modal-visibl');
+    modal.classList.toggle('side-catalog-modal');
+    header.classList.toggle('header-modal')
     
 })
 
