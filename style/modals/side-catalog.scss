@@ -14,7 +14,7 @@
     }
     &__list {
         list-style: none;
-        max-height: calc(100vh - 138px);
+        max-height: calc(100% - 138px);
         overflow-y: auto;
         padding-right: 0;
         li{
@@ -50,6 +50,6 @@
     visibility: visible;
 }
 .side-catalog-modal{
-    top: 138px;
     transition: 0s;
+    transform: translate(0,138px);
 }

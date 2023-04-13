@@ -15,12 +15,12 @@
         <div class="container">
             <div class="header__top">
                 <div class="header__currency">
-                    <img class="flag-icon header__flag" src="images/header/currency/RB.jpg" alt="flag"><span class="currency-name">BYN</span>
+                    <div class="currency"><img class="flag-icon header__flag" src="images/header/currency/RB.jpg" alt="flag"><span class="currency-name">BYN</span></div>
                     <ul class="currency-list">
                         <li><h3>Выберите валюту</h3></li>
-                        <li><img class="flag-icon" src="images/header/currency/RB.jpg" alt="rb"><span class="val">BYN</span><span>Белорусский рубль</span> </li>
-                        <li><img class="flag-icon" src="images/header/currency/RF.webp" alt="rf"><span class="val">RUB</span><span>Российский рубль</span></li>
-                        <li><img class="flag-icon" src="images/header/currency/USA.webp" alt="usa"><span class="val">USA</span><span>Доллар США</span></li>
+                        <li class='currency-slot'><img class="flag-icon" src="images/header/currency/RB.jpg" alt="rb"><span class="val">BYN</span><span>Белорусский рубль</span> </li>
+                        <li class='currency-slot'><img class="flag-icon" src="images/header/currency/RF.webp" alt="rf"><span class="val">RUB</span><span>Российский рубль</span></li>
+                        <li class='currency-slot'><img class="flag-icon" src="images/header/currency/USA.webp" alt="usa"><span class="val">USA</span><span>Доллар США</span></li>
                     </ul>
                 </div>
                 <div class="header__map">
@@ -57,7 +57,7 @@
                 </div>
                 <div class="header__search">
                     <input type="search" name="search" id="search" placeholder="Я ищу...">
-                    <svg class="search" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                         viewBox="0,0,256,256" fill-rule="nonzero">
                         <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
                             stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
@@ -70,6 +70,14 @@
                             </g>
                         </g>
                     </svg>
+                    <ul class="search__list">
+                        <li class="search__link">популярное</li>
+                        <li class="search__link">Джинсы</li>
+                        <li class="search__link">Женская одежда</li>
+                        <li class="search__link">Детская обувь</li>
+                        <li class="search__link">Спортивное питание</li>
+                        <li class="search__link">Игрушки</li>
+                    </ul>
                 </div>
                 <div class="header__for-user">
                     <div class="header__profile">
@@ -227,17 +235,17 @@
                             <li class="footer__string">Мобильные устройства</li>
                             <li class="footer__string">
                                 <a href="#">
-                                    <svg class="svg-icon app-store"></svg>
+                                    <img class="footer__downaldes" src="images/footer/apple.png" alt="apple">
                                 </a>
                             </li>
                             <li class="footer__string">
                                 <a href="#">
-                                    <svg class="svg-icon google-play"></svg>
+                                    <img class="footer__downaldes" src="images/footer/google-play.png" alt="android">
                                 </a>
                             </li>
                             <li class="footer__string">
                                 <a href="#">
-                                    <svg class="svg-icon app-gallery"></svg>
+                                    <img class="footer__downaldes" src="images/footer/huawei.png" alt="huawei">
                                 </a>
                             </li>
                         </ul>
@@ -294,7 +302,19 @@
                 <button class="map__adres">Выбрать адрес</button>
             </a>
         </div>
+        
     </div>
+
+    <div class="login">
+        <div class="login__header">
+            <h2>Вход</h2>
+            <a href="#" class="login__close">X</a>
+        </div>
+        <input type="tel" name="tel" id="tel" placeholder="Телефон">
+        <button >Получить код</button>
+        <p>Нажимая, Вы соглашаетесь с обработкой персональных данных в соответствии c <a href="#">политикой</a> в целях регистрации (использования) личного кабинета и <a href="#">правилами торговой площадки</a></p>
+    </div>
+
 
     <div class="side-catalog">
         <div class="side-catalog__content">
@@ -325,9 +345,11 @@
     </div>
 </body>
 <script type="module" src="scripts/currency.js"></script>
+<script type="module" src="scripts/search.js"></script>
 <script type="module" src="scripts/slider.js"></script>
 <script type="module" src="scripts/cards.js"></script>
-<script type="module" src="scripts/modals.js"></script>
+<script type="module" src="scripts/map.js"></script>
 <script type="module" src="scripts/side-menu.js"></script>
+<script type="module" src="scripts/login.js"></script>
 </html>
 

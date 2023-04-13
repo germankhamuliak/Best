@@ -1,0 +1,61 @@
+.login {
+    position: absolute;
+    top:calc(50% - 160px);
+    left: calc(50% - 160px);
+    width: 320px;
+    height: 320px;
+    background:$white_color ;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 1;
+    padding: 11px 16px 24px;
+    border-radius: 16px;
+    opacity: 0;
+    visibility: hidden;
+    &__header {
+        display: flex;
+        justify-content: space-between;
+
+    }
+    &__close{
+            text-decoration: none;
+            font-size: $large;
+            font-weight: $fat;
+            color: $modal_map_btn_border_active_colar;
+    }
+    #tel{
+        font-size: $large;
+        border: none;
+        border-bottom: 1px solid $header_search_catalog;
+        padding: 15px 0 5px;
+        &:focus-visible{
+            outline: none;
+        }
+    }
+    button{
+        width: 100%;
+        background-color: transparent;
+        border-radius: 8px;
+        padding: 8px 24px 10px;
+        font-size: $normal;
+        cursor: pointer;
+        border: 2px solid $header_search_catalog;
+        color: $header_search_catalog ;
+        margin-top: 12px;
+        font-weight: $fat;
+    }
+
+    p{
+        font-size: $extra_small;
+        a{
+        color: $header_problems_bg_color;
+        text-decoration: underline;
+    }
+    }
+}
+
+.login-active{
+    opacity: 1;
+    visibility: visible;
+}

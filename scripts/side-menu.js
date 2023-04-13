@@ -1,4 +1,4 @@
-import {bodyOut, modal, body} from './modals.js';
+import {bodyOut,headerOut, modal,body,header} from './map.js';
 
 const catalogBtn = document.querySelector('.header__catalog')
 const catalog = document.querySelector('.side-catalog__content')
@@ -9,14 +9,20 @@ catalogBtn.addEventListener('click', ()=>{
     body.classList.toggle('body-modal');
     modal.classList.toggle('modal-visibl');
     modal.classList.toggle('side-catalog-modal');
+    header.classList.toggle('header-modal')
 })
 
+
+
 document.addEventListener('click', ({target})=>{
-    if (target == modal){
+    if (target == modal ){
         modal.classList.remove('modal-visibl');
         catalog.classList.remove('side-catalog__content-active');
         modal.classList.remove('side-catalog-modal')
         setTimeout(bodyOut,800)
+        setTimeout(headerOut,800)
+        
     }
 })
+
 
