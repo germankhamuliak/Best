@@ -37,7 +37,7 @@ const getCardHtml = (data) =>
       <button class="cards__item-addToCart">В корзину</button>
       <div class="cards__item-btns btns">
         <button class="btns__minus">-</button>
-        <p class="btns__number"></p>
+        <p class="btns__number">0</p>
         <button class="btns__plus">+</button>
       </div>
     </div>
