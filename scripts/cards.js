@@ -37,15 +37,35 @@ const getCardHtml = (data) =>
       <button class="cards__item-addToCart">В корзину</button>
       <div class="cards__item-btns btns">
         <button class="btns__minus">-</button>
-        <p class="btns__number">0</p>
+        <p class="btns__number"></p>
         <button class="btns__plus">+</button>
       </div>
     </div>
 </div>`;
 
-//корзина и карточки
-const basket = document.querySelector(".basket");
-const cart = JSON.parse(localStorage.getItem("Cart")) || [];
+// + / -
+
+const minus = document.querySelectorAll(".btns__minus");
+const numberGoods = document.querySelectorAll(".btns__number");
+const plus = document.querySelectorAll(".btns__plus");
+const headCartNumber = document.querySelector(".header__cart-number");
+// headCartNumber.innerHTML = Number(headCartNumber.innerHTML);
+headCartNumber.innerHTML = 0;
+numberGoods.innerHTML = 0;
+
+minus.forEach((el) => {
+  el.addEventListener("click", () => {
+    numberGoods.innerHTML -= 1;
+    // headCartNumber.innerHTML -= 1;
+  });
+});
+
+plus.forEach((el) => {
+  el.addEventListener("click", () => {
+    numberGoods.innerHTML += 1;
+    // headCartNumber.innerHTML += 1;
+  });
+});
 
 const renderCards = () => {
   cardsList.innerHTML = "";
@@ -60,6 +80,9 @@ const renderCards = () => {
   });
 };
 
+//корзина и карточки
+const basket = document.querySelector(".basket");
+const cart = JSON.parse(localStorage.getItem("Cart")) || [];
 const basketList = document.querySelector(".basket__list");
 
 const getCartItem = (el) => `<div class="basket__item">
