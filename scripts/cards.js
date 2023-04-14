@@ -14,12 +14,37 @@ fetch(request)
     renderCards();
   });
 
+const renderCards = () => {
+  cardsList.innerHTML = "";
+  cards.forEach((el) => (cardsList.innerHTML += getCardHtml(el)));
+  localStorage.setItem("cards", JSON.stringify(cards));
+  const btnsAddToCart = document.querySelectorAll(".cards__item-addToCart");
+  btnsAddToCart.forEach((el, id) => {
+    el.addEventListener("click", () => {
+      cart.push(cards[id]);
+      localStorage.setItem("Cart", JSON.stringify(cart));
+      headCartNumber.innerHTML = cart.length;
+      localStorage.setItem(
+        "NumberOfGoods",
+        JSON.stringify(headCartNumber.innerHTML)
+      );
+      if (cart && cart.length > 0) {
+        headCartAmount.classList.add("header__cart-amount_active");
+      }
+    });
+  });
+};
+
 window.onload = () => {
   const prevCards = JSON.parse(localStorage.getItem("cards"));
   if (prevCards && prevCards.length > 0) {
     cards.push(...prevCards);
   }
   renderCards();
+  if (cart && cart.length > 0) {
+    headCartAmount.classList.add("header__cart-amount_active");
+  }
+  headCartNumber.innerHTML = JSON.parse(localStorage.getItem("NumberOfGoods"));
 };
 
 const cardsList = document.querySelector(".cards__list");
@@ -37,50 +62,47 @@ const getCardHtml = (data) =>
       <button class="cards__item-addToCart">В корзину</button>
       <div class="cards__item-btns btns">
         <button class="btns__minus">-</button>
-        <p class="btns__number">0</p>
+        <p class="btns__number"></p>
         <button class="btns__plus">+</button>
       </div>
     </div>
 </div>`;
 
-// + / -
-
 const minus = document.querySelectorAll(".btns__minus");
 const numberGoods = document.querySelectorAll(".btns__number");
 const plus = document.querySelectorAll(".btns__plus");
+const headCartAmount = document.querySelector(".header__cart-amount");
 const headCartNumber = document.querySelector(".header__cart-number");
-// headCartNumber.innerHTML = Number(headCartNumber.innerHTML);
-headCartNumber.innerHTML = 0;
-numberGoods.innerHTML = 0;
+
+numberGoods.forEach((el) => {
+  // el.innerHTML = Number(el.innerHTML);
+  el.innerHTML = 0;
+  el.innerHTML >= 0;
+});
 
 minus.forEach((el) => {
   el.addEventListener("click", () => {
-    numberGoods.innerHTML -= 1;
-    // headCartNumber.innerHTML -= 1;
+    numberGoods.forEach((elem, id) => {
+      elem.innerHTML -= 1;
+
+      console.log(id);
+    });
+    // headCartAmount.innerHTML -= 1;
   });
 });
 
 plus.forEach((el) => {
   el.addEventListener("click", () => {
-    numberGoods.innerHTML += 1;
-    // headCartNumber.innerHTML += 1;
+    numberGoods.forEach((elem, id) => {
+      elem.innerHTML += 1;
+
+      console.log(id);
+    });
+    // headCartAmount.innerHTML += 1;
   });
 });
 
-const renderCards = () => {
-  cardsList.innerHTML = "";
-  cards.forEach((el) => (cardsList.innerHTML += getCardHtml(el)));
-  localStorage.setItem("cards", JSON.stringify(cards));
-  const btnsAddToCart = document.querySelectorAll(".cards__item-addToCart");
-  btnsAddToCart.forEach((el, id) => {
-    el.addEventListener("click", () => {
-      cart.push(cards[id]);
-      localStorage.setItem("Cart", JSON.stringify(cart));
-    });
-  });
-};
-
-//корзина и карточки
+//корзина и отображение карточек
 const basket = document.querySelector(".basket");
 const cart = JSON.parse(localStorage.getItem("Cart")) || [];
 const basketList = document.querySelector(".basket__list");
@@ -106,11 +128,11 @@ cartHTML.addEventListener("click", () => {
     });
   }
   basket.classList.add("basket__active");
-  bodyCart.classList.add("body-modal");
+  bodyCart.classList.add("body--modal");
 });
 
 const basketClose = document.querySelector(".basket__close");
 basketClose.addEventListener("click", () => {
   basket.classList.remove("basket__active");
-  bodyCart.classList.remove("body-modal");
+  bodyCart.classList.remove("body--modal");
 });
