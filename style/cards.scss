@@ -64,14 +64,8 @@
       font-size: $small;
     }
 
-    &-group {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
     &-addToCart {
-      width: 48%;
+      width: 50%;
       height: 32px;
       color: white;
       font-size: $small;
@@ -86,40 +80,5 @@
         cursor: pointer;
       }
     }
-
-    &-btns {
-      width: 40%;
-    }
-  }
-
-  .btns {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    &__minus {
-      width: 27%;
-      height: 25px;
-
-      &:hover {
-        cursor: pointer;
-      }
-    }
-
-    &__number {
-      width: 30%;
-      text-align: center;
-      color: $black_color;
-    }
-
-    &__plus {
-      width: 27%;
-      height: 25px;
-
-      &:hover {
-        cursor: pointer;
-      }
-    }
-
   }
 }
