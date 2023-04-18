@@ -14,6 +14,9 @@ fetch(request)
     renderCards();
   });
 
+const cardsList = document.querySelector(".cards__list");
+const currency = document.querySelector(".currency-name");
+
 const renderCards = () => {
   cardsList.innerHTML = "";
   cards.forEach((el) => (cardsList.innerHTML += getCardHtml(el)));
@@ -31,9 +34,16 @@ const renderCards = () => {
       if (cart && cart.length > 0) {
         headCartAmount.classList.add("header__cart-amount_active");
       }
+      alert("Товар добавлен в корзину");
     });
   });
 };
+
+const minus = document.querySelectorAll(".btns__minus");
+const numberGoods = document.querySelectorAll(".btns__number");
+const plus = document.querySelectorAll(".btns__plus");
+const headCartAmount = document.querySelector(".header__cart-amount");
+const headCartNumber = document.querySelector(".header__cart-number");
 
 window.onload = () => {
   const prevCards = JSON.parse(localStorage.getItem("cards"));
@@ -47,9 +57,6 @@ window.onload = () => {
   headCartNumber.innerHTML = JSON.parse(localStorage.getItem("NumberOfGoods"));
 };
 
-const cardsList = document.querySelector(".cards__list");
-const currency = document.querySelector(".currency-name");
-
 const getCardHtml = (data) =>
   `<div class="cards__item">
   <div class="cards__item-img">
@@ -60,12 +67,6 @@ const getCardHtml = (data) =>
     <p class="cards__item-text">${data.title} ~ ${data.description}</p>
       <button class="cards__item-addToCart">В корзину</button>   
 </div>`;
-
-const minus = document.querySelectorAll(".btns__minus");
-const numberGoods = document.querySelectorAll(".btns__number");
-const plus = document.querySelectorAll(".btns__plus");
-const headCartAmount = document.querySelector(".header__cart-amount");
-const headCartNumber = document.querySelector(".header__cart-number");
 
 // numberGoods.forEach((el) => {
 //   // el.innerHTML = Number(el.innerHTML);
@@ -119,15 +120,40 @@ const getCartItem = (el) => `<div class="basket__item">
     </div>
   </div>`;
 
-const bodyCart = document.querySelector(".body");
-const cartHTML = document.querySelector(".header__cart");
-cartHTML.addEventListener("click", () => {
+const cartItem = document.querySelector(".basket__item");
+const cartDelete = document.querySelectorAll(".basket__delete");
+cartDelete.forEach((el) => {
+  el.addEventListener("click", () => {
+    cartItem.remove();
+    itemDel = cart.find((elem) => {
+      elem.id == el.id;
+    });
+    itemDelId = cart.indexOf(itemDel);
+    cart.splice(itemDelId, 1);
+    localStorage.setItem("Cart", JSON.stringify(cart));
+    renderBasket(); //отрисовка элемента корзины
+  });
+});
+
+renderBasket = () => {
   basketList.innerHTML = "";
   if (cart && cart.length > 0) {
     cart.forEach((el) => {
       basketList.innerHTML += getCartItem(el);
     });
   }
+};
+
+const bodyCart = document.querySelector(".body");
+const cartHTML = document.querySelector(".header__cart");
+cartHTML.addEventListener("click", () => {
+  // basketList.innerHTML = "";
+  // if (cart && cart.length > 0) {
+  //   cart.forEach((el) => {
+  //     basketList.innerHTML += getCartItem(el);
+  //   });
+  // }
+  renderBasket();
   basketContainer.classList.add("basket__active");
   bodyCart.classList.add("body-modal");
   // header.classList.add("header-modal");
