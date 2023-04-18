@@ -15,6 +15,7 @@
         color: $header_normal_colar;
         padding-left: 20px;
         position: relative;
+
         &:hover {
             color: $white_color;
             cursor: pointer;
@@ -28,21 +29,20 @@
             top: 20px;
             left: 0;
             display: none;
+            transition: 0s;
             li {
                 position: relative;
                 z-index: 1;
                 background-color: $white_color;
                 color: $black_color;
                 font-size: $middle;
-                padding: 12px 0 12px 30px;
+                transition: .1s;
                 &:hover {
                     background-color: $header_currency_color;
                 }
-                .val {
-                    padding-right: 30px;
-                }
                 &:first-of-type {
                     border-radius: 16px 16px 0 0;
+                    padding: 5px 0 5px 30px;
                     &:hover {
                         background-color: $white_color;
                         cursor: auto;
@@ -51,7 +51,27 @@
                 &:last-of-type {
                     border-radius: 0 0 16px 16px;
                 }
-            }
+                .currency-item{
+                    display: inline;
+                }
+                .header__flag {
+                    left: 10px;
+                    top: 5px;
+                }
+                .currency-name{
+                    display:block;
+                    width: 100%;
+                    position: relative;
+                    padding: 5px 0 5px 30px;
+                    z-index: 3;
+                }
+                .currency-fullname{
+                    position: absolute;
+                    top: 5px;
+                    left: 100px;
+                    z-index: 2;
+                }
+            }   
         }
         .flag-icon {
             width: 15px;
