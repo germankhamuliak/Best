@@ -11,7 +11,6 @@ currencyBtn.addEventListener('click', ()=>{
 currencyItem.forEach((el)=>{
     el.addEventListener('click',()=>{
         currency.innerHTML = el.innerHTML;
-        location.reload();
         
     })
 })
