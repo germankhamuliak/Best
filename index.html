@@ -1,348 +1,597 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="images/Logo/icon.jpg" type="image/png">
-    <link rel="stylesheet" href="style/style.scss">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="images/Logo/icon.jpg" type="image/png" />
+    <link rel="stylesheet" href="style/style.scss" />
     <title>Milalberis</title>
-</head>
+  </head>
 
-<body class="body">
+  <body class="body">
     <header class="header">
-        <div class="container">
-            <div class="header__top">
-                <div class="header__currency">
-                    <div class="currency"><img class="flag-icon header__flag" src="images/header/currency/RB.jpg" alt="flag"><span class="currency-name">BYN</span></div>
-                    <ul class="currency-list">
-                        <li><h3>Выберите валюту</h3></li>
-                        <li class='currency-slot'><img class="flag-icon" src="images/header/currency/RB.jpg" alt="rb"><span class="val">BYN</span><span>Белорусский рубль</span> </li>
-                        <li class='currency-slot'><img class="flag-icon" src="images/header/currency/RF.webp" alt="rf"><span class="val">RUB</span><span>Российский рубль</span></li>
-                        <li class='currency-slot'><img class="flag-icon" src="images/header/currency/USA.webp" alt="usa"><span class="val">USA</span><span>Доллар США</span></li>
-                    </ul>
-                </div>
-                <div class="header__map">
-                    <svg class="map-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                        viewBox="0,0,256,256" fill-rule="nonzero">
-                        <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
-                            stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
-                            font-family="none" font-weight="none" font-size="none" text-anchor="none"
-                            style="mix-blend-mode: normal">
-                            <g transform="scale(5.12,5.12)">
-                                <path
-                                    d="M28.292,1.326c-1.066,-0.21 -2.165,-0.326 -3.292,-0.326c-4.71,0 -8.98,1.93 -12.06,5.04l6.92,5.592zM18.595,13.178l-6.975,-5.628c-2.27,2.88 -3.62,6.52 -3.62,10.45c0,2.281 0.452,4.487 1.304,6.534zM22.608,11.432c0.745,-0.273 1.546,-0.432 2.392,-0.432c3.87,0 7,3.13 7,7c0,0.338 -0.032,0.667 -0.078,0.992l7.772,-9.499c-2.058,-3.539 -5.348,-6.268 -9.285,-7.595zM27.341,24.591c-0.733,0.26 -1.519,0.409 -2.341,0.409c-3.87,0 -7,-3.13 -7,-7c0,-0.354 0.034,-0.7 0.084,-1.039l-7.803,9.537c0.386,0.666 0.809,1.315 1.289,1.932c0.37,0.5 0.87,1.14 1.45,1.89c1.267,1.633 2.959,3.816 4.59,6.164zM18.778,38.215c2.082,3.184 3.852,6.497 4.172,9.055c0.14,0.99 0.99,1.73 1.99,1.73c1.02,0 1.87,-0.75 1.99,-1.75c0.61,-4.83 6.57,-12.48 9.78,-16.6c0.56,-0.72 1.05,-1.35 1.5,-1.94c2.44,-3.02 3.79,-6.82 3.79,-10.71c0,-2.322 -0.471,-4.536 -1.319,-6.555z">
-                                </path>
-                            </g>
-                        </g>
-                    </svg>
-                    <span class="sity-name">Минск</span>
-                </div>
-                <div class="header__contacts">
-                    <div class="header__link-for-traders">
-                        <a href="https://seller.wildberries.ru/login/ru/?redirect_url=/">Продавайте на Wildberries</a>
-                    </div>
-                    <div class="header__massege-abote-problems">
-                        <span>Сообщить о проблеме</span>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="header__top">
+          <div class="header__currency">
+            <div class="currency">
+              <img
+                class="flag-icon header__flag"
+                src="images/header/currency/RB.jpg"
+                alt="flag"
+              /><span class="currency-name">BYN</span>
             </div>
-            <div class="header__body">
-                <div class="header__catalog">
-                    <span></span>
-                </div>
-                <div class="header__logo">
-                   <a href="#">Milberries</a>
-                </div>
-                <div class="header__search">
-                    <input type="search" name="search" id="search" placeholder="Я ищу...">
-                    <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
-                        viewBox="0,0,256,256" fill-rule="nonzero">
-                        <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
-                            stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
-                            font-family="none" font-weight="none" font-size="none" text-anchor="none"
-                            style="mix-blend-mode: normal">
-                            <g transform="scale(5.12,5.12)">
-                                <path
-                                    d="M21,3c-9.37891,0 -17,7.62109 -17,17c0,9.37891 7.62109,17 17,17c3.71094,0 7.14063,-1.19531 9.9375,-3.21875l13.15625,13.125l2.8125,-2.8125l-13,-13.03125c2.55469,-2.97656 4.09375,-6.83984 4.09375,-11.0625c0,-9.37891 -7.62109,-17 -17,-17zM21,5c8.29688,0 15,6.70313 15,15c0,8.29688 -6.70312,15 -15,15c-8.29687,0 -15,-6.70312 -15,-15c0,-8.29687 6.70313,-15 15,-15z">
-                                </path>
-                            </g>
-                        </g>
-                    </svg>
-                    <ul class="search__list">
-                        <li class="search__link">популярное</li>
-                        <li class="search__link">Джинсы</li>
-                        <li class="search__link">Женская одежда</li>
-                        <li class="search__link">Детская обувь</li>
-                        <li class="search__link">Спортивное питание</li>
-                        <li class="search__link">Игрушки</li>
-                    </ul>
-                </div>
-                <div class="header__for-user">
-                    <div class="header__profile">
-                        <svg class="profile" viewBox="0 0 8.4666669 8.4666669" id="svg8" version="1.1"
-                            xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#"
-                            xmlns:dc="http://purl.org/dc/elements/1.1/"
-                            xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-                            xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-                            xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
-                            xmlns:svg="http://www.w3.org/2000/svg">
-
-                            <g id="SVGRepo_bgCarrier" stroke-width="0" />
-
-                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
-
-                            <g id="SVGRepo_iconCarrier">
-                                <defs id="defs2" />
-                                <g id="layer1" transform="translate(0,-288.53332)">
-                                    <path
-                                        d="M 10.462891 16.070312 C 4.9244824 18.277775 0.99608795 23.682844 0.99609375 30 A 1.0001 1.0001 0 0 0 2 31.003906 L 30 31.003906 A 1.0001 1.0001 0 0 0 30.996094 30 C 30.996099 23.68349 27.06876 18.278206 21.53125 16.070312 C 19.99994 17.27111 18.07881 17.996094 15.996094 17.996094 C 13.912967 17.996094 11.992832 17.271538 10.462891 16.070312 z "
-                                        id="path935"
-                                        style="color:#ffffff;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#ffffff;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#ffffff;solid-opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.99999988;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-                                        transform="matrix(0.26458333,0,0,0.26458333,0,288.53332)" />
-                                    <path
-                                        d="M 15.996094 1.0039062 C 11.589664 1.0039062 8.0019573 4.5916469 8.0019531 8.9980469 C 8.0019573 13.404485 11.589664 17 15.996094 17 C 20.402524 17 23.998043 13.404485 23.998047 8.9980469 C 23.998043 4.5916469 20.402524 1.0039062 15.996094 1.0039062 z "
-                                        id="path940"
-                                        style="color:#ffffff;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:medium;line-height:normal;font-family:sans-serif;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-feature-settings:normal;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#ffffff;letter-spacing:normal;word-spacing:normal;text-transform:none;writing-mode:lr-tb;direction:ltr;text-orientation:mixed;dominant-baseline:auto;baseline-shift:baseline;text-anchor:start;white-space:normal;shape-padding:0;clip-rule:nonzero;display:inline;overflow:visible;visibility:visible;opacity:1;isolation:auto;mix-blend-mode:normal;color-interpolation:sRGB;color-interpolation-filters:linearRGB;solid-color:#ffffff;solid-opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1.99999988;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke fill markers;color-rendering:auto;image-rendering:auto;shape-rendering:auto;text-rendering:auto;enable-background:accumulate"
-                                        transform="matrix(0.26458333,0,0,0.26458333,0,288.53332)" />
-                                </g>
-                            </g>
-
-                        </svg>
-                        <span>Войти</span>
-                    </div>
-                    <div class="header__cart">
-                        <svg class="cart-icon" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
-
-                            <g id="SVGRepo_bgCarrier" stroke-width="0" />
-
-                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round" />
-
-                            <g id="SVGRepo_iconCarrier">
-
-                                <path
-                                    d="M1015.66 284a31.82 31.82 0 0 0-25.998-13.502H310.526l-51.408-177.28c-20.16-69.808-68.065-77.344-87.713-77.344H34.333c-17.569 0-31.777 14.224-31.777 31.776S16.78 79.425 34.332 79.425h137.056c4.336 0 17.568 0 26.593 31.184l176.848 649.936c3.84 13.712 16.336 23.183 30.591 23.183h431.968c13.409 0 25.376-8.4 29.905-21.024l152.256-449.68c3.504-9.744 2.048-20.592-3.888-29.024zM815.026 720.194H429.539L328.387 334.066h616.096zM752.003 848.13c-44.192 0-80 35.808-80 80s35.808 80 80 80 80-35.808 80-80-35.808-80-80-80zm-288 0c-44.192 0-80 35.808-80 80s35.808 80 80 80 80-35.808 80-80-35.808-80-80-80z" />
-
-                            </g>
-
-                        </svg>
-                        <span>Корзина</span>
-                        <div class="header__cart-amount">
-                            <p class="header__cart-number"></p>
-                        </div>
-                    </div>
-                </div>
+            <ul class="currency-list">
+              <li><h3>Выберите валюту</h3></li>
+              <li class="currency-slot">
+                <img
+                  class="flag-icon"
+                  src="images/header/currency/RB.jpg"
+                  alt="rb"
+                /><span class="val">BYN</span><span>Белорусский рубль</span>
+              </li>
+              <li class="currency-slot">
+                <img
+                  class="flag-icon"
+                  src="images/header/currency/RF.webp"
+                  alt="rf"
+                /><span class="val">RUB</span><span>Российский рубль</span>
+              </li>
+              <li class="currency-slot">
+                <img
+                  class="flag-icon"
+                  src="images/header/currency/USA.webp"
+                  alt="usa"
+                /><span class="val">USA</span><span>Доллар США</span>
+              </li>
+            </ul>
+          </div>
+          <div class="header__map">
+            <svg
+              class="map-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0,0,256,256"
+              fill-rule="nonzero"
+            >
+              <g
+                fill-rule="nonzero"
+                stroke="none"
+                stroke-width="1"
+                stroke-linecap="butt"
+                stroke-linejoin="miter"
+                stroke-miterlimit="10"
+                stroke-dasharray=""
+                stroke-dashoffset="0"
+                font-family="none"
+                font-weight="none"
+                font-size="none"
+                text-anchor="none"
+                style="mix-blend-mode: normal"
+              >
+                <g transform="scale(5.12,5.12)">
+                  <path
+                    d="M28.292,1.326c-1.066,-0.21 -2.165,-0.326 -3.292,-0.326c-4.71,0 -8.98,1.93 -12.06,5.04l6.92,5.592zM18.595,13.178l-6.975,-5.628c-2.27,2.88 -3.62,6.52 -3.62,10.45c0,2.281 0.452,4.487 1.304,6.534zM22.608,11.432c0.745,-0.273 1.546,-0.432 2.392,-0.432c3.87,0 7,3.13 7,7c0,0.338 -0.032,0.667 -0.078,0.992l7.772,-9.499c-2.058,-3.539 -5.348,-6.268 -9.285,-7.595zM27.341,24.591c-0.733,0.26 -1.519,0.409 -2.341,0.409c-3.87,0 -7,-3.13 -7,-7c0,-0.354 0.034,-0.7 0.084,-1.039l-7.803,9.537c0.386,0.666 0.809,1.315 1.289,1.932c0.37,0.5 0.87,1.14 1.45,1.89c1.267,1.633 2.959,3.816 4.59,6.164zM18.778,38.215c2.082,3.184 3.852,6.497 4.172,9.055c0.14,0.99 0.99,1.73 1.99,1.73c1.02,0 1.87,-0.75 1.99,-1.75c0.61,-4.83 6.57,-12.48 9.78,-16.6c0.56,-0.72 1.05,-1.35 1.5,-1.94c2.44,-3.02 3.79,-6.82 3.79,-10.71c0,-2.322 -0.471,-4.536 -1.319,-6.555z"
+                  ></path>
+                </g>
+              </g>
+            </svg>
+            <span class="sity-name">Минск</span>
+          </div>
+          <div class="header__contacts">
+            <div class="header__link-for-traders">
+              <a href="https://seller.wildberries.ru/login/ru/?redirect_url=/"
+                >Продавайте на Wildberries</a
+              >
             </div>
+            <div class="header__massege-abote-problems">
+              <span>Сообщить о проблеме</span>
+            </div>
+          </div>
         </div>
+        <div class="header__body">
+          <div class="header__catalog">
+            <span></span>
+          </div>
+          <div class="header__logo">
+            <a href="#">Milberries</a>
+          </div>
+          <div class="header__search">
+            <input
+              type="search"
+              name="search"
+              id="search"
+              placeholder="Я ищу..."
+            />
+            <svg
+              class="search-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0,0,256,256"
+              fill-rule="nonzero"
+            >
+              <g
+                fill-rule="nonzero"
+                stroke="none"
+                stroke-width="1"
+                stroke-linecap="butt"
+                stroke-linejoin="miter"
+                stroke-miterlimit="10"
+                stroke-dasharray=""
+                stroke-dashoffset="0"
+                font-family="none"
+                font-weight="none"
+                font-size="none"
+                text-anchor="none"
+                style="mix-blend-mode: normal"
+              >
+                <g transform="scale(5.12,5.12)">
+                  <path
+                    d="M21,3c-9.37891,0 -17,7.62109 -17,17c0,9.37891 7.62109,17 17,17c3.71094,0 7.14063,-1.19531 9.9375,-3.21875l13.15625,13.125l2.8125,-2.8125l-13,-13.03125c2.55469,-2.97656 4.09375,-6.83984 4.09375,-11.0625c0,-9.37891 -7.62109,-17 -17,-17zM21,5c8.29688,0 15,6.70313 15,15c0,8.29688 -6.70312,15 -15,15c-8.29687,0 -15,-6.70312 -15,-15c0,-8.29687 6.70313,-15 15,-15z"
+                  ></path>
+                </g>
+              </g>
+            </svg>
+            <ul class="search__list">
+              <li class="search__link">популярное</li>
+              <li class="search__link">Джинсы</li>
+              <li class="search__link">Женская одежда</li>
+              <li class="search__link">Детская обувь</li>
+              <li class="search__link">Спортивное питание</li>
+              <li class="search__link">Игрушки</li>
+            </ul>
+          </div>
+          <div class="header__for-user">
+            <div class="header__profile">
+              <svg
+                class="profile"
+                viewBox="0 0 8.4666669 8.4666669"
+                id="svg8"
+                version="1.1"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:cc="http://creativecommons.org/ns#"
+                xmlns:dc="http://purl.org/dc/elements/1.1/"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+                xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+                xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+                xmlns:svg="http://www.w3.org/2000/svg"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+
+                <g id="SVGRepo_iconCarrier">
+                  <defs id="defs2" />
+                  <g id="layer1" transform="translate(0,-288.53332)">
+                    <path
+                      d="M 10.462891 16.070312 C 4.9244824 18.277775 0.99608795 23.682844 0.99609375 30 A 1.0001 1.0001 0 0 0 2 31.003906 L 30 31.003906 A 1.0001 1.0001 0 0 0 30.996094 30 C 30.996099 23.68349 27.06876 18.278206 21.53125 16.070312 C 19.99994 17.27111 18.07881 17.996094 15.996094 17.996094 C 13.912967 17.996094 11.992832 17.271538 10.462891 16.070312 z "
+                      id="path935"
+                      style="
+                        color: #ffffff;
+                        font-style: normal;
+                        font-variant: normal;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        font-size: medium;
+                        line-height: normal;
+                        font-family: sans-serif;
+                        font-variant-ligatures: normal;
+                        font-variant-position: normal;
+                        font-variant-caps: normal;
+                        font-variant-numeric: normal;
+                        font-variant-alternates: normal;
+                        font-feature-settings: normal;
+                        text-indent: 0;
+                        text-align: start;
+                        text-decoration: none;
+                        text-decoration-line: none;
+                        text-decoration-style: solid;
+                        text-decoration-color: #ffffff;
+                        letter-spacing: normal;
+                        word-spacing: normal;
+                        text-transform: none;
+                        writing-mode: lr-tb;
+                        direction: ltr;
+                        text-orientation: mixed;
+                        dominant-baseline: auto;
+                        baseline-shift: baseline;
+                        text-anchor: start;
+                        white-space: normal;
+                        shape-padding: 0;
+                        clip-rule: nonzero;
+                        display: inline;
+                        overflow: visible;
+                        visibility: visible;
+                        opacity: 1;
+                        isolation: auto;
+                        mix-blend-mode: normal;
+                        color-interpolation: sRGB;
+                        color-interpolation-filters: linearRGB;
+                        solid-color: #ffffff;
+                        solid-opacity: 1;
+                        vector-effect: none;
+                        fill: #ffffff;
+                        fill-opacity: 1;
+                        fill-rule: nonzero;
+                        stroke: none;
+                        stroke-width: 1.99999988;
+                        stroke-linecap: round;
+                        stroke-linejoin: round;
+                        stroke-miterlimit: 4;
+                        stroke-dasharray: none;
+                        stroke-dashoffset: 0;
+                        stroke-opacity: 1;
+                        paint-order: stroke fill markers;
+                        color-rendering: auto;
+                        image-rendering: auto;
+                        shape-rendering: auto;
+                        text-rendering: auto;
+                        enable-background: accumulate;
+                      "
+                      transform="matrix(0.26458333,0,0,0.26458333,0,288.53332)"
+                    />
+                    <path
+                      d="M 15.996094 1.0039062 C 11.589664 1.0039062 8.0019573 4.5916469 8.0019531 8.9980469 C 8.0019573 13.404485 11.589664 17 15.996094 17 C 20.402524 17 23.998043 13.404485 23.998047 8.9980469 C 23.998043 4.5916469 20.402524 1.0039062 15.996094 1.0039062 z "
+                      id="path940"
+                      style="
+                        color: #ffffff;
+                        font-style: normal;
+                        font-variant: normal;
+                        font-weight: normal;
+                        font-stretch: normal;
+                        font-size: medium;
+                        line-height: normal;
+                        font-family: sans-serif;
+                        font-variant-ligatures: normal;
+                        font-variant-position: normal;
+                        font-variant-caps: normal;
+                        font-variant-numeric: normal;
+                        font-variant-alternates: normal;
+                        font-feature-settings: normal;
+                        text-indent: 0;
+                        text-align: start;
+                        text-decoration: none;
+                        text-decoration-line: none;
+                        text-decoration-style: solid;
+                        text-decoration-color: #ffffff;
+                        letter-spacing: normal;
+                        word-spacing: normal;
+                        text-transform: none;
+                        writing-mode: lr-tb;
+                        direction: ltr;
+                        text-orientation: mixed;
+                        dominant-baseline: auto;
+                        baseline-shift: baseline;
+                        text-anchor: start;
+                        white-space: normal;
+                        shape-padding: 0;
+                        clip-rule: nonzero;
+                        display: inline;
+                        overflow: visible;
+                        visibility: visible;
+                        opacity: 1;
+                        isolation: auto;
+                        mix-blend-mode: normal;
+                        color-interpolation: sRGB;
+                        color-interpolation-filters: linearRGB;
+                        solid-color: #ffffff;
+                        solid-opacity: 1;
+                        vector-effect: none;
+                        fill: #ffffff;
+                        fill-opacity: 1;
+                        fill-rule: nonzero;
+                        stroke: none;
+                        stroke-width: 1.99999988;
+                        stroke-linecap: round;
+                        stroke-linejoin: round;
+                        stroke-miterlimit: 4;
+                        stroke-dasharray: none;
+                        stroke-dashoffset: 0;
+                        stroke-opacity: 1;
+                        paint-order: stroke fill markers;
+                        color-rendering: auto;
+                        image-rendering: auto;
+                        shape-rendering: auto;
+                        text-rendering: auto;
+                        enable-background: accumulate;
+                      "
+                      transform="matrix(0.26458333,0,0,0.26458333,0,288.53332)"
+                    />
+                  </g>
+                </g>
+              </svg>
+              <span>Войти</span>
+            </div>
+            <div class="header__cart">
+              <svg
+                class="cart-icon"
+                viewBox="0 0 1024 1024"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+                <g
+                  id="SVGRepo_tracerCarrier"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+
+                <g id="SVGRepo_iconCarrier">
+                  <path
+                    d="M1015.66 284a31.82 31.82 0 0 0-25.998-13.502H310.526l-51.408-177.28c-20.16-69.808-68.065-77.344-87.713-77.344H34.333c-17.569 0-31.777 14.224-31.777 31.776S16.78 79.425 34.332 79.425h137.056c4.336 0 17.568 0 26.593 31.184l176.848 649.936c3.84 13.712 16.336 23.183 30.591 23.183h431.968c13.409 0 25.376-8.4 29.905-21.024l152.256-449.68c3.504-9.744 2.048-20.592-3.888-29.024zM815.026 720.194H429.539L328.387 334.066h616.096zM752.003 848.13c-44.192 0-80 35.808-80 80s35.808 80 80 80 80-35.808 80-80-35.808-80-80-80zm-288 0c-44.192 0-80 35.808-80 80s35.808 80 80 80 80-35.808 80-80-35.808-80-80-80z"
+                  />
+                </g>
+              </svg>
+              <span>Корзина</span>
+              <div class="header__cart-amount">
+                <p class="header__cart-number"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </header>
     <main class="main">
-            <div class="slider">
-                <div class="slider__line">
-                    <img class="slider__img" src="./images/slider/1.jpg" alt="Image">
-                    <img class="slider__img" src="./images/slider/2.jpg" alt="Image">
-                    <img class="slider__img" src="./images/slider/3.jpg" alt="Image">
-                </div>       
+      <div class="slider">
+        <div class="slider__line">
+          <img class="slider__img" src="./images/slider/1.jpg" alt="Image" />
+          <img class="slider__img" src="./images/slider/2.jpg" alt="Image" />
+          <img class="slider__img" src="./images/slider/3.jpg" alt="Image" />
+        </div>
+      </div>
+      <button class="slider__btn-prev">prev</button>
+      <button class="slider__btn-next">next</button>
+      <div class="slider__wrapper">
+        <div class="slider__dot active-dot"></div>
+        <div class="slider__dot"></div>
+        <div class="slider__dot"></div>
+      </div>
+      <section class="cards">
+        <div class="container">
+          <h3 class="cards__name">Хиты продаж</h3>
+          <div class="cards__list"></div>
+        </div>
+      </section>
+      <section class="category">
+        <div class="container">
+          <div class="category__content">
+            <div class="category__card">
+              <a class="category__link" href="#">
+                <img src="images/category/1.webp" alt="image" />
+              </a>
             </div>
-            <button class="slider__btn-prev">prev</button>
-            <button class="slider__btn-next">next</button>        
-            <div class="slider__wrapper">
-                <div class="slider__dot active-dot"></div>
-                <div class="slider__dot"></div>
-                <div class="slider__dot"></div>
+            <div class="category__card">
+              <a class="category__link" href="#">
+                <img src="images/category/2.webp" alt="image" />
+              </a>
             </div>
-        <section class="cards">
-            <div class="container">
-                <h3 class="cards__name">Хиты продаж</h3>
-                <div class="cards__list"></div>
+            <div class="category__card">
+              <a class="category__link" href="#">
+                <img src="images/category/3.webp" alt="image" />
+              </a>
             </div>
-        </section>
-        <section class="category">
-            <div class="container">
-                <div class="category__content">
-                    <div class="category__card">
-                        <a class="category__link" href="#">
-                            <img src="images/category/1.webp" alt="image">
-                        </a>
-                    </div>
-                    <div class="category__card">
-                        <a class="category__link" href="#">
-                            <img src="images/category/2.webp" alt="image">
-                        </a>
-                    </div>
-                    <div class="category__card">
-                        <a class="category__link" href="#">
-                            <img src="images/category/3.webp" alt="image">
-                        </a>
-                    </div>
-                    <div class="category__card">
-                        <a class="category__link" href="#">
-                            <img src="images/category/4.webp" alt="image">
-                        </a>
-                    </div>
-                </div>
+            <div class="category__card">
+              <a class="category__link" href="#">
+                <img src="images/category/4.webp" alt="image" />
+              </a>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
     </main>
     <footer class="footer">
-        <div class="container">
-            <div class="footer__content">
-                <div class="footer__top">
-                    <div class="footer__column">
-                        <ul class="footer__list">
-                            <li class="footer__string">Покупателям</li>
-                            <li class="footer__string"><a href="#">Способы оплаты</a></li>
-                            <li class="footer__string"><a href="#">Возврат товара</a></li>
-                            <li class="footer__string"><a href="#">Правила продажи товаров</a></li>
-                            <li class="footer__string"><a href="#">Доставка</a></li>
-                            <li class="footer__string"><a href="#">Возврат денежных средств</a></li>
-                            <li class="footer__string"><a href="#">Правила пользования торговой площадкой</a></li>
-                            <li class="footer__string"><a href="#">Политика обработки персональных данных</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer__column">
-                        <ul class="footer__list">
-                            <li class="footer__string">Партнерам</li>
-                            <li class="footer__string"><a href="#">Продавайте на Wildberries</a></li>
-                        </ul>
-                        <ul class="footer__list">
-                            <li class="footer__string">Наши проекты</li>
-                            <li class="footer__string"><a href="#">WB Guru</a></li>
-                            <li class="footer__string"><a href="#">Трудоустройство</a></li>
-                            <li class="footer__string"><a href="#">Цифровые товары</a></li>
-                        </ul>
-
-                    </div>
-                    <div class="footer__column">
-                        <ul class="footer__list">
-                            <li class="footer__string">Компания</li>
-                            <li class="footer__string"><a href="#">О нас</a></li>
-                            <li class="footer__string"><a href="#">Контакты</a></li>
-                            <li class="footer__string"><a href="#">Вакансии</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer__column">
-                        <ul class="footer__list">
-                            <li class="footer__string">Мы в соцсетях</li>
-                            <li class="footer__string"><a href="#">Вконтакте</a></li>
-                            <li class="footer__string"><a href="#">Одноклассники</a></li>
-                            <li class="footer__string"><a href="#">YouTube</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer__column">
-                        <ul class="footer__list">
-                            <li class="footer__string">Мобильные устройства</li>
-                            <li class="footer__string">
-                                <a href="#">
-                                    <img class="footer__downaldes" src="images/footer/apple.png" alt="apple">
-                                </a>
-                            </li>
-                            <li class="footer__string">
-                                <a href="#">
-                                    <img class="footer__downaldes" src="images/footer/google-play.png" alt="android">
-                                </a>
-                            </li>
-                            <li class="footer__string">
-                                <a href="#">
-                                    <img class="footer__downaldes" src="images/footer/huawei.png" alt="huawei">
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="footer__middle">
-                    <ul class="footer__info">
-                        <li>ООО «ИМВБРБ», г. Минск, ул.Скрыганова 6а, помещение 8, офис 35</li>
-                        <li>УНП 193630204 (свидетельство о государственной регистрации юридического лица выдано Минским горисполкомом от 06.06.2022 г. №0198794)</li>
-                        <li>Дата включения сведений об интернет-магазине в Торговый реестр Республики Беларусь 01.07.2022</li>
-                        <li>Телефон для связи: +375 17 388 60 00</li>
-                        <li>Режим работы: круглосуточно</li>
-                    </ul>
-                    <ul class="footer__info">
-                        <li>Лицо, уполномоченное продавцом рассматривать обращения покупателей о нарушении их прав, предусмотренных законодательством о защите прав потребителей – Падера Ольга Викторовна, тел. +375 17 388 60 22</li>
-                        <li>Номера городских телефонов уполномоченных по защите прав потребителей:</li>
-                        <li>+375 17 272 73 84 – администрация Фрунзенского района г. Минска</li>
-                        <li>+375 17 218 00 82 – главное управление торговли и услуг Мингорисполкома</li>
-                    </ul>
-                </div>
-                <div class="footer__bottom">
-                    <div class="footer__copyright">
-                        <p>2004—2023 © Wildberries — модный интернет-магазин одежды, обуви
-                            и аксессуаров. Все права защищены.</p>
-                    </div>
-                    <div class="footer__brands"></div>
-                </div>
+      <div class="container">
+        <div class="footer__content">
+          <div class="footer__top">
+            <div class="footer__column">
+              <ul class="footer__list">
+                <li class="footer__string">Покупателям</li>
+                <li class="footer__string"><a href="#">Способы оплаты</a></li>
+                <li class="footer__string"><a href="#">Возврат товара</a></li>
+                <li class="footer__string">
+                  <a href="#">Правила продажи товаров</a>
+                </li>
+                <li class="footer__string"><a href="#">Доставка</a></li>
+                <li class="footer__string">
+                  <a href="#">Возврат денежных средств</a>
+                </li>
+                <li class="footer__string">
+                  <a href="#">Правила пользования торговой площадкой</a>
+                </li>
+                <li class="footer__string">
+                  <a href="#">Политика обработки персональных данных</a>
+                </li>
+              </ul>
             </div>
+            <div class="footer__column">
+              <ul class="footer__list">
+                <li class="footer__string">Партнерам</li>
+                <li class="footer__string">
+                  <a href="#">Продавайте на Wildberries</a>
+                </li>
+              </ul>
+              <ul class="footer__list">
+                <li class="footer__string">Наши проекты</li>
+                <li class="footer__string"><a href="#">WB Guru</a></li>
+                <li class="footer__string"><a href="#">Трудоустройство</a></li>
+                <li class="footer__string"><a href="#">Цифровые товары</a></li>
+              </ul>
+            </div>
+            <div class="footer__column">
+              <ul class="footer__list">
+                <li class="footer__string">Компания</li>
+                <li class="footer__string"><a href="#">О нас</a></li>
+                <li class="footer__string"><a href="#">Контакты</a></li>
+                <li class="footer__string"><a href="#">Вакансии</a></li>
+              </ul>
+            </div>
+            <div class="footer__column">
+              <ul class="footer__list">
+                <li class="footer__string">Мы в соцсетях</li>
+                <li class="footer__string"><a href="#">Вконтакте</a></li>
+                <li class="footer__string"><a href="#">Одноклассники</a></li>
+                <li class="footer__string"><a href="#">YouTube</a></li>
+              </ul>
+            </div>
+            <div class="footer__column">
+              <ul class="footer__list">
+                <li class="footer__string">Мобильные устройства</li>
+                <li class="footer__string">
+                  <a href="#">
+                    <img
+                      class="footer__downaldes"
+                      src="images/footer/apple.png"
+                      alt="apple"
+                    />
+                  </a>
+                </li>
+                <li class="footer__string">
+                  <a href="#">
+                    <img
+                      class="footer__downaldes"
+                      src="images/footer/google-play.png"
+                      alt="android"
+                    />
+                  </a>
+                </li>
+                <li class="footer__string">
+                  <a href="#">
+                    <img
+                      class="footer__downaldes"
+                      src="images/footer/huawei.png"
+                      alt="huawei"
+                    />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="footer__middle">
+            <ul class="footer__info">
+              <li>
+                ООО «ИМВБРБ», г. Минск, ул.Скрыганова 6а, помещение 8, офис 35
+              </li>
+              <li>
+                УНП 193630204 (свидетельство о государственной регистрации
+                юридического лица выдано Минским горисполкомом от 06.06.2022 г.
+                №0198794)
+              </li>
+              <li>
+                Дата включения сведений об интернет-магазине в Торговый реестр
+                Республики Беларусь 01.07.2022
+              </li>
+              <li>Телефон для связи: +375 17 388 60 00</li>
+              <li>Режим работы: круглосуточно</li>
+            </ul>
+            <ul class="footer__info">
+              <li>
+                Лицо, уполномоченное продавцом рассматривать обращения
+                покупателей о нарушении их прав, предусмотренных
+                законодательством о защите прав потребителей – Падера Ольга
+                Викторовна, тел. +375 17 388 60 22
+              </li>
+              <li>
+                Номера городских телефонов уполномоченных по защите прав
+                потребителей:
+              </li>
+              <li>
+                +375 17 272 73 84 – администрация Фрунзенского района г. Минска
+              </li>
+              <li>
+                +375 17 218 00 82 – главное управление торговли и услуг
+                Мингорисполкома
+              </li>
+            </ul>
+          </div>
+          <div class="footer__bottom">
+            <div class="footer__copyright">
+              <p>
+                2004—2023 © Wildberries — модный интернет-магазин одежды, обуви
+                и аксессуаров. Все права защищены.
+              </p>
+            </div>
+            <div class="footer__brands"></div>
+          </div>
         </div>
+      </div>
     </footer>
-<!-- корзина -->
-
-<div class="basket">
-    <div class="basket__header">
-    <h1>Корзина</h1>  
-    <a href="#" class="basket__close">X</a>
-    </div>
-    <div class="basket__list">
-        
-    </div>
-</div>
-<!-- Модалки -->
-    <div class="modal">
-        <div class="modal__content map">
-            <div class="map__header">
-                <h2>Способ доставки</h2>
-                <a href="#" class="close">X</a>
-            </div>
-            <div class="map__btns">
-                <button>В пункт выдачи</button>
-                <button>Доставка курьером</button>
-            </div>
-            <a href="https://www.google.com/maps/search/wildberries/@53.896124,27.4933838,12z" target="_blank">
-                <button class="map__adres">Выбрать адрес</button>
-            </a>
+    <!-- корзина -->
+    <div class="basket__container">
+      <div class="basket">
+        <div class="basket__header">
+          <h1>Корзина</h1>
+          <a href="#" class="basket__close">X</a>
         </div>
-        
+        <div class="basket__list"></div>
+      </div>
+    </div>
+    <!-- Модалки -->
+    <div class="modal">
+      <div class="modal__content map">
+        <div class="map__header">
+          <h2>Способ доставки</h2>
+          <a href="#" class="close">X</a>
+        </div>
+        <div class="map__btns">
+          <button>В пункт выдачи</button>
+          <button>Доставка курьером</button>
+        </div>
+        <a
+          href="https://www.google.com/maps/search/wildberries/@53.896124,27.4933838,12z"
+          target="_blank"
+        >
+          <button class="map__adres">Выбрать адрес</button>
+        </a>
+      </div>
     </div>
 
     <div class="login">
-        <div class="login__header">
-            <h2>Вход</h2>
-            <a href="#" class="login__close">X</a>
-        </div>
-        <input type="tel" name="tel" id="tel" placeholder="Телефон">
-        <button >Получить код</button>
-        <p>Нажимая, Вы соглашаетесь с обработкой персональных данных в соответствии c <a href="#">политикой</a> в целях регистрации (использования) личного кабинета и <a href="#">правилами торговой площадки</a></p>
+      <div class="login__header">
+        <h2>Вход</h2>
+        <a href="#" class="login__close">X</a>
+      </div>
+      <input type="tel" name="tel" id="tel" placeholder="Телефон" />
+      <button>Получить код</button>
+      <p>
+        Нажимая, Вы соглашаетесь с обработкой персональных данных в соответствии
+        c <a href="#">политикой</a> в целях регистрации (использования) личного
+        кабинета и <a href="#">правилами торговой площадки</a>
+      </p>
     </div>
+
 
  <div class="modal-side">
     <div class="side-catalog">
-        <div class="side-catalog__content">
-            <ul class="side-catalog__list">
-                <li><span>Женщинам</span></li>
-                <li><span>Обувь</span></li>
-                <li><span>Детям</span></li>
-                <li><span>Мужчинам</span></li>
-                <li><span>Дом</span></li>
-                <li><span>Красота</span></li>
-                <li><span>Аксессуары</span></li>
-                <li><span>Электроника</span></li>
-                <li><span>Игрушки</span></li>
-                <li><span>Мебель</span></li>
-                <li><span>Товары для взрослых</span></li>
-                <li><span>Продукты</span></li>
-                <li><span>Бытовая химия</span></li>
-                <li><span>Зоотовары</span></li>
-                <li><span>Спорт</span></li>
-                <li><span>Автотовары</span></li>
-                <li><span>Книги</span></li>
-                <li><span>Для ремонта</span></li>
-                <li><span>Сад и дача</span></li>
-                <li><span>Здоровье</span></li>
-                <li><span>Канцтовары</span></li>
-            </ul>
-        </div>
-    </div>
- </div>   
+      <div class="side-catalog__content">
+        <ul class="side-catalog__list">
+          <li><span>Женщинам</span></li>
+          <li><span>Обувь</span></li>
+          <li><span>Детям</span></li>
+          <li><span>Мужчинам</span></li>
+          <li><span>Дом</span></li>
+          <li><span>Красота</span></li>
+          <li><span>Аксессуары</span></li>
+          <li><span>Электроника</span></li>
+          <li><span>Игрушки</span></li>
+          <li><span>Мебель</span></li>
+          <li><span>Товары для взрослых</span></li>
+          <li><span>Продукты</span></li>
+          <li><span>Бытовая химия</span></li>
+          <li><span>Зоотовары</span></li>
+          <li><span>Спорт</span></li>
+          <li><span>Автотовары</span></li>
+          <li><span>Книги</span></li>
+          <li><span>Для ремонта</span></li>
+          <li><span>Сад и дача</span></li>
+          <li><span>Здоровье</span></li>
+          <li><span>Канцтовары</span></li>
+        </ul>
+      </div>
+    </div> 
 </body>
 <script type="module" src="scripts/currency.js"></script>
 <script type="module" src="scripts/search.js"></script>
@@ -352,4 +601,3 @@
 <script type="module" src="scripts/side-menu.js"></script>
 <script type="module" src="scripts/login.js"></script>
 </html>
-
