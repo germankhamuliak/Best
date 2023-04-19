@@ -17,7 +17,7 @@ fetch(request)
 const cardsList = document.querySelector(".cards__list");
 const currency = () =>{
   if(localStorage.getItem('currency-name')){
-    return localStorage.getItem('currency-name')
+   return localStorage.getItem('currency-name')
   }else{
     return 'BYN';
   }};
@@ -115,7 +115,7 @@ const getCartItem = (el) => `<div class="basket__item">
     <div class="basket__text">
       <h3 class="basket__text-title">${el.title}</h3>
       <p class="basket__text-description">${el.description}</p>
-      <p class="basket__text-price">${el.price} ${currency.innerHTML}</p>
+      <p class="basket__text-price">${el.price} ${currency()}</p>
       <div class="btns">
         <button class="btns__minus">-</button>
         <p class="btns__number">0</p>
