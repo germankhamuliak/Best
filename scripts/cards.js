@@ -15,7 +15,13 @@ fetch(request)
   });
 
 const cardsList = document.querySelector(".cards__list");
-const currency = document.querySelector(".currency-name");
+const currency = () =>{
+  if(localStorage.getItem('currency-name')){
+    return localStorage.getItem('currency-name')
+  }else{
+    return 'BYN';
+  }};
+ 
 
 const renderCards = () => {
   cardsList.innerHTML = "";
@@ -63,7 +69,7 @@ const getCardHtml = (data) =>
       <img src="${data.image}" alt="image" />
       <a href="#" class="cards__item-view">Быстрый просмотр</a>
     </div>
-    <p class="cards__item-price">${data.price} ${currency.innerHTML}</p>
+    <p class="cards__item-price">${data.price} ${currency()}</p>
     <p class="cards__item-text">${data.title} ~ ${data.description}</p>
       <button class="cards__item-addToCart">В корзину</button>   
 </div>`;
