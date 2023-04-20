@@ -15,13 +15,13 @@ fetch(request)
   });
 
 const cardsList = document.querySelector(".cards__list");
-const currency = () =>{
-  if(localStorage.getItem('currency-name')){
-   return localStorage.getItem('currency-name')
-  }else{
-    return 'BYN';
-  }};
- 
+const currency = () => {
+  if (localStorage.getItem("currency-name")) {
+    return localStorage.getItem("currency-name");
+  } else {
+    return "BYN";
+  }
+};
 
 const renderCards = () => {
   cardsList.innerHTML = "";
@@ -108,7 +108,7 @@ const basketContainer = document.querySelector(".basket__container");
 const cart = JSON.parse(localStorage.getItem("Cart")) || [];
 const basketList = document.querySelector(".basket__list");
 
-const getCartItem = (el) => `<div class="basket__item">
+const getCartItem = (el) => `<div class="basket__item" id="${el.id}">
     <div class="basket__image">
       <img src="${el.image}" alt="image">
     </div>
@@ -122,23 +122,26 @@ const getCartItem = (el) => `<div class="basket__item">
         <button class="btns__plus">+</button>
       </div>
       <button class="basket__buy">Купить</button><br>
-      <button class="basket__delete">Удалить</button>
+      <button class="basket__delete" id="${el.id}">Удалить</button>
     </div>
   </div>`;
 
-const cartItem = document.querySelector(".basket__item");
-const cartDelete = document.querySelectorAll(".basket__delete");
-cartDelete.forEach((el) => {
-  el.addEventListener("click", () => {
-    cartItem.remove();
-    itemDel = cart.find((elem) => {
-      elem.id == el.id;
+basketList.addEventListener("click", (e) => {
+  if (e.target.classList.contains("basket__delete")) {
+    const itemDel = cart.find((elem) => {
+      elem.id == e.target.id;
     });
     itemDelId = cart.indexOf(itemDel);
+    console.log(itemDel);
     cart.splice(itemDelId, 1);
     localStorage.setItem("Cart", JSON.stringify(cart));
     renderBasket(); //отрисовка элемента корзины
-  });
+    headCartNumber.innerHTML = cart.length;
+    localStorage.setItem(
+      "NumberOfGoods",
+      JSON.stringify(headCartNumber.innerHTML)
+    );
+  }
 });
 
 renderBasket = () => {
@@ -153,12 +156,6 @@ renderBasket = () => {
 const bodyCart = document.querySelector(".body");
 const cartHTML = document.querySelector(".header__cart");
 cartHTML.addEventListener("click", () => {
-  // basketList.innerHTML = "";
-  // if (cart && cart.length > 0) {
-  //   cart.forEach((el) => {
-  //     basketList.innerHTML += getCartItem(el);
-  //   });
-  // }
   renderBasket();
   basketContainer.classList.add("basket__active");
   bodyCart.classList.add("body-modal");
