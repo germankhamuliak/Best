@@ -18,7 +18,7 @@ const currency = () => {
   }
 };
 
-const getCartItem = (el) => `<div class="basket__item">
+const getCartItem = (el) => `<div class="basket__item" id="${el.id}">
     <div class="basket__image">
       <img src="${el.image}" alt="image">
     </div>
@@ -37,18 +37,23 @@ const getCartItem = (el) => `<div class="basket__item">
   </div>`;
 
 //удаление элемента из корзины
-basketList.addEventListener("click", ({target}) => {
-  if (target.classList.contains("basket__delete")) {
-    cart.splice(target.closest('.basket__item').id, 1);
-    };
+basketList.addEventListener("click", (e) => {
+  if (e.target.classList.contains("basket__delete")) {
+    const itemDel = cart.find((elem) => {
+      elem.id == e.target.id;
+    });
+    itemDelId = cart.indexOf(itemDel);
+    console.log(itemDel);
+    cart.splice(itemDelId, 1);
     localStorage.setItem("Cart", JSON.stringify(cart));
-    renderBasket(); 
+    renderBasket(); //отрисовка элемента корзины
     headCartNumber.innerHTML = cart.length;
     localStorage.setItem(
       "NumberOfGoods",
       JSON.stringify(headCartNumber.innerHTML)
     );
-  });
+  }
+});
 
 //отрисовка элемента корзины
 renderBasket = () => {
