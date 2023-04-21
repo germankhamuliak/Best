@@ -1,13 +1,24 @@
-// import {} from "./cards.js";
+import {body,header} from './map.js';
+export { cart,currency,headCartNumber,headCartAmount};
 
-export { cart };
 
-// const basket = document.querySelector(".basket");
 const basketContainer = document.querySelector(".basket__container");
 const cart = JSON.parse(localStorage.getItem("Cart")) || [];
 const basketList = document.querySelector(".basket__list");
+const cartHTML = document.querySelector(".header__cart");
+const basketClose = document.querySelector(".basket__close");
+const headCartAmount = document.querySelector(".header__cart-amount");
+const headCartNumber = document.querySelector(".header__cart-number");
 
-const getCartItem = (el) => `<div class="basket__item" id="${el.id}">
+const currency = () => {
+  if (localStorage.getItem("currency-name")) {
+    return localStorage.getItem("currency-name");
+  } else {
+    return "BYN";
+  }
+};
+
+const getCartItem = (el) => `<div class="basket__item">
     <div class="basket__image">
       <img src="${el.image}" alt="image">
     </div>
@@ -21,28 +32,25 @@ const getCartItem = (el) => `<div class="basket__item" id="${el.id}">
         <button class="btns__plus">+</button>
       </div>
       <button class="basket__buy">Купить</button><br>
-      <button class="basket__delete" id="${el.id}">Удалить</button>
+      <button class="basket__delete">Удалить</button>
     </div>
   </div>`;
 
-basketList.addEventListener("click", (e) => {
-  if (e.target.classList.contains("basket__delete")) {
-    const itemDel = cart.find((elem) => {
-      elem.id == e.target.id;
-    });
-    itemDelId = cart.indexOf(itemDel);
-    console.log(itemDel);
-    cart.splice(itemDelId, 1);
+//удаление элемента из корзины
+basketList.addEventListener("click", ({target}) => {
+  if (target.classList.contains("basket__delete")) {
+    cart.splice(target.closest('.basket__item').id, 1);
+    };
     localStorage.setItem("Cart", JSON.stringify(cart));
-    renderBasket(); //отрисовка элемента корзины
+    renderBasket(); 
     headCartNumber.innerHTML = cart.length;
     localStorage.setItem(
       "NumberOfGoods",
       JSON.stringify(headCartNumber.innerHTML)
     );
-  }
-});
+  });
 
+//отрисовка элемента корзины
 renderBasket = () => {
   basketList.innerHTML = "";
   if (cart && cart.length > 0) {
@@ -52,18 +60,17 @@ renderBasket = () => {
   }
 };
 
-const bodyCart = document.querySelector(".body");
-const cartHTML = document.querySelector(".header__cart");
+//открытие и закрытие корзины
 cartHTML.addEventListener("click", () => {
   renderBasket();
   basketContainer.classList.add("basket__active");
-  bodyCart.classList.add("body-modal");
-  // header.classList.add("header-modal");
+  body.classList.add("body-modal");
+  header.classList.add("header-modal");
 });
 
-const basketClose = document.querySelector(".basket__close");
+
 basketClose.addEventListener("click", () => {
   basketContainer.classList.remove("basket__active");
-  bodyCart.classList.remove("body-modal");
-  // header.classList.remove("header-modal");
+  body.classList.remove("body-modal");
+  header.classList.remove("header-modal");
 });

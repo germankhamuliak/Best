@@ -1,6 +1,4 @@
-import { cart } from "./basket.js";
-
-// export {};
+import { cart,currency,headCartNumber,headCartAmount } from "./basket.js";
 
 const URL = "https://6428388446fd35eb7c4e2663.mockapi.io/wild/pr/card";
 
@@ -19,16 +17,6 @@ fetch(request)
   });
 
 const cardsList = document.querySelector(".cards__list");
-const currency = () => {
-  if (localStorage.getItem("currency-name")) {
-    return localStorage.getItem("currency-name");
-  } else {
-    return "BYN";
-  }
-};
-
-const headCartAmount = document.querySelector(".header__cart-amount");
-const headCartNumber = document.querySelector(".header__cart-number");
 
 const renderCards = () => {
   cardsList.innerHTML = "";
