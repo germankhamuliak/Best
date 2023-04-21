@@ -41,21 +41,15 @@ basketList.addEventListener("click", ({target}) => {
   if (target.classList.contains("basket__delete")) {
     const itemDel = cart.find((elem) => {
       if(target.closest(".basket__item").id ===  elem.id){
-        console.log( elem.id, target.closest(".basket__item").id )
         return elem;
       }
-      
     });
-    console.log(itemDel);
     const itemDelId = cart.indexOf(itemDel);
     cart.splice(itemDelId, 1);
     localStorage.setItem("Cart", JSON.stringify(cart));
     renderBasket(); 
     headCartNumber.innerHTML = cart.length;
-    localStorage.setItem(
-      "NumberOfGoods",
-      JSON.stringify(headCartNumber.innerHTML)
-    );
+    localStorage.setItem("NumberOfGoods",JSON.stringify(headCartNumber.innerHTML));
   }
 });
 
