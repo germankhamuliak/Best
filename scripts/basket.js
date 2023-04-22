@@ -1,5 +1,5 @@
 import {body,header} from './map.js';
-export { cart,currency,headCartNumber,headCartAmount};
+export {cart,currency,headCartNumber,headCartAmount};
 
 
 const basketContainer = document.querySelector(".basket__container");
