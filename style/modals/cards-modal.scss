@@ -7,10 +7,13 @@
     background: $white_color;
     visibility: hidden;
     opacity: 0;
-    cursor: pointer;
+    cursor:zoom-in;
     img {
         width: 100%;
         vertical-align: top;
+        &:active{
+            transform: scale(1.5);
+        }
     }
 }
 
