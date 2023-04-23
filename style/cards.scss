@@ -102,3 +102,8 @@
     }
   }
 }
+.not-active{
+  visibility: hidden;
+  opacity: 0;
+  z-index: -2;
+}

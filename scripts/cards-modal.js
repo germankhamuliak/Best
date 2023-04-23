@@ -1,5 +1,5 @@
 import {cardsList} from "./cards.js" ;
-import {bodyOut,headerOut,body,header,modal} from './map.js';
+import {body,header,modal} from './map.js';
 
 const viewWindow = document.querySelector('.cards-modal');
 
@@ -25,7 +25,3 @@ document.addEventListener('click', ({target})=>{
 function viewWindowClean(){
   viewWindow.innerHTML="";
 }
-
-// document.addEventListener('click', ({target})=>{
-//  console.log(target);
-// })

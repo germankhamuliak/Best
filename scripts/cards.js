@@ -37,6 +37,7 @@ const renderCards = () => {
         headCartAmount.classList.add("header__cart-amount_active");
       }
       alert("Товар добавлен в корзину");
+      el.classList.add('not-active')
     });
   });
 };
@@ -65,7 +66,8 @@ const getCardHtml = (data) =>
     </div>
     <p class="cards__item-price">${data.price} ${currency()}</p>
     <p class="cards__item-text">${data.title} ~ ${data.description}</p>
-      <button class="cards__item-addToCart">В корзину</button>   
+      <button class="cards__item-addToCart">В корзину</button>
+      <button class="cards__item-inCart">Добавлено в корзину</button>   
 </div>`;
 
 // numberGoods.forEach((el) => {
