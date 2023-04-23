@@ -18,7 +18,7 @@
 
   &__item {
     width: 18%;
-
+    position: relative;
     &-img {
       max-width: 250px;
       position: relative;
@@ -51,6 +51,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      cursor: pointer;
+      vertical-align: top;
     }
 
     &-price {
@@ -67,18 +69,36 @@
     &-addToCart {
       width: 50%;
       height: 32px;
-      color: white;
+      color: $white_color;
       font-size: $small;
       font-weight: $fat;
       line-height: 17px;
       background: $header_problems_bg_color;
-      border: none;
       border-radius: 5px;
-
+      cursor: pointer;
+      border: 1px solid $header_problems_bg_color;
       &:hover {
         background: $card_btn_hover_colar;
-        cursor: pointer;
+        border: 1px solid $card_btn_hover_colar;
       }
+      &:active {
+        background: $card_btn_active_colar;
+      }
+    }
+    &-inCart {
+      width: 50%;
+      height: 32px;
+      color: $white_color;
+      font-size: $extra_small;
+      font-weight: $fat;
+      background: $card_btn_inCort2_colar;
+      border-radius: 5px;
+      cursor: pointer;
+      border: 1px solid $card_btn_inCort_colar;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: -1;
     }
   }
 }

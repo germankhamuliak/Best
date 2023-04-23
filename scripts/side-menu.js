@@ -7,8 +7,8 @@ const catalog = document.querySelector('.side-catalog__content')
 
 catalogBtn.addEventListener('click', ()=>{
     catalog.classList.toggle('side-catalog__content-active');
-    body.classList.toggle('body-modal');
     modalSide.classList.toggle('modal-visibl');
+    body.classList.toggle('body-modal');
     header.classList.toggle('header-modal')
 })
 

@@ -11,8 +11,8 @@ const headCartAmount = document.querySelector(".header__cart-amount");
 const headCartNumber = document.querySelector(".header__cart-number");
 
 const currency = () => {
-  if (localStorage.getItem("currency-name")) {
-    return localStorage.getItem("currency-name");
+  if (localStorage.getItem("currency__name")) {
+    return localStorage.getItem("currency__name");
   } else {
     return "BYN";
   }
