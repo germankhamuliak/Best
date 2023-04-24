@@ -1,5 +1,7 @@
 # Best
 
 Для запуска проекта необходимо в терминале прописать:
-npm install --save-dev parcel
+
+"npm install --save-dev parcel"
+
 После подгрузки пакетов Parcel запустить скрипт "start"
