@@ -1,6 +1,5 @@
-import {body,header} from './map.js';
-export {cart,currency,headCartNumber,headCartAmount};
-
+import { body, header } from "./map.js";
+export { cart, currency, headCartNumber, headCartAmount, numberPm };
 
 const basketContainer = document.querySelector(".basket__container");
 const cart = JSON.parse(localStorage.getItem("Cart")) || [];
@@ -10,6 +9,8 @@ const basketClose = document.querySelector(".basket__close");
 const headCartAmount = document.querySelector(".header__cart-amount");
 const headCartNumber = document.querySelector(".header__cart-number");
 
+let numberPm = 1;
+
 const currency = () => {
   if (localStorage.getItem("currency__name")) {
     return localStorage.getItem("currency__name");
@@ -18,7 +19,8 @@ const currency = () => {
   }
 };
 
-const getCartItem = (el) => `<div class="basket__item" id="${el.id}">
+const getCartItem = (el) =>
+  `<div class="basket__item" id="${el.id}">
     <div class="basket__image">
       <img src="${el.image}" alt="image">
     </div>
@@ -28,7 +30,7 @@ const getCartItem = (el) => `<div class="basket__item" id="${el.id}">
       <p class="basket__text-price">${el.price} ${currency()}</p>
       <div class="btns">
         <button class="btns__minus">-</button>
-        <p class="btns__number">0</p>
+        <p class="btns__number">${numberPm}</p>
         <button class="btns__plus">+</button>
       </div>
       <button class="basket__buy">Купить</button><br>
@@ -36,20 +38,41 @@ const getCartItem = (el) => `<div class="basket__item" id="${el.id}">
     </div>
   </div>`;
 
+// кнопки + и -
+basketList.addEventListener("click", ({ target }) => {
+  if (target.classList.contains("btns__plus")) {
+    const itemPlus = cart.find((el) => {
+      if (target.closest(".basket__item").id === el.id) {
+        return el;
+      }
+    });
+
+    numberPm += 1;
+    renderBasket();
+  } else if (target.classList.contains("btns__minus")) {
+    numberPm -= 1;
+    renderBasket();
+  } else if (numberPm === 0) {
+  }
+});
+
 //удаление элемента из корзины
-basketList.addEventListener("click", ({target}) => {
+basketList.addEventListener("click", ({ target }) => {
   if (target.classList.contains("basket__delete")) {
     const itemDel = cart.find((elem) => {
-      if(target.closest(".basket__item").id ===  elem.id){
+      if (target.closest(".basket__item").id === elem.id) {
         return elem;
       }
     });
     const itemDelId = cart.indexOf(itemDel);
     cart.splice(itemDelId, 1);
     localStorage.setItem("Cart", JSON.stringify(cart));
-    renderBasket(); 
+    renderBasket();
     headCartNumber.innerHTML = cart.length;
-    localStorage.setItem("NumberOfGoods",JSON.stringify(headCartNumber.innerHTML));
+    localStorage.setItem(
+      "NumberOfGoods",
+      JSON.stringify(headCartNumber.innerHTML)
+    );
   }
 });
 
@@ -70,7 +93,6 @@ cartHTML.addEventListener("click", () => {
   body.classList.add("body-modal");
   header.classList.add("header-modal");
 });
-
 
 basketClose.addEventListener("click", () => {
   basketContainer.classList.remove("basket__active");
