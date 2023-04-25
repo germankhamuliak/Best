@@ -45,6 +45,13 @@ basketList.addEventListener("click", ({ target }) => {
       if (target.closest(".basket__item").id === el.id) {
         el.amount += 1;
         renderBasket();
+        // увелич кол-ва в красном кружке (временный вариант)
+        cart.length += 1;
+        headCartNumber.innerHTML = cart.length;
+        localStorage.setItem(
+          "NumberOfGoods",
+          JSON.stringify(headCartNumber.innerHTML)
+        );
       }
     });
   } else if (target.classList.contains("btns__minus")) {
@@ -52,7 +59,15 @@ basketList.addEventListener("click", ({ target }) => {
       if (target.closest(".basket__item").id === el.id) {
         el.amount -= 1;
         renderBasket();
-      } else if (el.amount === 0) {
+        // уменьш кол-ва в красном кружке
+        // при -1 удаляется последний эл-т корзины (ломаная штука)
+        cart.length -= 1;
+        headCartNumber.innerHTML = cart.length;
+        localStorage.setItem(
+          "NumberOfGoods",
+          JSON.stringify(headCartNumber.innerHTML)
+        );
+      } else if (el.amount == 0) {
         // с этого места не работает
         const elemNull = cart.find((el) => {
           if (target.closest(".basket__item").id === el.id) {
