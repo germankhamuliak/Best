@@ -1,5 +1,5 @@
 import { body, header } from "./map.js";
-export { cart, currency, headCartNumber, headCartAmount, numberPm };
+export { cart, currency, headCartNumber, headCartAmount };
 
 const basketContainer = document.querySelector(".basket__container");
 const cart = JSON.parse(localStorage.getItem("Cart")) || [];
@@ -8,8 +8,6 @@ const cartHTML = document.querySelector(".header__cart");
 const basketClose = document.querySelector(".basket__close");
 const headCartAmount = document.querySelector(".header__cart-amount");
 const headCartNumber = document.querySelector(".header__cart-number");
-
-let numberPm = 1;
 
 const currency = () => {
   if (localStorage.getItem("currency__name")) {
@@ -30,7 +28,7 @@ const getCartItem = (el) =>
       <p class="basket__text-price">${el.price} ${currency()}</p>
       <div class="btns">
         <button class="btns__minus">-</button>
-        <p class="btns__number">${numberPm}</p>
+        <p class="btns__number">${el.amount}</p>
         <button class="btns__plus">+</button>
       </div>
       <button class="basket__buy">Купить</button><br>
@@ -39,20 +37,34 @@ const getCartItem = (el) =>
   </div>`;
 
 // кнопки + и -
+Object.prototype.amount = 1;
+
 basketList.addEventListener("click", ({ target }) => {
   if (target.classList.contains("btns__plus")) {
-    const itemPlus = cart.find((el) => {
+    cart.find((el) => {
       if (target.closest(".basket__item").id === el.id) {
-        return el;
+        el.amount += 1;
+        renderBasket();
       }
     });
-
-    numberPm += 1;
-    renderBasket();
   } else if (target.classList.contains("btns__minus")) {
-    numberPm -= 1;
-    renderBasket();
-  } else if (numberPm === 0) {
+    cart.find((el) => {
+      if (target.closest(".basket__item").id === el.id) {
+        el.amount -= 1;
+        renderBasket();
+      } else if (el.amount === 0) {
+        // с этого места не работает
+        const elemNull = cart.find((el) => {
+          if (target.closest(".basket__item").id === el.id) {
+            return el;
+          }
+        });
+        const elemNullId = cart.indexOf(elemNull);
+        cart.splice(elemNullId, 1);
+        localStorage.setItem("Cart", JSON.stringify(cart));
+        renderBasket();
+      }
+    });
   }
 });
 
