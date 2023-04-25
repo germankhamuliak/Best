@@ -1,5 +1,5 @@
 import { body, header } from "./map.js";
-export { cart, currency, headCartNumber, headCartAmount, numberPm };
+export { cart, currency, headCartNumber, headCartAmount, numberPm, val };
 
 const basketContainer = document.querySelector(".basket__container");
 const cart = JSON.parse(localStorage.getItem("Cart")) || [];
@@ -19,6 +19,23 @@ const currency = () => {
   }
 };
 
+let val = 1;
+
+switch (currency()){
+  case "BYN":
+    val = 1;
+    break;
+  case "RUB":
+    val = 27.7809;
+    break;
+  case "USA":
+    val = 0.34;
+    break;
+  default:
+    val = 1;
+}
+
+
 const getCartItem = (el) =>
   `<div class="basket__item" id="${el.id}">
     <div class="basket__image">
@@ -27,7 +44,7 @@ const getCartItem = (el) =>
     <div class="basket__text">
       <h3 class="basket__text-title">${el.title}</h3>
       <p class="basket__text-description">${el.description}</p>
-      <p class="basket__text-price">${el.price} ${currency()}</p>
+      <p class="basket__text-price">${(Number(el.price)*val).toFixed(2)} ${currency()}</p>
       <div class="btns">
         <button class="btns__minus">-</button>
         <p class="btns__number">${numberPm}</p>
