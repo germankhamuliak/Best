@@ -8,6 +8,8 @@ const cartHTML = document.querySelector(".header__cart");
 const basketClose = document.querySelector(".basket__close");
 const headCartAmount = document.querySelector(".header__cart-amount");
 const headCartNumber = document.querySelector(".header__cart-number");
+const basketSum = document.querySelector(".basket__sum");
+
 
 let numberPm = 1;
 
@@ -90,7 +92,7 @@ basketList.addEventListener("click", ({ target }) => {
       "NumberOfGoods",
       JSON.stringify(headCartNumber.innerHTML)
     );
-  }
+    }
 });
 
 //отрисовка элемента корзины
@@ -100,8 +102,14 @@ renderBasket = () => {
     cart.forEach((el) => {
       basketList.innerHTML += getCartItem(el);
     });
-  }
+    let sum = 0;
+     cart.forEach((el) =>{
+    sum +=  Number(el.price)
+    basketSum.innerHTML = (sum*val).toFixed(2) + currency() ;
+    })
+  } ; 
 };
+
 
 //открытие и закрытие корзины
 cartHTML.addEventListener("click", () => {
