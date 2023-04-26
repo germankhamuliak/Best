@@ -1,4 +1,4 @@
-import { cart, currency, headCartNumber, headCartAmount } from "./basket.js";
+import { cart, currency, headCartNumber, headCartAmount, val } from "./basket.js";
 export { cardsList };
 
 const URL = "https://6428388446fd35eb7c4e2663.mockapi.io/wild/pr/card";
@@ -60,7 +60,7 @@ const getCardHtml = (data) =>
       <img src="${data.image}" alt="image" />
       <div class="cards__item-view">Быстрый просмотр</div>
     </div>
-    <p class="cards__item-price">${data.price} ${currency()}</p>
+    <p class="cards__item-price">${(Number(data.price)*val).toFixed(2)} ${currency()}</p>
     <p class="cards__item-text">${data.title} ~ ${data.description}</p>
       <button class="cards__item-addToCart">В корзину</button>
       <button class="cards__item-inCart">Добавлено в корзину</button>   

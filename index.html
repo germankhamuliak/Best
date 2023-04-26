@@ -450,9 +450,17 @@
         <a href="#" class="basket__close">X</a>
       </div>
       <div class="basket__list"></div>
+      <div class="basket__total">
+        <h1>Итого:</h1>
+        <p class="basket__sum"></p>
+        <div class="basket__buttons">
+          <button class="basket__pay">Оплатить все</button>
+          <button class="basket__clear">Очистить корзину</button>
+        </div>  
+      </div>
     </div>
   </div>
-  <!-- Модалки -->
+  <!-- Карта адресов -->
   <div class="modal">
     <div class="modal__content map">
       <div class="map__header">
@@ -468,7 +476,7 @@
       </a>
     </div>
   </div>
-
+  <!-- Окно авторизации -->
   <div class="login">
     <div class="login__header">
       <h2>Вход</h2>
@@ -482,8 +490,7 @@
       кабинета и <a href="#">правилами торговой площадки</a>
     </p>
   </div>
-
-
+  <!-- Боковое меню -->
   <div class="modal-side">
     <div class="side-catalog">
       <div class="side-catalog__content">
@@ -514,14 +521,14 @@
     </div>
   </div>
 
-    <div class="chat">
-      <img class="chat__img" src="images/chat/bx-message-rounded-dots.svg" alt="chat">
-      <div class="chat__window">
+  <div class="chat">
+    <img class="chat__img" src="images/chat/bx-message-rounded-dots.svg" alt="chat">
+    <div class="chat__window">
         
-      </div>
     </div>
-
-    <div class="cards-modal"></div>
+  </div>
+  <!-- Окно быстрого просмотра товара -->
+  <div class="cards-modal"></div>
 </body>
 <script type="module" src="scripts/currency.js"></script>
 <script type="module" src="scripts/search.js"></script>
