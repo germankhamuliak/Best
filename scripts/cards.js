@@ -1,4 +1,4 @@
-import { cart, currency, headCartNumber, headCartAmount, val } from "./basket.js";
+import { cart, currency, headCartNumber, headCartAmount, val, basketSum, totalSum} from "./basket.js";
 export { cardsList };
 
 const URL = "https://6428388446fd35eb7c4e2663.mockapi.io/wild/pr/card";
@@ -33,6 +33,9 @@ const renderCards = () => {
         "NumberOfGoods",
         JSON.stringify(headCartNumber.innerHTML)
       );
+      if(totalSum.classList.contains('not-active')){
+        totalSum.classList.remove('not-active')
+      }
       if (cart && cart.length > 0) {
         headCartAmount.classList.add("header__cart-amount_active");
       }

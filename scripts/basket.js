@@ -1,15 +1,15 @@
 import { body, header } from "./map.js";
-export { cart, currency, headCartNumber, headCartAmount, val };
+
 
 const basketContainer = document.querySelector(".basket__container");
-const cart = JSON.parse(localStorage.getItem("Cart")) || [];
+let cart = JSON.parse(localStorage.getItem("Cart")) || [];
 const basketList = document.querySelector(".basket__list");
 const cartHTML = document.querySelector(".header__cart");
 const basketClose = document.querySelector(".basket__close");
 const headCartAmount = document.querySelector(".header__cart-amount");
 const headCartNumber = document.querySelector(".header__cart-number");
 const basketSum = document.querySelector(".basket__sum");
-
+const totalSum = document.querySelector('.basket__total');
 
 const currency = () => {
   if (localStorage.getItem("currency__name")) {
@@ -64,13 +64,7 @@ basketList.addEventListener("click", ({ target }) => {
       if (target.closest(".basket__item").id === el.id) {
         el.amount += 1;
         renderBasket();
-        // увелич кол-ва в красном кружке (временный вариант)
-        cart.length += 1;
-        headCartNumber.innerHTML = cart.length;
-        localStorage.setItem(
-          "NumberOfGoods",
-          JSON.stringify(headCartNumber.innerHTML)
-        );
+       console.log(el.amount);
       }
     });
   } else if (target.classList.contains("btns__minus")) {
@@ -78,26 +72,14 @@ basketList.addEventListener("click", ({ target }) => {
       if (target.closest(".basket__item").id === el.id) {
         el.amount -= 1;
         renderBasket();
-        // уменьш кол-ва в красном кружке
-        // при -1 удаляется последний эл-т корзины (ломаная штука)
-        cart.length -= 1;
-        headCartNumber.innerHTML = cart.length;
-        localStorage.setItem(
-          "NumberOfGoods",
-          JSON.stringify(headCartNumber.innerHTML)
-        );
-      } else if (el.amount == 0) {
-        // с этого места не работает
-        const elemNull = cart.find((el) => {
-          if (target.closest(".basket__item").id === el.id) {
-            return el;
-          }
-        });
+        if (el.amount === 0) {
+        const elemNull = el;
         const elemNullId = cart.indexOf(elemNull);
         cart.splice(elemNullId, 1);
         localStorage.setItem("Cart", JSON.stringify(cart));
         renderBasket();
       }
+      }  
     });
   }
 });
@@ -114,13 +96,41 @@ basketList.addEventListener("click", ({ target }) => {
     cart.splice(itemDelId, 1);
     localStorage.setItem("Cart", JSON.stringify(cart));
     renderBasket();
-    headCartNumber.innerHTML = cart.length;
-    localStorage.setItem(
-      "NumberOfGoods",
-      JSON.stringify(headCartNumber.innerHTML)
-    );
+    ammountInBasket();
     }
 });
+
+// количество товаров в корзине
+
+const ammountInBasket = () =>{
+  headCartNumber.innerHTML = cart.length;
+  localStorage.setItem(
+    "NumberOfGoods",
+    JSON.stringify(headCartNumber.innerHTML)
+  );
+}
+
+
+// очистка корзины
+const basketClear = document.querySelector('.basket__clear');
+basketClear.addEventListener('click', () => {
+  cart.length = 0;
+  localStorage.removeItem('Cart')
+  renderBasket();
+  ammountInBasket();
+})
+
+
+// отображение суммы
+
+  const sumPrice = () => {
+      let sum = 0;
+        cart.forEach((el) =>{
+          sum +=  Number(el.price*el.amount)
+        })
+        basketSum.innerHTML = (sum*val).toFixed(2) + currency();
+    }
+
 
 //отрисовка элемента корзины
 renderBasket = () => {
@@ -129,12 +139,10 @@ renderBasket = () => {
     cart.forEach((el) => {
       basketList.innerHTML += getCartItem(el);
     });
-    let sum = 0;
-     cart.forEach((el) =>{
-    sum +=  Number(el.price)
-    basketSum.innerHTML = (sum*val).toFixed(2) + currency() ;
-    })
-  } ; 
+    sumPrice();
+  } else if (cart.length == 0) {
+    totalSum.classList.add('not-active');
+  };
 };
 
 
@@ -151,3 +159,5 @@ basketClose.addEventListener("click", () => {
   body.classList.remove("body-modal");
   header.classList.remove("header-modal");
 });
+
+export { cart, currency, headCartNumber, headCartAmount, val, totalSum};
