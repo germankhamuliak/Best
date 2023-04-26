@@ -1,5 +1,5 @@
 import { body, header } from "./map.js";
-export { cart, currency, headCartNumber, headCartAmount, numberPm, val };
+export { cart, currency, headCartNumber, headCartAmount, val };
 
 const basketContainer = document.querySelector(".basket__container");
 const cart = JSON.parse(localStorage.getItem("Cart")) || [];
@@ -10,8 +10,6 @@ const headCartAmount = document.querySelector(".header__cart-amount");
 const headCartNumber = document.querySelector(".header__cart-number");
 const basketSum = document.querySelector(".basket__sum");
 
-
-let numberPm = 1;
 
 const currency = () => {
   if (localStorage.getItem("currency__name")) {
@@ -49,7 +47,7 @@ const getCartItem = (el) =>
       <p class="basket__text-price">${(Number(el.price)*val).toFixed(2)} ${currency()}</p>
       <div class="btns">
         <button class="btns__minus">-</button>
-        <p class="btns__number">${numberPm}</p>
+        <p class="btns__number">${el.amount}</p>
         <button class="btns__plus">+</button>
       </div>
       <button class="basket__buy">Купить</button><br>
@@ -58,20 +56,49 @@ const getCartItem = (el) =>
   </div>`;
 
 // кнопки + и -
+Object.prototype.amount = 1;
+
 basketList.addEventListener("click", ({ target }) => {
   if (target.classList.contains("btns__plus")) {
-    const itemPlus = cart.find((el) => {
+    cart.find((el) => {
       if (target.closest(".basket__item").id === el.id) {
-        return el;
+        el.amount += 1;
+        renderBasket();
+        // увелич кол-ва в красном кружке (временный вариант)
+        cart.length += 1;
+        headCartNumber.innerHTML = cart.length;
+        localStorage.setItem(
+          "NumberOfGoods",
+          JSON.stringify(headCartNumber.innerHTML)
+        );
       }
     });
-
-    numberPm += 1;
-    renderBasket();
   } else if (target.classList.contains("btns__minus")) {
-    numberPm -= 1;
-    renderBasket();
-  } else if (numberPm === 0) {
+    cart.find((el) => {
+      if (target.closest(".basket__item").id === el.id) {
+        el.amount -= 1;
+        renderBasket();
+        // уменьш кол-ва в красном кружке
+        // при -1 удаляется последний эл-т корзины (ломаная штука)
+        cart.length -= 1;
+        headCartNumber.innerHTML = cart.length;
+        localStorage.setItem(
+          "NumberOfGoods",
+          JSON.stringify(headCartNumber.innerHTML)
+        );
+      } else if (el.amount == 0) {
+        // с этого места не работает
+        const elemNull = cart.find((el) => {
+          if (target.closest(".basket__item").id === el.id) {
+            return el;
+          }
+        });
+        const elemNullId = cart.indexOf(elemNull);
+        cart.splice(elemNullId, 1);
+        localStorage.setItem("Cart", JSON.stringify(cart));
+        renderBasket();
+      }
+    });
   }
 });
 
