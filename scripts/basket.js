@@ -1,6 +1,5 @@
 import { body, header } from "./map.js";
 
-
 const basketContainer = document.querySelector(".basket__container");
 let cart = JSON.parse(localStorage.getItem("Cart")) || [];
 const basketList = document.querySelector(".basket__list");
@@ -9,7 +8,7 @@ const basketClose = document.querySelector(".basket__close");
 const headCartAmount = document.querySelector(".header__cart-amount");
 const headCartNumber = document.querySelector(".header__cart-number");
 const basketSum = document.querySelector(".basket__sum");
-const totalSum = document.querySelector('.basket__total');
+const totalSum = document.querySelector(".basket__total");
 
 const currency = () => {
   if (localStorage.getItem("currency__name")) {
@@ -21,7 +20,7 @@ const currency = () => {
 
 let val = 1;
 
-switch (currency()){
+switch (currency()) {
   case "BYN":
     val = 1;
     break;
@@ -35,7 +34,6 @@ switch (currency()){
     val = 1;
 }
 
-
 const getCartItem = (el) =>
   `<div class="basket__item" id="${el.id}">
     <div class="basket__image">
@@ -44,7 +42,9 @@ const getCartItem = (el) =>
     <div class="basket__text">
       <h3 class="basket__text-title">${el.title}</h3>
       <p class="basket__text-description">${el.description}</p>
-      <p class="basket__text-price">${(Number(el.price)*val).toFixed(2)} ${currency()}</p>
+      <p class="basket__text-price">${(Number(el.price) * val).toFixed(
+        2
+      )} ${currency()}</p>
       <div class="btns">
         <button class="btns__minus">-</button>
         <p class="btns__number">${el.amount}</p>
@@ -64,7 +64,7 @@ basketList.addEventListener("click", ({ target }) => {
       if (target.closest(".basket__item").id === el.id) {
         el.amount += 1;
         renderBasket();
-       console.log(el.amount);
+        console.log(el.amount);
       }
     });
   } else if (target.classList.contains("btns__minus")) {
@@ -73,13 +73,13 @@ basketList.addEventListener("click", ({ target }) => {
         el.amount -= 1;
         renderBasket();
         if (el.amount === 0) {
-        const elemNull = el;
-        const elemNullId = cart.indexOf(elemNull);
-        cart.splice(elemNullId, 1);
-        localStorage.setItem("Cart", JSON.stringify(cart));
-        renderBasket();
+          const elemNull = el;
+          const elemNullId = cart.indexOf(elemNull);
+          cart.splice(elemNullId, 1);
+          localStorage.setItem("Cart", JSON.stringify(cart));
+          renderBasket();
+        }
       }
-      }  
     });
   }
 });
@@ -97,40 +97,38 @@ basketList.addEventListener("click", ({ target }) => {
     localStorage.setItem("Cart", JSON.stringify(cart));
     renderBasket();
     ammountInBasket();
-    }
+  }
 });
 
 // количество товаров в корзине
-
-const ammountInBasket = () =>{
+const ammountInBasket = () => {
   headCartNumber.innerHTML = cart.length;
   localStorage.setItem(
     "NumberOfGoods",
     JSON.stringify(headCartNumber.innerHTML)
   );
-}
-
+  if (cart.length == 0) {
+    headCartAmount.classList.remove("header__cart-amount_active");
+  }
+};
 
 // очистка корзины
-const basketClear = document.querySelector('.basket__clear');
-basketClear.addEventListener('click', () => {
+const basketClear = document.querySelector(".basket__clear");
+basketClear.addEventListener("click", () => {
   cart.length = 0;
-  localStorage.removeItem('Cart')
+  localStorage.removeItem("Cart");
   renderBasket();
   ammountInBasket();
-})
-
+});
 
 // отображение суммы
-
-  const sumPrice = () => {
-      let sum = 0;
-        cart.forEach((el) =>{
-          sum +=  Number(el.price*el.amount)
-        })
-        basketSum.innerHTML = (sum*val).toFixed(2) + currency();
-    }
-
+const sumPrice = () => {
+  let sum = 0;
+  cart.forEach((el) => {
+    sum += Number(el.price * el.amount);
+  });
+  basketSum.innerHTML = (sum * val).toFixed(2) + currency();
+};
 
 //отрисовка элемента корзины
 renderBasket = () => {
@@ -141,10 +139,9 @@ renderBasket = () => {
     });
     sumPrice();
   } else if (cart.length == 0) {
-    totalSum.classList.add('not-active');
-  };
+    totalSum.classList.add("not-active");
+  }
 };
-
 
 //открытие и закрытие корзины
 cartHTML.addEventListener("click", () => {
@@ -160,4 +157,4 @@ basketClose.addEventListener("click", () => {
   header.classList.remove("header-modal");
 });
 
-export { cart, currency, headCartNumber, headCartAmount, val, totalSum};
+export { cart, currency, headCartNumber, headCartAmount, val, totalSum };
