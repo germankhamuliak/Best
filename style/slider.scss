@@ -1,61 +1,60 @@
 .slider{
-  max-width: 90%;
+  max-width: 1440px;
   overflow: hidden;
-  margin: 0 auto;
-  max-height: 360px;
-  border-radius: 15px;
-
-
-&__line{
+  margin: 0 auto 20px;
+  max-height: 420px;
   position: relative;
+  border-radius: 15px;
+&__line{
   display: flex;
   align-items: center;
   transition: all 1s;
+  
+}
+
+&__btn{
+  cursor: pointer;
+position: absolute;
+top: calc(50% - 24px);
+outline: none;
+border: none;
+background:$white_color;
+border-radius: 53%;
+
 }
 
 &__btn-prev{
-cursor: pointer;
-position: absolute;
-left: 6%;
-top: 47%;
-outline: none;
-border: 0;
-background: transparent;
 rotate: 180deg;
+left: 50px;
 }
 
 
 &__btn-next{
-  cursor: pointer;
-position: absolute;
-right: 6%;
-top: 47%;
-outline: none;
-border: 0;
-background: transparent;
+right: 50px;
 }
 
 &__wrapper{
   display: flex;
   justify-content: center;
+  margin: 20px;
 }
 
 &__dot{
   width: 10px;
   height: 10px;
-  border: 1px solid palevioletred;
+  border: 1px solid $card_btn_hover_colar;
   border-radius: 50%;
-  background-color: gray;
+  background: $header_normal_colar;
   margin: 10px 5px;
   cursor: pointer;
 }
 
 &__dot:hover{
-  background-color: purple;
+  background:$card_btn_active_colar;
 }
 
 }
 .active-dot{
-  background-color: purple;
+  background:$card_btn_active_colar;
   transform: scale(1.5);
 }
