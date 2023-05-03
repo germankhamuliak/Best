@@ -1,4 +1,5 @@
-import {bodyOut,headerOut, modal,body,header} from './map.js';
+import {bodyHeaderOut, modal,body,header} from './modal.js';
+
 const loginContent = document.querySelector('.login')
 const loginBtn = document.querySelector('.header__profile')
 const loginClose = document.querySelector('.login__close')
@@ -15,8 +16,7 @@ document.addEventListener('click', ({target})=>{
     if (target == modal||target == loginClose){
         modal.classList.remove('modal-visibl');
         loginContent.classList.remove('login-active');
-        setTimeout(headerOut,800)
-        setTimeout(bodyOut,800)
+        bodyHeaderOut();
     }
 })
 

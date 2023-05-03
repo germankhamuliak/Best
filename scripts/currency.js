@@ -1,3 +1,5 @@
+import { defaultCurrency } from "./varibles.js";
+
 const currencyBtn = document.querySelector('.header__currency')
 const currencyList = document.querySelector('.currency__list')
 const currency = document.querySelector('.currency')
@@ -11,14 +13,8 @@ currencyBtn.addEventListener('click', ()=>{
 })
 
 
-document.addEventListener('DOMContentLoaded',()=>{
-    if(localStorage.getItem('currency')){
-        currency.innerHTML = localStorage.getItem('currency')
-    }else{
-    currency.innerHTML = `<img class="flag-icon currency__flag" src="/RB.5f7f00e2.jpg" alt="rb" />
-    <span class="currency__name val">BYN</span>`;
-    }
-})
+document.addEventListener('DOMContentLoaded',()=>
+localStorage.getItem('currency') ? (currency.innerHTML = localStorage.getItem('currency')) : (currency.innerHTML = defaultCurrency))
 
 currencyItem.forEach((el,id)=>{
     el.addEventListener('click',()=>{

@@ -1,8 +1,9 @@
-import { body, header } from "./map.js";
-
+import { body, header } from "../modals/modal.js";
+import { byn, rub, usd} from "../varibles.js";
+export { cart, currency, headCartNumber, headCartAmount,  totalSum, cartNumbers, val};
 
 const basketContainer = document.querySelector(".basket__container");
-let cart = JSON.parse(localStorage.getItem("Cart")) || [];
+const cart = JSON.parse(localStorage.getItem("cart")) || [];
 const basketList = document.querySelector(".basket__list");
 const cartHTML = document.querySelector(".header__cart");
 const basketClose = document.querySelector(".basket__close");
@@ -11,31 +12,32 @@ const headCartNumber = document.querySelector(".header__cart-number");
 const basketSum = document.querySelector(".basket__sum");
 const totalSum = document.querySelector('.basket__total');
 
+//отрисовка валюты
 const currency = () => {
   if (localStorage.getItem("currency__name")) {
     return localStorage.getItem("currency__name");
   } else {
-    return "BYN";
+    return byn;
   }
 };
 
-let val = 1;
+let val = 0;
 
 switch (currency()){
-  case "BYN":
-    val = 1;
+  case byn:
+    val =1;
     break;
-  case "RUB":
+  case rub:
     val = 27.7809;
     break;
-  case "USA":
+  case usd:
     val = 0.34;
     break;
   default:
-    val = 1;
+    val =1;
 }
 
-
+//отрисовка карточек добавленных в корзину
 const getCartItem = (el) =>
   `<div class="basket__item" id="${el.id}">
     <div class="basket__image">
@@ -55,20 +57,35 @@ const getCartItem = (el) =>
     </div>
   </div>`;
 
+//отрисовка корзины
+renderBasket = () => {
+  cartNumbers();
+  sumPrice();
+  basketList.innerHTML = "";
+  if (cart && cart.length > 0) {
+    cart.forEach((el) => {
+      basketList.innerHTML += getCartItem(el);
+    });
+    sumPrice();
+  }
+  if (cart.length == 0) {
+    totalSum.classList.add('not-active');
+  };
+};
+
 // кнопки + и -
 Object.prototype.amount = 1;
 
 basketList.addEventListener("click", ({ target }) => {
   if (target.classList.contains("btns__plus")) {
-    cart.find((el) => {
+    cart.forEach((el) => {
       if (target.closest(".basket__item").id === el.id) {
         el.amount += 1;
         renderBasket();
-       console.log(el.amount);
       }
     });
   } else if (target.classList.contains("btns__minus")) {
-    cart.find((el) => {
+    cart.forEach((el) => {
       if (target.closest(".basket__item").id === el.id) {
         el.amount -= 1;
         renderBasket();
@@ -76,7 +93,7 @@ basketList.addEventListener("click", ({ target }) => {
         const elemNull = el;
         const elemNullId = cart.indexOf(elemNull);
         cart.splice(elemNullId, 1);
-        localStorage.setItem("Cart", JSON.stringify(cart));
+        localStorage.setItem("cart", JSON.stringify(cart));
         renderBasket();
       }
       }  
@@ -94,57 +111,43 @@ basketList.addEventListener("click", ({ target }) => {
     });
     const itemDelId = cart.indexOf(itemDel);
     cart.splice(itemDelId, 1);
-    localStorage.setItem("Cart", JSON.stringify(cart));
+    localStorage.setItem("cart", JSON.stringify(cart));
     renderBasket();
-    ammountInBasket();
     }
 });
 
 // количество товаров в корзине
-
-const ammountInBasket = () =>{
+cartNumbers = () => {
   headCartNumber.innerHTML = cart.length;
-  localStorage.setItem(
-    "NumberOfGoods",
-    JSON.stringify(headCartNumber.innerHTML)
-  );
+  localStorage.setItem("NumberOfGoods",JSON.stringify(headCartNumber.innerHTML));
+  if(totalSum.classList.contains('not-active')){
+    totalSum.classList.remove('not-active')
+  }
+  if (cart && cart.length > 0) {
+    headCartAmount.classList.add("header__cart-amount_active");
+  }
+  if(cart.length === 0){
+    headCartAmount.classList.remove("header__cart-amount_active");
+  }
 }
-
 
 // очистка корзины
 const basketClear = document.querySelector('.basket__clear');
 basketClear.addEventListener('click', () => {
   cart.length = 0;
-  localStorage.removeItem('Cart')
+  localStorage.removeItem('cart')
   renderBasket();
-  ammountInBasket();
 })
 
 
 // отображение суммы
-
-  const sumPrice = () => {
-      let sum = 0;
-        cart.forEach((el) =>{
-          sum +=  Number(el.price*el.amount)
-        })
-        basketSum.innerHTML = (sum*val).toFixed(2) + currency();
-    }
-
-
-//отрисовка элемента корзины
-renderBasket = () => {
-  basketList.innerHTML = "";
-  if (cart && cart.length > 0) {
-    cart.forEach((el) => {
-      basketList.innerHTML += getCartItem(el);
-    });
-    sumPrice();
-  } else if (cart.length == 0) {
-    totalSum.classList.add('not-active');
-  };
-};
-
+sumPrice = () => {
+  let sum = 0;
+  cart.forEach((el) =>{
+    sum +=  Number(el.price*el.amount)
+  })
+  basketSum.innerHTML = (sum*val).toFixed(2) + currency();
+}
 
 //открытие и закрытие корзины
 cartHTML.addEventListener("click", () => {
@@ -160,4 +163,3 @@ basketClose.addEventListener("click", () => {
   header.classList.remove("header-modal");
 });
 
-export { cart, currency, headCartNumber, headCartAmount, val, totalSum};

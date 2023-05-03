@@ -1,13 +1,11 @@
-import { cart, currency, headCartNumber, headCartAmount, val, basketSum, totalSum} from "./basket.js";
-export { cardsList };
-
-const URL = "https://6428388446fd35eb7c4e2663.mockapi.io/wild/pr/card";
-
-const options = {
-  method: "GET",
-};
+import { cart, currency,  headCartAmount, cartNumbers, val} from "./basket.js";
+import { URL, options} from "../varibles.js";
+export { cardsList};
 
 const cards = [];
+const cardsList = document.querySelector(".cards__list");
+
+//добавление карточек на страницу
 const request = new Request(URL, options);
 fetch(request)
   .then((res) => res.json())
@@ -17,8 +15,6 @@ fetch(request)
     renderCards();
   });
 
-const cardsList = document.querySelector(".cards__list");
-
 const renderCards = () => {
   cardsList.innerHTML = "";
   cards.forEach((el) => (cardsList.innerHTML += getCardHtml(el)));
@@ -27,20 +23,9 @@ const renderCards = () => {
   btnsAddToCart.forEach((el, id) => {
     el.addEventListener("click", () => {
       cart.push(cards[id]);
-      localStorage.setItem("Cart", JSON.stringify(cart));
-      headCartNumber.innerHTML = cart.length;
-      localStorage.setItem(
-        "NumberOfGoods",
-        JSON.stringify(headCartNumber.innerHTML)
-      );
-      if(totalSum.classList.contains('not-active')){
-        totalSum.classList.remove('not-active')
-      }
-      if (cart && cart.length > 0) {
-        headCartAmount.classList.add("header__cart-amount_active");
-      }
-      alert("Товар добавлен в корзину");
+      localStorage.setItem("cart", JSON.stringify(cart));
       el.classList.add("not-active");
+      cartNumbers();
     });
   });
 };
@@ -54,9 +39,10 @@ window.onload = () => {
   if (cart && cart.length > 0) {
     headCartAmount.classList.add("header__cart-amount_active");
   }
-  headCartNumber.innerHTML = JSON.parse(localStorage.getItem("NumberOfGoods"));
+  cartNumbers();
 };
 
+//отрисовка карточки
 const getCardHtml = (data) =>
   `<div class="cards__item">
   <div class="cards__item-img">
@@ -68,3 +54,4 @@ const getCardHtml = (data) =>
       <button class="cards__item-addToCart">В корзину</button>
       <button class="cards__item-inCart">Добавлено в корзину</button>   
 </div>`;
+

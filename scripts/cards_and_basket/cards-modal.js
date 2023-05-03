@@ -1,5 +1,5 @@
 import {cardsList} from "./cards.js" ;
-import {body,header,modal} from './map.js';
+import {body,header,modal} from '../modals/modal.js';
 
 const viewWindow = document.querySelector('.cards-modal');
 
