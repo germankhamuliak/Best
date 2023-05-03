@@ -10,7 +10,7 @@ const basketClose = document.querySelector(".basket__close");
 const headCartAmount = document.querySelector(".header__cart-amount");
 const headCartNumber = document.querySelector(".header__cart-number");
 const basketSum = document.querySelector(".basket__sum");
-const totalSum = document.querySelector('.basket__total');
+const totalSum = document.querySelector(".basket__total");
 
 //отрисовка валюты
 const currency = () => {
@@ -46,7 +46,9 @@ const getCartItem = (el) =>
     <div class="basket__text">
       <h3 class="basket__text-title">${el.title}</h3>
       <p class="basket__text-description">${el.description}</p>
-      <p class="basket__text-price">${(Number(el.price)*val).toFixed(2)} ${currency()}</p>
+      <p class="basket__text-price">${(Number(el.price) * val).toFixed(
+        2
+      )} ${currency()}</p>
       <div class="btns">
         <button class="btns__minus">-</button>
         <p class="btns__number">${el.amount}</p>
@@ -96,8 +98,7 @@ basketList.addEventListener("click", ({ target }) => {
         localStorage.setItem("cart", JSON.stringify(cart));
         renderBasket();
       }
-      }  
-    });
+    }});
   }
 });
 
@@ -132,8 +133,8 @@ cartNumbers = () => {
 }
 
 // очистка корзины
-const basketClear = document.querySelector('.basket__clear');
-basketClear.addEventListener('click', () => {
+const basketClear = document.querySelector(".basket__clear");
+basketClear.addEventListener("click", () => {
   cart.length = 0;
   localStorage.removeItem('cart')
   renderBasket();
