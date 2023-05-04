@@ -1,6 +1,6 @@
-import { cart, currency,  headCartAmount, cartNumbers, val} from "./basket.js";
-import { URL, options} from "../varibles.js";
-export { cardsList};
+import { cart, currency, headCartAmount, cartNumbers, val } from "./basket.js";
+import { URL, options } from "../varibles.js";
+export { cardsList, renderCards };
 
 const cards = [];
 const cardsList = document.querySelector(".cards__list");
@@ -15,17 +15,34 @@ fetch(request)
     renderCards();
   });
 
+// const cardsIsChecked = [];
+
 const renderCards = () => {
   cardsList.innerHTML = "";
   cards.forEach((el) => (cardsList.innerHTML += getCardHtml(el)));
   localStorage.setItem("cards", JSON.stringify(cards));
   const btnsAddToCart = document.querySelectorAll(".cards__item-addToCart");
+
   btnsAddToCart.forEach((el, id) => {
+    // localStorage.setItem("isChecked", JSON.stringify(cardsIsChecked));
+    el.isChecked = false;
+
+    if (el.isChecked) {
+      el.classList.add("not-active");
+    }
+
     el.addEventListener("click", () => {
       cart.push(cards[id]);
       localStorage.setItem("cart", JSON.stringify(cart));
-      el.classList.add("not-active");
       cartNumbers();
+
+      if (el.isChecked) {
+        if (el.classList.contains("not-active")) {
+          el.classList.remove("not-active");
+        }
+      } else if (!el.isChecked) {
+        el.classList.add("not-active");
+      }
     });
   });
 };
@@ -49,9 +66,10 @@ const getCardHtml = (data) =>
       <img src="${data.image}" alt="image" />
       <div class="cards__item-view">Быстрый просмотр</div>
     </div>
-    <p class="cards__item-price">${(Number(data.price)*val).toFixed(2)} ${currency()}</p>
+    <p class="cards__item-price">${(Number(data.price) * val).toFixed(
+      2
+    )} ${currency()}</p>
     <p class="cards__item-text">${data.title} ~ ${data.description}</p>
       <button class="cards__item-addToCart">В корзину</button>
       <button class="cards__item-inCart">Добавлено в корзину</button>   
 </div>`;
-

@@ -1,6 +1,15 @@
 import { body, header } from "../modals/modal.js";
-import { byn, rub, usd} from "../varibles.js";
-export { cart, currency, headCartNumber, headCartAmount,  totalSum, cartNumbers, val};
+import { byn, rub, usd } from "../varibles.js";
+import { renderCards } from "./cards.js";
+export {
+  cart,
+  currency,
+  headCartNumber,
+  headCartAmount,
+  totalSum,
+  cartNumbers,
+  val,
+};
 
 const basketContainer = document.querySelector(".basket__container");
 const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -23,9 +32,9 @@ const currency = () => {
 
 let val = 0;
 
-switch (currency()){
+switch (currency()) {
   case byn:
-    val =1;
+    val = 1;
     break;
   case rub:
     val = 27.7809;
@@ -34,7 +43,7 @@ switch (currency()){
     val = 0.34;
     break;
   default:
-    val =1;
+    val = 1;
 }
 
 //отрисовка карточек добавленных в корзину
@@ -71,8 +80,8 @@ renderBasket = () => {
     sumPrice();
   }
   if (cart.length == 0) {
-    totalSum.classList.add('not-active');
-  };
+    totalSum.classList.add("not-active");
+  }
 };
 
 // кнопки + и -
@@ -92,17 +101,22 @@ basketList.addEventListener("click", ({ target }) => {
         el.amount -= 1;
         renderBasket();
         if (el.amount === 0) {
-        const elemNull = el;
-        const elemNullId = cart.indexOf(elemNull);
-        cart.splice(elemNullId, 1);
-        localStorage.setItem("cart", JSON.stringify(cart));
-        renderBasket();
+          const elemNull = el;
+          const elemNullId = cart.indexOf(elemNull);
+          cart.splice(elemNullId, 1);
+          localStorage.setItem("cart", JSON.stringify(cart));
+          renderBasket();
+        }
       }
-    }});
+    });
   }
 });
 
-//удаление элемента из корзины
+// cart.forEach((el) => {
+//   el.isChecked = true;
+// })
+
+// удаление элемента из корзины
 basketList.addEventListener("click", ({ target }) => {
   if (target.classList.contains("basket__delete")) {
     const itemDel = cart.find((elem) => {
@@ -114,41 +128,46 @@ basketList.addEventListener("click", ({ target }) => {
     cart.splice(itemDelId, 1);
     localStorage.setItem("cart", JSON.stringify(cart));
     renderBasket();
-    }
+
+    itemDelId.isChecked = false; // надо для одного эл-та сделать
+    renderCards();
+  }
 });
 
 // количество товаров в корзине
 cartNumbers = () => {
   headCartNumber.innerHTML = cart.length;
-  localStorage.setItem("NumberOfGoods",JSON.stringify(headCartNumber.innerHTML));
-  if(totalSum.classList.contains('not-active')){
-    totalSum.classList.remove('not-active')
+  localStorage.setItem(
+    "NumberOfGoods",
+    JSON.stringify(headCartNumber.innerHTML)
+  );
+  if (totalSum.classList.contains("not-active")) {
+    totalSum.classList.remove("not-active");
   }
   if (cart && cart.length > 0) {
     headCartAmount.classList.add("header__cart-amount_active");
   }
-  if(cart.length === 0){
+  if (cart.length === 0) {
     headCartAmount.classList.remove("header__cart-amount_active");
   }
-}
+};
 
 // очистка корзины
 const basketClear = document.querySelector(".basket__clear");
 basketClear.addEventListener("click", () => {
   cart.length = 0;
-  localStorage.removeItem('cart')
+  localStorage.removeItem("cart");
   renderBasket();
-})
-
+});
 
 // отображение суммы
 sumPrice = () => {
   let sum = 0;
-  cart.forEach((el) =>{
-    sum +=  Number(el.price*el.amount)
-  })
-  basketSum.innerHTML = (sum*val).toFixed(2) + currency();
-}
+  cart.forEach((el) => {
+    sum += Number(el.price * el.amount);
+  });
+  basketSum.innerHTML = (sum * val).toFixed(2) + currency();
+};
 
 //открытие и закрытие корзины
 cartHTML.addEventListener("click", () => {
@@ -163,4 +182,3 @@ basketClose.addEventListener("click", () => {
   body.classList.remove("body-modal");
   header.classList.remove("header-modal");
 });
-
