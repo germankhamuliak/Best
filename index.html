@@ -63,7 +63,7 @@
             <a href="https://seller.wildberries.ru/login/ru/?redirect_url=/">Продавайте на Wildberries</a>
           </div>
           <div class="header__massege-abote-problems">
-            <span>Сообщить о проблеме</span>
+            <span>Сообщить о проблеме </span><img src="images/chat/chat.svg" alt="">
           </div>
         </div>
       </div>
@@ -272,17 +272,21 @@
         <img class="slider__img" src="images/slider/2.webp" alt="Image" />
         <img class="slider__img" src="images/slider/3.webp" alt="Image" />
       </div>
-      <button class="slider__btn-prev slider__btn"><img src="images/slider/button.png" alt="next"></button>
-      <button class="slider__btn-next slider__btn"><img src="images/slider/button.png" alt="next"></button>
-      
-
-    </div>
+      <div class="slider__btns">
+        <div class="slider__btn-prev slider__btn">
+          <img src="images/slider/arrow.svg" >
+        </div>
+        <div class="slider__btn-next slider__btn">
+          <img src="images/slider/arrow.svg" >
+      </div>
+    </div> 
+  </div>
   <div class="slider__wrapper">
           <div class="slider__dot active-dot"></div>
           <div class="slider__dot"></div>
           <div class="slider__dot"></div>
         </div>
-   
+    
     <section class="cards">
       <div class="container">
         <h3 class="cards__name">Хиты продаж</h3>
@@ -524,9 +528,20 @@
   </div>
   <!-- Чат техподдержки -->
   <div class="chat">
-    <img class="chat__img" src="images/chat/bx-message-rounded-dots.svg" alt="chat">
-    <div class="chat__window"></div>
+    <div class="chat__img-conteiner"><img class="chat__img" src="images/chat/chat.svg" alt="chat"></div>
   </div>
+   <div class="chat__window">
+    <div class="chat__header">
+      <h2>Тех. поддержка</h2>
+      <a href="#" class="chat__close">X</a>
+    </div>
+    <div class="chat__body"></div>
+    <div class="chat__footer">
+      <input type="textarea" placeholder="Введите сообщение">
+      <button>Отправить</button>
+    </div>
+      
+    </div>
   <!-- Окно быстрого просмотра товара -->
   <div class="cards-modal"></div>
 </body>

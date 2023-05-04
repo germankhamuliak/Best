@@ -1,17 +1,89 @@
 
 .chat{
+    &__img-conteiner{
+       border-radius: 50%; 
+       position: fixed;
+        right: 30px;
+        bottom: 30px;
+        background-color: transparent;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $header_problems_bg_color;
+       &:hover{
+        background:$card_btn_active_colar;
+        }
+    }
 &__img{
-    position: fixed;
-    right: 30px;
-    bottom: 30px;
+    padding: 10px;
     width: 50px;
     height: 50px;
-    background-color: transparent;
-    cursor: pointer;
-    border-radius: 50%;
-    &:hover{
-        background-color: purple;
+    
+}
+&__window{
+    position:fixed;
+    background: $white_color;
+    right: 20px;
+    bottom: 30px;
+    width: 320px;
+    height: 90%;
+    border-radius: 15px;
+    padding: 20px 10px;
+    box-shadow: 0 2px 30px $chat_window_shadow_color;
+    display: none;
+}
+&__header{
+    display: flex;
+    justify-content: space-between;
+}
+&__close{
+    text-decoration: none;
+            font-size: $large;
+            font-weight: $fat;
+            color: $modal_map_btn_border_active_colar;
+}
+&__body{
+    height: 85%;
+    background: $chat_window_body_color;
+    border-radius: 15px;
+    margin: 20px 0;
+}
+&__footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    input{
+        height: 40px;
+        width: 70%;
+        background: $chat_window_body_color;
+        border: none;
+        font-size: $middle;
+        border-radius: 15px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
+        padding: 0 10px;
+        &:focus-visible {
+            outline: none;
+        }
+        
+    }
+    button{
+        height: 40px;
+        width: 30%;
+        border: none;
+        border-radius: 15px;
+        border-bottom-left-radius: 0px;
+        border-top-left-radius: 0px;
+        background: $header_problems_bg_color;
+        color: $white_color;
+        font-weight: $fat;
+        font-size: $small;
+        cursor: pointer;
+        padding: 5px;
     }
 }
-&__window{}
+}
+.chat-active{
+    display: block;
 }
