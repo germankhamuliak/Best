@@ -1,15 +1,7 @@
 import { body, header } from "../modals/modal.js";
 import { byn, rub, usd } from "../varibles.js";
 import { renderCards } from "./cards.js";
-export {
-  cart,
-  currency,
-  headCartNumber,
-  headCartAmount,
-  totalSum,
-  cartNumbers,
-  val,
-};
+export { cart, currency, headCartNumber, headCartAmount, totalSum, cartNumbers, val };
 
 const basketContainer = document.querySelector(".basket__container");
 const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -55,9 +47,7 @@ const getCartItem = (el) =>
     <div class="basket__text">
       <h3 class="basket__text-title">${el.title}</h3>
       <p class="basket__text-description">${el.description}</p>
-      <p class="basket__text-price">${(Number(el.price) * val).toFixed(
-        2
-      )} ${currency()}</p>
+      <p class="basket__text-price">${(Number(el.price) * val).toFixed(2)} ${currency()}</p>
       <div class="btns">
         <button class="btns__minus">-</button>
         <p class="btns__number">${el.amount}</p>
@@ -112,9 +102,7 @@ basketList.addEventListener("click", ({ target }) => {
   }
 });
 
-// cart.forEach((el) => {
-//   el.isChecked = true;
-// })
+
 
 // удаление элемента из корзины
 basketList.addEventListener("click", ({ target }) => {
@@ -128,8 +116,6 @@ basketList.addEventListener("click", ({ target }) => {
     cart.splice(itemDelId, 1);
     localStorage.setItem("cart", JSON.stringify(cart));
     renderBasket();
-
-    itemDelId.isChecked = false; // надо для одного эл-та сделать
     renderCards();
   }
 });

@@ -1,4 +1,4 @@
-import {bodyHeaderOut, modal,body,header} from './modal.js';
+import {modalEnter,modalOut, modal} from './modal.js';
 
 const loginContent = document.querySelector('.login')
 const loginBtn = document.querySelector('.header__profile')
@@ -6,17 +6,14 @@ const loginClose = document.querySelector('.login__close')
 
 
 loginBtn.addEventListener('click',()=>{
-    modal.classList.add('modal-visibl');
     loginContent.classList.add('login-active');
-    body.classList.add('body-modal')
-    header.classList.add('header-modal')
+    modalEnter();
 })
 
 document.addEventListener('click', ({target})=>{
     if (target == modal||target == loginClose){
-        modal.classList.remove('modal-visibl');
         loginContent.classList.remove('login-active');
-        bodyHeaderOut();
+        modalOut();
     }
 })
 

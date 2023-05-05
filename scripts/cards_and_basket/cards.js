@@ -15,37 +15,34 @@ fetch(request)
     renderCards();
   });
 
-// const cardsIsChecked = [];
+//добавление элементам св-ва inCart
+function inBasket(){
+cards.forEach((el) => {
+  cardsList.innerHTML += getCardHtml(el)
+  el.inBasket = false;})
+}
+inBasket()
 
+// рендеринг карточек
 const renderCards = () => {
   cardsList.innerHTML = "";
-  cards.forEach((el) => (cardsList.innerHTML += getCardHtml(el)));
-  localStorage.setItem("cards", JSON.stringify(cards));
-  const btnsAddToCart = document.querySelectorAll(".cards__item-addToCart");
-
-  btnsAddToCart.forEach((el, id) => {
-    // localStorage.setItem("isChecked", JSON.stringify(cardsIsChecked));
-    el.isChecked = false;
-
-    if (el.isChecked) {
-      el.classList.add("not-active");
-    }
-
-    el.addEventListener("click", () => {
-      cart.push(cards[id]);
-      localStorage.setItem("cart", JSON.stringify(cart));
-      cartNumbers();
-
-      if (el.isChecked) {
-        if (el.classList.contains("not-active")) {
-          el.classList.remove("not-active");
-        }
-      } else if (!el.isChecked) {
-        el.classList.add("not-active");
-      }
-    });
+  cards.forEach((el) => {
+    cardsList.innerHTML += getCardHtml(el)
+});
+localStorage.setItem("cards", JSON.stringify(cards));
+const btnsAddToCart = document.querySelectorAll(".cards__item-addToCart");
+btnsAddToCart.forEach((el, id) => {
+  el.addEventListener("click", () => {
+    cart.push(cards[id]);
+    el.classList.add("not-active-btn")
+    cards[id].inBasket = true;
+    localStorage.setItem("cards", JSON.stringify(cards));
+    console.dir(cards)
+    cartNumbers();
   });
+});
 };
+  
 
 window.onload = () => {
   const prevCards = JSON.parse(localStorage.getItem("cards"));

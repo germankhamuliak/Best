@@ -2,9 +2,10 @@ const body = document.querySelector('.body')
 const modal = document.querySelector('.modal')
 const header = document.querySelector('.header')
 
-function bodyHeaderOut(){
+function modalOut(){
     setTimeout(headerOut,800)
     setTimeout(bodyOut,800)
+    modal.classList.remove('modal-visibl');
 }
 
 function bodyOut(){
@@ -14,4 +15,9 @@ function headerOut(){
     header.classList.remove('header-modal')
 }
 
-export {bodyHeaderOut, modal,body,header}
+function modalEnter(){
+    body.classList.add('body-modal')
+    header.classList.add('header-modal')
+    modal.classList.add('modal-visibl');
+}
+export {modalEnter,modalOut, modal,body,header}
