@@ -1,72 +1,89 @@
 import { cart, currency, headCartAmount, cartNumbers, val } from "./basket.js";
 import { URL, options } from "../varibles.js";
-export { cardsList, renderCards };
+export { cardsList, renderCards, cards, addCards };
 
-const cards = [];
+const cards = JSON.parse(localStorage.getItem("cards")) || [];
 const cardsList = document.querySelector(".cards__list");
 
-//добавление карточек на страницу
-const request = new Request(URL, options);
-fetch(request)
-  .then((res) => res.json())
-  .then((data) => {
-    cards.splice(0, cards.length, ...data);
-    localStorage.setItem("cards", JSON.stringify(data));
-    renderCards();
-  });
+//отрисовка дефолтной карточки
+const getCardDefHtml = (data) =>
+  `<div class="cards__item">
+  <div class="cards__item-img">
+      <img src="${data.image}" alt="image" />
+      <div class="cards__item-view">Быстрый просмотр</div>
+    </div>
+    <p class="cards__item-price">${(Number(data.price) * val).toFixed(2)} ${currency()}</p>
+    <p class="cards__item-text">${data.title} ~ ${data.description}</p>
+      <button class="cards__item-addToCart">В корзину</button>
+      <button class="cards__item-inCart">Добавлено в корзину</button>   
+</div>`;
 
-//добавление элементам св-ва inCart
-function inBasket(){
-cards.forEach((el) => {
-  cardsList.innerHTML += getCardHtml(el)
-  el.inBasket = false;})
-}
-inBasket()
-
-// рендеринг карточек
-const renderCards = () => {
-  cardsList.innerHTML = "";
-  cards.forEach((el) => {
-    cardsList.innerHTML += getCardHtml(el)
-});
-localStorage.setItem("cards", JSON.stringify(cards));
-const btnsAddToCart = document.querySelectorAll(".cards__item-addToCart");
-btnsAddToCart.forEach((el, id) => {
-  el.addEventListener("click", () => {
-    cart.push(cards[id]);
-    el.classList.add("not-active-btn")
-    cards[id].inBasket = true;
-    localStorage.setItem("cards", JSON.stringify(cards));
-    console.dir(cards)
-    cartNumbers();
-  });
-});
-};
-  
-
-window.onload = () => {
-  const prevCards = JSON.parse(localStorage.getItem("cards"));
-  if (prevCards && prevCards.length > 0) {
-    cards.push(...prevCards);
-  }
-  renderCards();
-  if (cart && cart.length > 0) {
-    headCartAmount.classList.add("header__cart-amount_active");
-  }
-  cartNumbers();
-};
-
-//отрисовка карточки
+//отрисовка  карточки которая в корзине
 const getCardHtml = (data) =>
   `<div class="cards__item">
   <div class="cards__item-img">
       <img src="${data.image}" alt="image" />
       <div class="cards__item-view">Быстрый просмотр</div>
     </div>
-    <p class="cards__item-price">${(Number(data.price) * val).toFixed(
-      2
-    )} ${currency()}</p>
+    <p class="cards__item-price">${(Number(data.price) * val).toFixed(2)} ${currency()}</p>
     <p class="cards__item-text">${data.title} ~ ${data.description}</p>
-      <button class="cards__item-addToCart">В корзину</button>
+      <button class="cards__item-addToCart not-active-btn">В корзину</button>
       <button class="cards__item-inCart">Добавлено в корзину</button>   
 </div>`;
+
+// рендеринг карточек
+const renderCards = () => {
+  cardsList.innerHTML = "";
+  cards.forEach((el) => {
+    cardsList.innerHTML += getCardDefHtml(el)
+    if(!("inBasket" in el)){
+      el.inBasket = false;
+      localStorage.setItem("cards", JSON.stringify(cards));
+      }
+  })
+  addBasket();
+};
+
+const addBasket = ()  => {
+const btnsAddToCart = document.querySelectorAll(".cards__item-addToCart");
+btnsAddToCart.forEach((el, id) => {
+  el.addEventListener("click", () => {
+    el.classList.add("not-active-btn")
+    cards[id].inBasket = true;
+    localStorage.setItem("cards", JSON.stringify(cards));
+    cart.push(cards[id]);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    cartNumbers();
+  });
+});
+}
+
+//добавление карточек на страницу
+const addCards = () => {
+if(!cards.length){
+cartNumbers();  
+const request = new Request(URL, options);
+fetch(request)
+  .then((res) => res.json())
+  .then((data) => {
+    cards.splice(0, cards.length, ...data);
+    localStorage.setItem("cards", JSON.stringify(data));
+    renderCards()
+  })} else{
+cartNumbers();
+cardsList.innerHTML = "";
+cards.forEach((el) => {
+  if(el.inBasket===false){
+    cardsList.innerHTML += getCardDefHtml(el)
+    localStorage.setItem("cards", JSON.stringify(cards));
+    addBasket();
+  }else{
+    cardsList.innerHTML += getCardHtml(el)
+    localStorage.setItem("cards", JSON.stringify(cards));
+    addBasket();
+  }});}
+}
+addCards();
+
+
+

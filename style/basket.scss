@@ -1,6 +1,6 @@
 .basket {
   width: 55%;
-  max-width: 700px;
+  max-width: 550px;
   border-radius: 10px;
   background: $header_bg_color;
   color: $white_color;
@@ -135,7 +135,7 @@
     bottom: 50px;
     right: 50px;
     color: $black_color;
-    width: 250px;
+    max-width: 30%;
   }
   &__sum {
     margin-top: 15px;
@@ -148,7 +148,7 @@
     justify-content: space-between;
   }
   &__pay {
-    width: 110px;
+    width: 49%;
     height: 32px;
     color: $white_color;
     font-size: $small;
@@ -164,7 +164,7 @@
     }
   }
   &__clear {
-    width: 110px;
+    width: 49%;
     height: 32px;
     color: $white_color;
     font-size: $small;

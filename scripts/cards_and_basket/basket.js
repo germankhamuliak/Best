@@ -1,6 +1,6 @@
 import { body, header } from "../modals/modal.js";
 import { byn, rub, usd } from "../varibles.js";
-import { renderCards } from "./cards.js";
+import { cards, addCards } from "./cards.js";
 export { cart, currency, headCartNumber, headCartAmount, totalSum, cartNumbers, val };
 
 const basketContainer = document.querySelector(".basket__container");
@@ -58,6 +58,7 @@ const getCartItem = (el) =>
     </div>
   </div>`;
 
+
 //отрисовка корзины
 renderBasket = () => {
   cartNumbers();
@@ -90,13 +91,15 @@ basketList.addEventListener("click", ({ target }) => {
       if (target.closest(".basket__item").id === el.id) {
         el.amount -= 1;
         renderBasket();
-        if (el.amount === 0) {
+      }
+      if (el.amount === 0) {
           const elemNull = el;
           const elemNullId = cart.indexOf(elemNull);
           cart.splice(elemNullId, 1);
           localStorage.setItem("cart", JSON.stringify(cart));
+          cardsConnection(el)
           renderBasket();
-        }
+          addCards();
       }
     });
   }
@@ -112,11 +115,12 @@ basketList.addEventListener("click", ({ target }) => {
         return elem;
       }
     });
+    cardsConnection(itemDel)
     const itemDelId = cart.indexOf(itemDel);
     cart.splice(itemDelId, 1);
     localStorage.setItem("cart", JSON.stringify(cart));
     renderBasket();
-    renderCards();
+    addCards();
   }
 });
 
@@ -135,15 +139,20 @@ cartNumbers = () => {
   }
   if (cart.length === 0) {
     headCartAmount.classList.remove("header__cart-amount_active");
+    totalSum.classList.add("not-active");
   }
 };
 
 // очистка корзины
 const basketClear = document.querySelector(".basket__clear");
 basketClear.addEventListener("click", () => {
+  cart.forEach(e=>{
+    cardsConnection(e);
+  })
   cart.length = 0;
   localStorage.removeItem("cart");
   renderBasket();
+  addCards();
 });
 
 // отображение суммы
@@ -168,3 +177,16 @@ basketClose.addEventListener("click", () => {
   body.classList.remove("body-modal");
   header.classList.remove("header-modal");
 });
+
+//связь карточек при удалении из корзины
+const cardsConnection = (el) =>{
+    const cartElementsId = el.id;
+    cards.find((e)=>{
+      if(e.id==cartElementsId){
+        e.inBasket = false
+        return ;
+      }
+    localStorage.setItem("cards", JSON.stringify(cards));  
+    })
+}
+    
