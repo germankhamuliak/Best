@@ -1,3 +1,7 @@
+import 'jquery'
+import 'popper.js'
+import 'bootstrap/dist/css/bootstrap.min.css'
+import 'bootstrap/dist/js/bootstrap'
 import './varibles.js'
 import './currency.js'
 import './search.js'

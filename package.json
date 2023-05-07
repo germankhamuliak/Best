@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel index.html --open"
+    "start": "parcel ./index.html",
+    "predeploy": "rm -rf dist && parcel build ./*.html --public-url https://github.com/germankhamuliak/Best",
+    "deploy": "gh-pages -d dist"
   },
   "repository": {
     "type": "git",
@@ -59,6 +60,7 @@
     "escape-string-regexp": "^1.0.5",
     "fill-range": "^7.0.1",
     "get-port": "^4.2.0",
+    "gh-pages": "^5.0.0",
     "glob-parent": "^5.1.2",
     "globals": "^13.20.0",
     "has-flag": "^4.0.0",
