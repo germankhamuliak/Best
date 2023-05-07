@@ -1,4 +1,4 @@
-import { cart, currency, headCartAmount, cartNumbers, val } from "./basket.js";
+import { cart, currency, cartNumbers, val } from "./basket.js";
 import { URL, options } from "../varibles.js";
 export { cardsList, renderCards, cards, addCards };
 
@@ -18,7 +18,7 @@ const getCardDefHtml = (data) =>
       <button class="cards__item-inCart">Добавлено в корзину</button>   
 </div>`;
 
-//отрисовка  карточки которая в корзине
+//отрисовка карточки которая в корзине
 const getCardHtml = (data) =>
   `<div class="cards__item">
   <div class="cards__item-img">
@@ -38,12 +38,14 @@ const renderCards = () => {
     cardsList.innerHTML += getCardDefHtml(el)
     if(!("inBasket" in el)){
       el.inBasket = false;
+      el.amount = 1;
       localStorage.setItem("cards", JSON.stringify(cards));
       }
   })
   addBasket();
 };
 
+//добовление товаров в корзину
 const addBasket = ()  => {
 const btnsAddToCart = document.querySelectorAll(".cards__item-addToCart");
 btnsAddToCart.forEach((el, id) => {
@@ -74,6 +76,7 @@ cartNumbers();
 cardsList.innerHTML = "";
 cards.forEach((el) => {
   if(el.inBasket===false){
+    el.amount = 1;
     cardsList.innerHTML += getCardDefHtml(el)
     localStorage.setItem("cards", JSON.stringify(cards));
     addBasket();

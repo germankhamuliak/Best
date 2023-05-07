@@ -1,7 +1,7 @@
 import { body, header } from "../modals/modal.js";
 import { byn, rub, usd } from "../varibles.js";
 import { cards, addCards } from "./cards.js";
-export { cart, currency, headCartNumber, headCartAmount, totalSum, cartNumbers, val };
+export { cart, currency, cartNumbers, val };
 
 const basketContainer = document.querySelector(".basket__container");
 const cart = JSON.parse(localStorage.getItem("cart")) || [];
@@ -72,30 +72,32 @@ renderBasket = () => {
   }
   if (cart.length == 0) {
     totalSum.classList.add("not-active");
+    basketList.innerHTML = "<h2>Упс, Вы пока ничего не выбрали(((</h2>"
   }
 };
 
 // кнопки + и -
-Object.prototype.amount = 1;
-
 basketList.addEventListener("click", ({ target }) => {
   if (target.classList.contains("btns__plus")) {
     cart.forEach((el) => {
-      if (target.closest(".basket__item").id === el.id) {
+      if (target.closest(".basket__item").id == el.id) {
         el.amount += 1;
+        localStorage.setItem("cart", JSON.stringify(cart));
         renderBasket();
       }
     });
   } else if (target.classList.contains("btns__minus")) {
     cart.forEach((el) => {
-      if (target.closest(".basket__item").id === el.id) {
+      if (target.closest(".basket__item").id == el.id) {
         el.amount -= 1;
+        localStorage.setItem("cart", JSON.stringify(cart));
         renderBasket();
       }
       if (el.amount === 0) {
           const elemNull = el;
           const elemNullId = cart.indexOf(elemNull);
           cart.splice(elemNullId, 1);
+          el.amount = 1;
           localStorage.setItem("cart", JSON.stringify(cart));
           cardsConnection(el)
           renderBasket();
