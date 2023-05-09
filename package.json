@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "parcel ./index.html",
-    "predeploy": "rm -rf dist && parcel build ./index.html --public-url https://github.com/germankhamuliak/Best",
-    "deploy": "gh-pages -d dist"
+    "start": "parcel index.html --open"
   },
   "repository": {
     "type": "git",
