@@ -127,7 +127,7 @@ basketList.addEventListener("click", ({ target }) => {
 });
 
 // количество товаров в корзине
-cartNumbers = () => {
+const cartNumbers = () => {
   headCartNumber.innerHTML = cart.length;
   localStorage.setItem(
     "NumberOfGoods",
