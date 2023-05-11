@@ -1,20 +1,35 @@
 import { defaultCurrency } from "./varibles.js";
-
-const currencyBtn = document.querySelector('.header__currency')
+import { body } from "./modals/modal.js";
+const currencyBtn = document.querySelectorAll('.currencyBtn')
 const currencyList = document.querySelector('.currency__list')
-const currency = document.querySelector('.currency')
+const currency = document.querySelectorAll('.currency')
 const currencyItem = document.querySelectorAll('.currency__item')
 const currencyName = document.querySelectorAll('.currency__name')
+const currencyClose = document.querySelector('.currency__close')
 
 
-
-currencyBtn.addEventListener('click', ()=>{
+currencyBtn.forEach(e=>{
+    e.addEventListener('click', ()=>{
+    const bodyWidth = window.innerWidth;    
+    if(bodyWidth<1024){
+        body.classList.add("body-modal")
+    }
     currencyList.classList.toggle('active')
+})
+})
+
+currencyClose.addEventListener("click" , (e)=>{
+    e.preventDefault();
+    currencyList.classList.remove('active')
 })
 
 
+
+
 document.addEventListener('DOMContentLoaded',()=>
-localStorage.getItem('currency') ? (currency.innerHTML = localStorage.getItem('currency')) : (currency.innerHTML = defaultCurrency))
+localStorage.getItem('currency') ? 
+(currency.forEach((e)=>{
+    e.innerHTML = localStorage.getItem('currency')}))  : (e.innerHTML = defaultCurrency))
 
 currencyItem.forEach((el,id)=>{
     el.addEventListener('click',()=>{

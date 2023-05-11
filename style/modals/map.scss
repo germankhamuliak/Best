@@ -61,3 +61,11 @@
         color: $modal_map_btn_border_active_colar;
     }
 }
+
+
+@media (width<=768px) {
+    .map{
+        width: 100%;
+        height: 100%;
+    }
+}

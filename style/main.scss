@@ -14,4 +14,11 @@
     max-width: 1440px;
     padding: 0 15px;
     margin: 0 auto;
+    position: relative;
+}
+
+@media (width<=1024px) {
+    .main{
+        padding-top: 90px;
+    }
 }

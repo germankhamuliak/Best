@@ -37,3 +37,9 @@
     overflow-y: hidden;
 }
 
+
+@media (width<=768px) {
+    .modal__content {
+        border-radius: 0;
+    }
+}

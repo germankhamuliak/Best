@@ -12,38 +12,12 @@
 <body class="body">
   <header class="header">
     <div class="container">
-      <div class="header__top">
-        <div class="header__currency">
-          <div class="currency">
-          </div>
-          <ul class="currency__list">
-            <li>
-              <h3>Выберите валюту</h3>
-            </li>
-            <li class="currency__slot">
-              <div class="currency__item">
-                <img class="flag-icon currency__flag" src="images/header/currency/RB.jpg" alt="rb" />
-                <span class="currency__name">BYN</span>
-              </div>
-              <span class="currency__fullname">Белорусский рубль</span>
-            </li>
-            <li class="currency__slot">
-              <div class="currency__item">
-                <img class="flag-icon currency__flag" src="images/header/currency/RF.webp" alt="rf" />
-                <span class="currency__name">RUB</span>
-              </div>
-              <span class="currency__fullname">Российский рубль</span>
-            </li>
-            <li class="currency__slot">
-              <div class="currency__item">
-                <img class="flag-icon currency__flag" src="images/header/currency/USA.webp" alt="usa" />
-                <span class="currency__name">USD</span>
-              </div>
-              <span class="currency__fullname">Доллар США</span>
-            </li>
-          </ul>
+      <div class="normal-header">
+        <div class="header__top">
+        <div class="header__currency currencyBtn">
+          <div class="currency"></div>
         </div>
-        <div class="header__map">
+        <div class="header__map mapBtn">
           <svg class="map-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
             viewBox="0,0,256,256" fill-rule="nonzero">
             <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
@@ -263,30 +237,97 @@
           </div>
         </div>
       </div>
+      </div>
+      <div class="new-header">
+    <div class="header__logo">
+      <a href="#">Milberries</a>
+    </div>
+    <div class="new-header__group">
+      <div class="currency currencyBtn new-header__group-el"></div>
+      <div class="new-header__map mapBtn new-header__group-el">
+        <svg class="map-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0,0,256,256" fill-rule="nonzero">
+          <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
+            stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+            font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+            <g transform="scale(5.12,5.12)">
+              <path
+                d="M28.292,1.326c-1.066,-0.21 -2.165,-0.326 -3.292,-0.326c-4.71,0 -8.98,1.93 -12.06,5.04l6.92,5.592zM18.595,13.178l-6.975,-5.628c-2.27,2.88 -3.62,6.52 -3.62,10.45c0,2.281 0.452,4.487 1.304,6.534zM22.608,11.432c0.745,-0.273 1.546,-0.432 2.392,-0.432c3.87,0 7,3.13 7,7c0,0.338 -0.032,0.667 -0.078,0.992l7.772,-9.499c-2.058,-3.539 -5.348,-6.268 -9.285,-7.595zM27.341,24.591c-0.733,0.26 -1.519,0.409 -2.341,0.409c-3.87,0 -7,-3.13 -7,-7c0,-0.354 0.034,-0.7 0.084,-1.039l-7.803,9.537c0.386,0.666 0.809,1.315 1.289,1.932c0.37,0.5 0.87,1.14 1.45,1.89c1.267,1.633 2.959,3.816 4.59,6.164zM18.778,38.215c2.082,3.184 3.852,6.497 4.172,9.055c0.14,0.99 0.99,1.73 1.99,1.73c1.02,0 1.87,-0.75 1.99,-1.75c0.61,-4.83 6.57,-12.48 9.78,-16.6c0.56,-0.72 1.05,-1.35 1.5,-1.94c2.44,-3.02 3.79,-6.82 3.79,-10.71c0,-2.322 -0.471,-4.536 -1.319,-6.555z">
+              </path>
+            </g>
+          </g>
+        </svg>
+      </div>
+      <div class="new-search new-header__group-el">
+        <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+              viewBox="0,0,256,256" fill-rule="nonzero">
+              <g fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter"
+                stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none"
+                font-size="none" text-anchor="none" style="mix-blend-mode: normal">
+                <g transform="scale(5.12,5.12)">
+                  <path
+                    d="M21,3c-9.37891,0 -17,7.62109 -17,17c0,9.37891 7.62109,17 17,17c3.71094,0 7.14063,-1.19531 9.9375,-3.21875l13.15625,13.125l2.8125,-2.8125l-13,-13.03125c2.55469,-2.97656 4.09375,-6.83984 4.09375,-11.0625c0,-9.37891 -7.62109,-17 -17,-17zM21,5c8.29688,0 15,6.70313 15,15c0,8.29688 -6.70312,15 -15,15c-8.29687,0 -15,-6.70312 -15,-15c0,-8.29687 6.70313,-15 15,-15z">
+                  </path>
+                </g>
+              </g>
+        </svg>
+      </div>  
+    </div>
+  </div>
+      <!-- Список валюты -->
+  <ul class="currency__list">
+    <li>
+      <h3>Выберите валюту</h3>
+      <a href="#" class="login__close currency__close">X</a>
+    </li>
+    <li class="currency__slot">
+      <div class="currency__item">
+        <img class="flag-icon currency__flag" src="images/header/currency/RB.jpg" alt="rb" />
+        <span class="currency__name">BYN</span>
+      </div>
+      <span class="currency__fullname">Белорусский рубль</span>
+    </li>
+    <li class="currency__slot">
+      <div class="currency__item">
+        <img class="flag-icon currency__flag" src="images/header/currency/RF.webp" alt="rf" />
+        <span class="currency__name">RUB</span>
+      </div>
+      <span class="currency__fullname">Российский рубль</span>
+    </li>
+    <li class="currency__slot">
+      <div class="currency__item">
+        <img class="flag-icon currency__flag" src="images/header/currency/USA.webp" alt="usa" />
+        <span class="currency__name">USD</span>
+      </div>
+      <span class="currency__fullname">Доллар США</span>
+    </li>
+  </ul>
     </div>
   </header>
+  
   <main class="main">
-    <div class="slider">
-      <div class="slider__line">
-        <img class="slider__img" src="images/slider/1.webp" alt="Image" />
-        <img class="slider__img" src="images/slider/2.webp" alt="Image" />
-        <img class="slider__img" src="images/slider/3.webp" alt="Image" />
-      </div>
-      <div class="slider__btns">
-        <div class="slider__btn-prev slider__btn">
-          <img src="images/slider/arrow.svg" >
+    <section class="sliderr">
+      <div class="slider">
+        <div class="slider__line">
+          <img class="slider__img" src="images/slider/1.webp" alt="Image" />
+          <img class="slider__img" src="images/slider/2.webp" alt="Image" />
+          <img class="slider__img" src="images/slider/3.webp" alt="Image" />
         </div>
-        <div class="slider__btn-next slider__btn">
-          <img src="images/slider/arrow.svg" >
-      </div>
-    </div> 
-  </div>
-  <div class="slider__wrapper">
-          <div class="slider__dot active-dot"></div>
-          <div class="slider__dot"></div>
-          <div class="slider__dot"></div>
+        <div class="slider__btns">
+          <div class="slider__btn-prev slider__btn">
+            <img src="images/slider/arrow.svg" >
+          </div>
+          <div class="slider__btn-next slider__btn">
+            <img src="images/slider/arrow.svg" >
         </div>
-    
+      </div> 
+      </div>
+      <div class="slider__wrapper">
+        <div class="slider__dot active-dot"></div>
+        <div class="slider__dot"></div>
+        <div class="slider__dot"></div>
+      </div>
+    </section>  
     <section class="cards">
       <div class="container">
         <h3 class="cards__name">Хиты продаж</h3>

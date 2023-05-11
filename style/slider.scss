@@ -9,7 +9,6 @@
   display: flex;
   align-items: center;
   transition: all 1s;
-  
 }
 &__btns{
   position: absolute;
@@ -66,4 +65,11 @@ right: 50px;
 .active-dot{
   background:$card_btn_active_colar;
   transform: scale(1.5);
+}
+
+@media (width<=1024px) {
+
+  .slider__btn{
+    display: none;
+  }
 }

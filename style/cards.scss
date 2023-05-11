@@ -20,10 +20,8 @@
     width: 18%;
     position: relative;
     &-img {
-      max-width: 250px;
       position: relative;
       margin-bottom: 8px;
-
       img {
         width: 100%;
         border-radius: 5px;
@@ -105,4 +103,28 @@
 .not-active-btn{
   opacity: 0;
   visibility: hidden;
+}
+
+@media (width<=1200px) {
+ .cards__item {
+    width: 23%;
+  }
+}
+
+@media (width<=1024px) {
+  .cards__item {
+    width: 31%;
+  }
+}
+
+@media (width<=768px) {
+  .cards__item {
+    width: 48%;
+  }
+}
+@media (width<=575px) {
+  
+}
+@media (width<=472px) {
+  
 }
