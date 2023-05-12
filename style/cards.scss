@@ -60,12 +60,12 @@
     }
 
     &-text {
-      margin-bottom: 10px;
       font-size: $small;
+      padding-bottom: 40px;
     }
 
     &-addToCart {
-      width: 50%;
+      width: 60%;
       height: 32px;
       color: $white_color;
       font-size: $small;
@@ -75,6 +75,9 @@
       border-radius: 5px;
       cursor: pointer;
       border: 1px solid $header_problems_bg_color;
+      position: absolute;
+      bottom: 0;
+      left: 0;
       &:hover {
         background: $card_btn_hover_colar;
         border: 1px solid $card_btn_hover_colar;
@@ -108,6 +111,15 @@
 @media (width<=1200px) {
  .cards__item {
     width: 23%;
+    &:last-child{
+      display: none;
+    }
+    &:nth-child(14){
+      display: none;
+    }
+    &:nth-child(13){
+      display: none;
+    }
   }
 }
 
@@ -121,10 +133,4 @@
   .cards__item {
     width: 48%;
   }
-}
-@media (width<=575px) {
-  
-}
-@media (width<=472px) {
-  
 }
