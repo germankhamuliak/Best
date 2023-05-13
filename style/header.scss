@@ -22,6 +22,8 @@
         }
     }
     &__map {
+        display: flex;
+        align-items: center;
         color: $header_normal_colar;
         padding-left: 15px;
         .map-icon {
