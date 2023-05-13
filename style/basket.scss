@@ -34,6 +34,18 @@
     background: $white_color;
     color: $black_color;
     padding: 10px;
+    &::-webkit-scrollbar{
+      width: 6px;
+      height: 6px;
+    }
+    &::-webkit-scrollbar-thumb {
+        border-radius: 6px;
+        background: $scrol-bar_thumb;
+        border: 0 solid;
+    }
+    &::-webkit-scrollbar-track {
+        background: $white_color;
+    }
   }
 
   &__item {

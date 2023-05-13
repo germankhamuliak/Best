@@ -41,7 +41,18 @@
         span{
             padding-right:60px;
         }
-
+        &::-webkit-scrollbar{
+            width: 6px;
+            height: 6px;
+        }
+        &::-webkit-scrollbar-thumb {
+            border-radius: 6px;
+            background: $scrol-bar_thumb;
+            border: 0 solid;
+        }
+        &::-webkit-scrollbar-track {
+            background: $white_color;
+        }
     }
 }
 .side-catalog__content-active{
