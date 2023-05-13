@@ -70,14 +70,17 @@
     margin-left: 20px;
     margin-bottom: 10px;
     background: $chat_window_question-bg_color;
+    display: flex;
+    flex-direction: column;
+    width: auto;
     span.name{
         display: flex;
         justify-content: flex-end;
         color: $chat_window_question_color;
-       margin-right: 10px;
+        margin-right: 10px;
     }
     span.message{
-         text-align: end;
+         text-align: start;
     }
 }
 &__footer{

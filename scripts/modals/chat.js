@@ -6,10 +6,8 @@ const chatBody = document.querySelector('.chat__body')
 const chatInput = document.querySelector('.chat__input')
 const chatButton = document.querySelector('.chat__button')
 let question;
-const chatQuestion =() => `<div class="chat__question">
-                        <span class="name">Вы</span>
-                        <span class="message">${question}</span>
-                    </div>`
+
+                 
 
 
 
@@ -29,9 +27,14 @@ chatClose.addEventListener('click', (e) =>{
 
 chatButton.addEventListener('click', () => {
     question = chatInput.value;
+    let chatQuestion = `<div class="chat__question">
+                            <span class="name">Вы</span>
+                            <span class="message">${question}</span>
+                        </div>`;                      
+    chatBody.innerHTML += chatQuestion;
     chatInput.value = "";
-    chatBody.append(chatQuestion())
     question = "";
+    chatQuestion.innerHTML="";
 })
 
 
