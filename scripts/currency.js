@@ -20,6 +20,10 @@ currencyBtn.forEach(e=>{
 
 currencyClose.addEventListener("click" , (e)=>{
     e.preventDefault();
+    const bodyWidth = window.innerWidth;
+    if(bodyWidth<1024){
+        body.classList.remove("body-modal")
+    }
     currencyList.classList.remove('active')
 })
 
@@ -27,9 +31,7 @@ currencyClose.addEventListener("click" , (e)=>{
 
 
 document.addEventListener('DOMContentLoaded',()=>
-localStorage.getItem('currency') ? 
-(currency.forEach((e)=>{
-    e.innerHTML = localStorage.getItem('currency')}))  : (e.innerHTML = defaultCurrency))
+localStorage.getItem('currency') ? (currency.forEach((e)=>{e.innerHTML = localStorage.getItem('currency')}))  : (e.innerHTML = defaultCurrency))
 
 currencyItem.forEach((el,id)=>{
     el.addEventListener('click',()=>{
