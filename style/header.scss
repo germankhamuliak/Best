@@ -257,8 +257,7 @@
 
         &-amount {
             border-radius: 50%;
-            min-width: 18px;
-            max-width: 30px;
+            width: 18px;
             height: 18px;
             background-color: #ff3b30;
             color: $white_color;
@@ -323,6 +322,10 @@
                 cursor: auto;
             }
             .currency__close{
+                text-decoration: none;
+                font-size: $large;
+                font-weight: $fat;
+                color: $modal_map_btn_border_active_colar;
                 display: none;
             }
         }
@@ -364,12 +367,13 @@
 .active {
     display: block;
 }
+
 .new-header {
     justify-content: space-between;
     align-items: center;
     background: $header_bg_color;;
     width: 100%;
-    padding: 15px;
+    padding: 15px 0;
     display: none;
     .new-header__group {
         width: 40%;

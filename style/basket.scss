@@ -13,6 +13,7 @@
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 2;
     justify-content: center;
     align-items: center;
   }
@@ -132,10 +133,10 @@
 
   &__total{
     position: absolute;
-    bottom: 50px;
-    right: 50px;
+    bottom: 30px;
+    right: 30px;
     color: $black_color;
-    max-width: 30%;
+    width: 30%;
   }
   &__sum {
     margin-top: 15px;
@@ -187,7 +188,6 @@
   align-items: center;
   width: 80px;
   margin-bottom: 15px;
-
   &__minus {
     width: 25px;
     height: 25px;
@@ -214,4 +214,76 @@
 }
 .not-active{
   display: none;
+}
+
+@media (width<=1024px) {
+  .basket {
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    border-radius: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background: $white_color;
+    color: $black_color;
+    &__list {
+      min-height: 96%;
+      padding-bottom: 30px;
+    }
+  }  
+}
+@media (width<=768px) {
+  .basket {
+    &__list {
+      min-height: calc(100% - 208px);
+    }
+    &__item {
+      justify-content: space-between;
+      &::after{
+        width: 100%;
+      }
+    }
+
+    &__image {
+      width: 45%;
+    }
+
+    &__text {
+      width: 45%;
+      margin-left: 0;
+      &-title {
+        margin-bottom: 20px;
+      }
+
+      &-description {
+        margin-bottom: 20px;
+      }
+
+      &-price {
+        margin-bottom: 20px;
+      }
+    }
+
+  &__buy {
+    width: 50%;
+    margin-bottom: 20px;
+  }
+
+  &__delete {
+    width: 50%;
+    margin-bottom: 20px;
+  }
+  
+  &__total{
+  color: $black_color;
+  width: 100%;
+  background-color: $white_color;
+  bottom: 0;
+  right: 0;
+  padding: 10px;
+  border-top: 1px solid $black_color;
+}
+}  
 }

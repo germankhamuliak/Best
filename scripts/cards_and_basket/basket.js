@@ -6,10 +6,10 @@ export { cart, currency, cartNumbers, val };
 const basketContainer = document.querySelector(".basket__container");
 const cart = JSON.parse(localStorage.getItem("cart")) || [];
 const basketList = document.querySelector(".basket__list");
-const cartHTML = document.querySelector(".header__cart");
+const cartHTML = document.querySelectorAll(".cartBtn");
 const basketClose = document.querySelector(".basket__close");
-const headCartAmount = document.querySelector(".header__cart-amount");
-const headCartNumber = document.querySelector(".header__cart-number");
+const headCartAmount = document.querySelectorAll(".header__cart-amount");
+const headCartNumber = document.querySelectorAll(".header__cart-number");
 const basketSum = document.querySelector(".basket__sum");
 const totalSum = document.querySelector(".basket__total");
 
@@ -128,7 +128,9 @@ basketList.addEventListener("click", ({ target }) => {
 
 // количество товаров в корзине
 const cartNumbers = () => {
-  headCartNumber.innerHTML = cart.length;
+  headCartNumber.forEach((e=>{
+    e.innerHTML = cart.length;
+  }))
   localStorage.setItem(
     "NumberOfGoods",
     JSON.stringify(headCartNumber.innerHTML)
@@ -137,12 +139,15 @@ const cartNumbers = () => {
     totalSum.classList.remove("not-active");
   }
   if (cart && cart.length > 0) {
-    headCartAmount.classList.add("header__cart-amount_active");
+    headCartAmount.forEach(e=>{
+      e.classList.add("header__cart-amount_active");
+    })
   }
   if (cart.length === 0) {
-    headCartAmount.classList.remove("header__cart-amount_active");
+    headCartAmount.forEach(e=>{
+    e.classList.remove("header__cart-amount_active");
     totalSum.classList.add("not-active");
-  }
+  })}
 };
 
 // очистка корзины
@@ -167,12 +172,15 @@ sumPrice = () => {
 };
 
 //открытие и закрытие корзины
-cartHTML.addEventListener("click", () => {
+cartHTML.forEach((e)=>{
+  e.addEventListener("click", () => {
   renderBasket();
   basketContainer.classList.add("basket__active");
   body.classList.add("body-modal");
   header.classList.add("header-modal");
 });
+})
+  
 
 basketClose.addEventListener("click", () => {
   basketContainer.classList.remove("basket__active");

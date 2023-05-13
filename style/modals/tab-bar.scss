@@ -1,0 +1,35 @@
+.tab-bar {
+    position: fixed;
+    bottom: 0;
+    display: none;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    background: $white_color;
+    box-shadow: 0 -0.5px 0 $tab-bar_shadow_color;
+    &__el{
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .icon{
+            width: 28px;
+            height: 28px;
+            fill: $tab-bar_icons_color;
+            cursor: pointer;
+        }
+    }
+    &__cart{
+        position: relative;
+    }
+    .header__cart-amount{
+        left: calc(50% + 15px);
+
+    }
+}
+
+@media (width<=1024px) {
+    .tab-bar {
+        display: flex;
+    }
+}
