@@ -34,6 +34,11 @@
         }
       }
     }
+    &:hover{
+      .cards__item-price {
+          color: $card_btn_hover_colar;
+      }
+    }
 
     &-view {
       position: absolute;

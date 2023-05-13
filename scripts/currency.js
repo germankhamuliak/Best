@@ -8,7 +8,7 @@ const currencyName = document.querySelectorAll('.currency__name')
 const currencyClose = document.querySelector('.currency__close')
 
 
-currencyBtn.forEach(e=>{
+currencyBtn.forEach((e)=>{
     e.addEventListener('click', ()=>{
     const bodyWidth = window.innerWidth;    
     if(bodyWidth<1024){
@@ -31,7 +31,7 @@ currencyClose.addEventListener("click" , (e)=>{
 
 
 document.addEventListener('DOMContentLoaded',()=>
-localStorage.getItem('currency') ? (currency.forEach((e)=>{e.innerHTML = localStorage.getItem('currency')}))  : (e.innerHTML = defaultCurrency))
+localStorage.getItem('currency') ? (currency.forEach((e)=>{e.innerHTML = localStorage.getItem('currency')}))  : (currency.forEach((e)=>{e.innerHTML = defaultCurrency})))
 
 currencyItem.forEach((el,id)=>{
     el.addEventListener('click',()=>{
