@@ -72,7 +72,7 @@ renderBasket = () => {
   }
   if (cart.length == 0) {
     totalSum.classList.add("not-active");
-    basketList.innerHTML = "<h2>Упс, Вы пока ничего не выбрали(((</h2>"
+    basketList.innerHTML = "<h2 class='basket__clear-text'>Упс, Вы пока ничего не выбрали(((</h2>"
   }
 };
 

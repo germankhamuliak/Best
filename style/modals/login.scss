@@ -44,6 +44,11 @@
         color: $header_search_catalog ;
         margin-top: 12px;
         font-weight: $fat;
+        transition: .2s;
+        &:hover{
+            border: 2px solid $modal_map_btn_border_active_colar;
+            color: $black_color;
+        }
     }
 
     p{
