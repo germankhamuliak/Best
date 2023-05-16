@@ -168,7 +168,7 @@ sumPrice = () => {
   cart.forEach((el) => {
     sum += Number(el.price * el.amount);
   });
-  basketSum.innerHTML = (sum * val).toFixed(2) + currency();
+  basketSum.innerHTML = (sum * val).toFixed(2) +" "+ currency();
 };
 
 //открытие и закрытие корзины
