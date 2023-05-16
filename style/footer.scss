@@ -186,8 +186,8 @@
 
                     &::after {
                         content: "";
-                        width: 15px;
-                        height: 15px;
+                        width: 14px;
+                        height: 14px;
                         border-bottom: 2px solid $footer_line_colar;
                         border-right: 2px solid $footer_line_colar;
                         position: absolute;
@@ -199,20 +199,6 @@
                 }
             }
 
-            &:hover {
-                li {
-                    height: 40px;
-                    visibility: visible;
-                    opacity: 1;
-                    padding: 10px 0;
-                    &:first-of-type {
-                        &::after {
-                            transform: rotate(225deg);
-                        }
-                    }
-
-                }
-            }
         }
 
         &__downaldes {
@@ -245,5 +231,19 @@
                 width: 100%;
             }
         }
+    }
+}
+.list-active {
+    li {
+        height: 40px;
+        visibility: visible;
+        opacity: 1;
+        padding: 10px 0;
+        &:first-of-type {
+            &::after {
+                transform: rotate(225deg);
+            }
+        }
+
     }
 }
