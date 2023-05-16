@@ -1,4 +1,4 @@
-import { cards } from "./cards_and_basket/cards.js";
+import { cards, renderCards } from "./cards_and_basket/cards.js";
 
 const search = document.querySelector("#search");
 const searchList = document.querySelector(".search__list");
@@ -16,13 +16,19 @@ document.addEventListener("click", ({ target }) => {
   }
 });
 
+const searchTitles = () => {
+  const titles = cards.forEach((el) => el.title);
+  searchList.push(titles);
+};
+
 search.oninput = () => {
+  //el.textContent ??
   if (search.value) {
     cards.forEach((el) => {
       if (el.title !== search.value) {
-        //el.textContent ??
-        el.style.visibility = "hidden";
-        // console.log(el);
+        const ind = indexOf(el);
+        cards.splice(ind, 1);
+        renderCards();
       }
     });
   }
