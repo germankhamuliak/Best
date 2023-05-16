@@ -149,6 +149,9 @@
                     flex-wrap: wrap;
 
                     li {
+                        height: auto;
+                        opacity: 1;
+                        visibility: visible;
                         display: block;
                         padding: 10px 0 10px;
 
@@ -166,11 +169,15 @@
             list-style: none;
 
             li {
-                display: none;
-                padding: 10px 0 10px;
+                height: 0;
+                margin: 0;
+                visibility: hidden;
+                opacity: 0;
 
                 &:first-of-type {
-                    display: block;
+                    opacity: 1;
+                    height: 50px;
+                    visibility: visible;
                     padding: 15px 0 15px;
                     border-bottom: 1px solid $footer_line_colar;
                     margin-bottom: 0;
@@ -194,8 +201,10 @@
 
             &:hover {
                 li {
-                    display: block;
-
+                    height: 40px;
+                    visibility: visible;
+                    opacity: 1;
+                    padding: 10px 0;
                     &:first-of-type {
                         &::after {
                             transform: rotate(225deg);
