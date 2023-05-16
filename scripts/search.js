@@ -1,3 +1,5 @@
+import { cards } from "./cards_and_basket/cards.js";
+
 const search = document.querySelector("#search");
 const searchList = document.querySelector(".search__list");
 const searcIcon = document.querySelector(".search-icon");
@@ -13,3 +15,15 @@ document.addEventListener("click", ({ target }) => {
     searcIcon.classList.remove("search-icon-active");
   }
 });
+
+search.oninput = () => {
+  if (search.value) {
+    cards.forEach((el) => {
+      if (el.title !== search.value) {
+        //el.textContent ??
+        el.style.visibility = "hidden";
+        // console.log(el);
+      }
+    });
+  }
+};
