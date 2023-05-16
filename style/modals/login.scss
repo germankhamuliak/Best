@@ -1,10 +1,10 @@
 .login {
     position: fixed;
-    top:calc(50% - 160px);
+    top: calc(50% - 160px);
     left: calc(50% - 160px);
     width: 320px;
     height: 320px;
-    background:$white_color ;
+    background: $white_color ;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -13,27 +13,32 @@
     border-radius: 16px;
     opacity: 0;
     visibility: hidden;
+
     &__header {
         display: flex;
         justify-content: space-between;
 
     }
-    &__close{
-            text-decoration: none;
-            font-size: $large;
-            font-weight: $fat;
-            color: $modal_map_btn_border_active_colar;
+
+    &__close {
+        text-decoration: none;
+        font-size: $large;
+        font-weight: $fat;
+        color: $modal_map_btn_border_active_colar;
     }
-    #tel{
+
+    #tel {
         font-size: $large;
         border: none;
         border-bottom: 1px solid $header_search_catalog;
         padding: 15px 0 5px;
-        &:focus-visible{
+
+        &:focus-visible {
             outline: none;
         }
     }
-    button{
+
+    button {
         width: 100%;
         background-color: transparent;
         border-radius: 8px;
@@ -45,30 +50,33 @@
         margin-top: 12px;
         font-weight: $fat;
         transition: .2s;
-        &:hover{
+
+        &:hover {
             border: 2px solid $modal_map_btn_border_active_colar;
             color: $black_color;
         }
     }
 
-    p{
+    p {
         font-size: $extra_small;
         margin-top: 20px;
-        a{
-        color: $header_problems_bg_color;
-        text-decoration: underline;
-    }
+
+        a {
+            color: $header_problems_bg_color;
+            text-decoration: underline;
+        }
     }
 }
 
-.login-active{
+.login-active {
     opacity: 1;
     visibility: visible;
 }
+
 @media (width<=1024px) {
     .login {
         position: fixed;
-        top:0;
+        top: 0;
         left: 0;
         width: 100%;
         height: 100%;
@@ -77,4 +85,3 @@
 
     }
 }
-

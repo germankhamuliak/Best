@@ -7,24 +7,31 @@
     align-items: center;
     background: $white_color;
     box-shadow: 0 -0.5px 0 $tab-bar_shadow_color;
-    &__el{
+
+    &__el {
         width: 50%;
         display: flex;
         justify-content: center;
         align-items: center;
-        .icon{
+
+        .icon {
             width: 28px;
             height: 28px;
             fill: $tab-bar_icons_color;
             cursor: pointer;
+
+            &:hover {
+                fill: $card_btn_hover_colar;
+            }
         }
     }
-    &__cart{
+
+    &__cart {
         position: relative;
     }
-    .header__cart-amount{
-        left: calc(50% + 15px);
 
+    .header__cart-amount {
+        left: calc(50% + 15px);
     }
 }
 

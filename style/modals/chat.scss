@@ -1,8 +1,7 @@
-
-.chat{
-    &__img-conteiner{
-       border-radius: 50%; 
-       position: fixed;
+.chat {
+    &__img-conteiner {
+        border-radius: 50%;
+        position: fixed;
         right: 30px;
         bottom: 30px;
         background-color: transparent;
@@ -11,126 +10,143 @@
         align-items: center;
         justify-content: center;
         background: $header_problems_bg_color;
-       &:hover{
-        background:$card_btn_active_colar;
+
+        &:hover {
+            background: $card_btn_active_colar;
         }
     }
-&__img{
-    padding: 10px;
-    width: 50px;
-    height: 50px;
-    
-}
-&__window{
-    position:fixed;
-    background: $white_color;
-    right: 20px;
-    bottom: 30px;
-    width: 320px;
-    height: 90%;
-    border-radius: 15px;
-    padding: 20px 10px;
-    box-shadow: 0 2px 30px $chat_window_shadow_color;
-    justify-content: space-between;
-    flex-direction: column;
-    display: none;
-}
-&__header{
-    display: flex;
-    justify-content: space-between;
-}
-&__close{
-    text-decoration: none;
-            font-size: $large;
-            font-weight: $fat;
-            color: $modal_map_btn_border_active_colar;
-}
-&__body{
-    height: 85%;
-    background: $chat_window_body_color;
-    border-radius: 15px;
-    margin: 20px 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: end;
-    padding: 15px 20px;
-}
-&__hello{
-    background: $chat_window_hello_color;
-    border-radius: 15px;
-    padding: 8px;
-    margin-bottom: 10px;
-    margin-right: 20px;
-    span{
-        color: $card_btn_hover_colar;
+
+    &__img {
+        padding: 10px;
+        width: 50px;
+        height: 50px;
+
     }
-}
-&__question{
-    background: $chat_window_hello_color;
-    border-radius: 15px;
-    padding: 8px;
-    margin-left: 20px;
-    margin-bottom: 10px;
-    background: $chat_window_question-bg_color;
-    display: flex;
-    flex-direction: column;
-    width: auto;
-    span.name{
+
+    &__window {
+        position: fixed;
+        background: $white_color;
+        right: 20px;
+        bottom: 30px;
+        width: 320px;
+        height: 90%;
+        border-radius: 15px;
+        padding: 20px 10px;
+        box-shadow: 0 2px 30px $chat_window_shadow_color;
+        justify-content: space-between;
+        flex-direction: column;
+        display: none;
+    }
+
+    &__header {
         display: flex;
-        justify-content: flex-end;
-        color: $chat_window_question_color;
-        margin-right: 10px;
+        justify-content: space-between;
     }
-    span.message{
-         text-align: start;
-    }
-}
-&__footer{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    input{
-        height: 40px;
-        width: 70%;
-        background: $chat_window_body_color;
-        border: none;
-        font-size: $middle;
-        border-radius: 15px;
-        border-top-right-radius: 0px;
-        border-bottom-right-radius: 0px;
-        padding: 0 10px;
-        &:focus-visible {
-            outline: none;
-        }
-        
-    }
-    button{
-        height: 40px;
-        width: 30%;
-        border: none;
-        border-radius: 15px;
-        border-bottom-left-radius: 0px;
-        border-top-left-radius: 0px;
-        background: $header_problems_bg_color;
-        color: $white_color;
+
+    &__close {
+        text-decoration: none;
+        font-size: $large;
         font-weight: $fat;
-        font-size: $small;
-        cursor: pointer;
-        padding: 5px;
+        color: $modal_map_btn_border_active_colar;
+    }
+
+    &__body {
+        height: 85%;
+        background: $chat_window_body_color;
+        border-radius: 15px;
+        margin: 20px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        padding: 15px 20px;
+    }
+
+    &__hello {
+        background: $chat_window_hello_color;
+        border-radius: 15px;
+        padding: 8px;
+        margin-bottom: 10px;
+        margin-right: 20px;
+
+        span {
+            color: $card_btn_hover_colar;
+        }
+    }
+
+    &__question {
+        background: $chat_window_hello_color;
+        border-radius: 15px;
+        padding: 8px;
+        margin-left: 20px;
+        margin-bottom: 10px;
+        background: $chat_window_question-bg_color;
+        display: flex;
+        flex-direction: column;
+        width: auto;
+
+        span.name {
+            display: flex;
+            justify-content: flex-end;
+            color: $chat_window_question_color;
+            margin-right: 10px;
+        }
+
+        span.message {
+            text-align: start;
+        }
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        input {
+            height: 40px;
+            width: 70%;
+            background: $chat_window_body_color;
+            border: none;
+            font-size: $middle;
+            border-radius: 15px;
+            border-top-right-radius: 0px;
+            border-bottom-right-radius: 0px;
+            padding: 0 10px;
+
+            &:focus-visible {
+                outline: none;
+            }
+
+        }
+
+        button {
+            height: 40px;
+            width: 30%;
+            border: none;
+            border-radius: 15px;
+            border-bottom-left-radius: 0px;
+            border-top-left-radius: 0px;
+            background: $header_problems_bg_color;
+            color: $white_color;
+            font-weight: $fat;
+            font-size: $small;
+            cursor: pointer;
+            padding: 5px;
+        }
     }
 }
-}
-.chat-active{
+
+.chat-active {
     display: flex;
 }
 
 @media (width<=1024px) {
-    .chat{
-        &__img-conteiner{
+    .chat {
+        &__img-conteiner {
             bottom: 60px;
         }
-        &__window{
-            position:fixed;
+
+        &__window {
+            position: fixed;
             background: $white_color;
             top: 0;
             left: 0;
@@ -139,5 +155,5 @@
             border-radius: 0;
             z-index: 2;
         }
-    }    
+    }
 }

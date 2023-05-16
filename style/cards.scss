@@ -19,9 +19,11 @@
   &__item {
     width: 18%;
     position: relative;
+
     &-img {
       position: relative;
       margin-bottom: 8px;
+
       img {
         width: 100%;
         border-radius: 5px;
@@ -34,9 +36,10 @@
         }
       }
     }
-    &:hover{
+
+    &:hover {
       .cards__item-price {
-          color: $card_btn_hover_colar;
+        color: $card_btn_hover_colar;
       }
     }
 
@@ -83,14 +86,17 @@
       position: absolute;
       bottom: 0;
       left: 0;
+
       &:hover {
         background: $card_btn_hover_colar;
         border: 1px solid $card_btn_hover_colar;
       }
+
       &:active {
         background: $card_btn_active_colar;
       }
     }
+
     &-inCart {
       width: 60%;
       height: 32px;
@@ -108,21 +114,25 @@
     }
   }
 }
-.not-active-btn{
+
+.not-active-btn {
   opacity: 0;
   visibility: hidden;
 }
 
 @media (width<=1200px) {
- .cards__item {
+  .cards__item {
     width: 23%;
-    &:last-child{
+
+    &:last-child {
       display: none;
     }
-    &:nth-child(14){
+
+    &:nth-child(14) {
       display: none;
     }
-    &:nth-child(13){
+
+    &:nth-child(13) {
       display: none;
     }
   }

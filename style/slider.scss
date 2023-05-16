@@ -1,75 +1,76 @@
-.slider{
+.slider {
   max-width: 1440px;
   overflow: hidden;
   margin: 0 auto 20px;
   max-height: 420px;
   position: relative;
   border-radius: 15px;
-&__line{
-  display: flex;
-  align-items: center;
-  transition: all 1s;
-}
-&__btns{
-  position: absolute;
-top: calc(50% - 25px);
-display: flex;
-justify-content: space-between;
-width: 100%;
+
+  &__line {
+    display: flex;
+    align-items: center;
+    transition: all 1s;
+  }
+
+  &__btns {
+    position: absolute;
+    top: calc(50% - 25px);
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__btn {
+    cursor: pointer;
+    border: none;
+    background: $white_color;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    margin: 0 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__btn-prev {
+    left: 50px;
+  }
+
+  &__btn-next {
+    rotate: 180deg;
+    right: 50px;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+  }
+
+  &__dot {
+    width: 10px;
+    height: 10px;
+    border: 1px solid $card_btn_hover_colar;
+    border-radius: 50%;
+    background: $header_normal_colar;
+    margin: 10px 5px;
+    cursor: pointer;
+  }
+
+  &__dot:hover {
+    background: $card_btn_active_colar;
+  }
+
 }
 
-&__btn{
-  cursor: pointer;
-  border: none;
-  background:$white_color;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  margin: 0 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-&__btn-prev{
-left: 50px;
-}
-
-
-&__btn-next{
-rotate: 180deg;
-right: 50px;
-}
-
-&__wrapper{
-  display: flex;
-  justify-content: center;
-  margin: 20px;
-}
-
-&__dot{
-  width: 10px;
-  height: 10px;
-  border: 1px solid $card_btn_hover_colar;
-  border-radius: 50%;
-  background: $header_normal_colar;
-  margin: 10px 5px;
-  cursor: pointer;
-}
-
-&__dot:hover{
-  background:$card_btn_active_colar;
-}
-
-}
-.active-dot{
-  background:$card_btn_active_colar;
+.active-dot {
+  background: $card_btn_active_colar;
   transform: scale(1.5);
 }
 
 @media (width<=1024px) {
-
-  .slider__btn{
+  .slider__btn {
     display: none;
   }
 }

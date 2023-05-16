@@ -3,6 +3,7 @@
     position: absolute;
     width: 100%;
     transition: 0s;
+
     &__top {
         display: flex;
         align-items: center;
@@ -11,6 +12,7 @@
         font-size: $small;
         margin-bottom: 13px;
     }
+
     &__currency {
         color: $header_normal_colar;
         padding-left: 20px;
@@ -21,19 +23,23 @@
             cursor: pointer;
         }
     }
+
     &__map {
         display: flex;
         align-items: center;
         color: $header_normal_colar;
         padding-left: 15px;
+
         .map-icon {
             height: 16px;
             width: 16px;
             fill: $header_normal_colar;
         }
+
         &:hover {
             color: $white_color;
             cursor: pointer;
+
             .map-icon {
                 fill: $white_color;
             }
@@ -44,6 +50,7 @@
         display: flex;
         margin-left: auto;
     }
+
     &__link-for-traders {
         background: $header_traders_bg_color;
         border-radius: 16px;
@@ -55,6 +62,7 @@
             color: $white_color;
         }
     }
+
     &__massege-abote-problems {
         color: $white_color;
         background: $header_problems_bg_color;
@@ -64,15 +72,18 @@
         margin-left: 20px;
         display: flex;
         justify-content: center;
-        img{
+
+        img {
             padding-left: 5px;
         }
     }
+
     &__body {
         display: flex;
         align-items: center;
         padding-bottom: 20px;
     }
+
     &__catalog {
         min-width: 48px;
         height: 48px;
@@ -82,6 +93,7 @@
         align-items: center;
         justify-content: center;
         cursor: pointer;
+
         & span {
             background-color: $white_color;
             width: 28px;
@@ -89,6 +101,7 @@
             position: relative;
             display: block;
             border-radius: 4px;
+
             &::before {
                 content: "";
                 width: 100%;
@@ -100,6 +113,7 @@
                 background: $white_color;
                 border-radius: 4px;
             }
+
             &::after {
                 content: "";
                 width: 100%;
@@ -112,13 +126,16 @@
                 border-radius: 4px;
             }
         }
+
         &:hover {
             border: 1px solid $white_color;
         }
     }
+
     &__logo {
         margin-left: 16px;
         width: 215px;
+
         a {
             font-size: $gaint;
             text-decoration: none;
@@ -130,6 +147,7 @@
         width: 100%;
         margin-left: 30px;
         position: relative;
+
         #search {
             width: 100%;
             height: 56px;
@@ -143,22 +161,27 @@
             font-size: $search;
             transition: 0.1s;
             cursor: pointer;
+
             &::placeholder {
                 color: $header_normal_colar;
             }
+
             &:focus-visible {
                 outline: none;
                 background-color: $white_color;
                 color: #000;
                 border-radius: 28px 28px 0 0;
+
                 &::placeholder {
                     color: $header_search_active;
                 }
             }
+
             &:focus {
                 cursor: text;
             }
         }
+
         .search-icon {
             fill: $header_normal_colar;
             position: absolute;
@@ -167,9 +190,11 @@
             width: 20px;
             height: 20px;
         }
+
         .search-icon-active {
             fill: $header_search_active;
         }
+
         .search__list {
             opacity: 0;
             visibility: hidden;
@@ -181,6 +206,7 @@
             background-color: $white_color;
             border-radius: 0 0 28px 28px;
             transition: 0.1s;
+
             li {
                 width: 100%;
                 background-color: $white_color;
@@ -189,9 +215,11 @@
                 cursor: pointer;
                 font-size: $normal;
                 position: relative;
+
                 &:hover {
                     border: 1px solid $header_problems_bg_color;
                 }
+
                 &::after {
                     content: "";
                     position: absolute;
@@ -205,26 +233,31 @@
                     transform: rotate(45deg);
                 }
             }
+
             li:first-of-type {
                 cursor: auto;
                 border: 1px solid $white_color;
                 font-size: $extra_small;
                 color: $header_search_catalog;
+
                 &::after {
                     display: none;
                 }
             }
         }
+
         .search__list-active {
             opacity: 1;
             visibility: visible;
         }
     }
+
     &__for-user {
         display: flex;
         justify-content: left;
         margin-left: 30px;
     }
+
     &__profile {
         display: flex;
         flex-direction: column;
@@ -233,16 +266,19 @@
         color: $header_normal_colar;
         font-size: $small;
         cursor: pointer;
+
         &:hover {
             color: $white_color;
         }
     }
+
     .profile {
         width: 19px;
         height: 25px;
         fill: $white_color;
         margin: 10px 0 10px;
     }
+
     &__cart {
         display: flex;
         flex-direction: column;
@@ -253,6 +289,7 @@
         cursor: pointer;
         margin-left: 20px;
         position: relative;
+
         &:hover {
             color: $white_color;
         }
@@ -284,6 +321,7 @@
             align-items: center;
         }
     }
+
     .cart-icon {
         width: 19px;
         height: 25px;
@@ -291,6 +329,7 @@
         margin: 10px 0 10px;
     }
 }
+
 .header-modal {
     padding-right: 17px;
 }
@@ -304,7 +343,8 @@
     top: 40px;
     left: 0;
     transition: 0s;
-    box-shadow: 0 0 1px $header_currency_shadow,0 2px 10px $header_currency_shadow2;
+    box-shadow: 0 0 1px $header_currency_shadow, 0 2px 10px $header_currency_shadow2;
+
     li {
         position: relative;
         z-index: 1;
@@ -313,17 +353,21 @@
         font-size: $middle;
         transition: .1s;
         cursor: pointer;
+
         &:hover {
             background-color: $header_currency_color;
         }
+
         &:first-of-type {
             border-radius: 16px 16px 0 0;
             padding: 5px 0 5px 30px;
+
             &:hover {
                 background-color: $white_color;
                 cursor: auto;
             }
-            .currency__close{
+
+            .currency__close {
                 text-decoration: none;
                 font-size: $large;
                 font-weight: $fat;
@@ -331,31 +375,37 @@
                 display: none;
             }
         }
+
         &:last-of-type {
             border-radius: 0 0 16px 16px;
         }
-        .currency__item{
+
+        .currency__item {
             display: inline;
         }
+
         .currency__flag {
             left: 10px;
             top: 5px;
         }
-        .currency__name{
-            display:block;
+
+        .currency__name {
+            display: block;
             width: 100%;
             position: relative;
             padding: 5px 0 5px 30px;
             z-index: 3;
         }
-        .currency__fullname{
+
+        .currency__fullname {
             position: absolute;
             top: 5px;
             left: 100px;
             z-index: 2;
         }
-    }   
+    }
 }
+
 .flag-icon {
     width: 15px;
     height: 15px;
@@ -363,9 +413,11 @@
     position: absolute;
     left: 5px;
 }
+
 .currency__flag {
     left: 0;
 }
+
 .active {
     display: block;
 }
@@ -373,35 +425,43 @@
 .new-header {
     justify-content: space-between;
     align-items: center;
-    background: $header_bg_color;;
+    background: $header_bg_color;
+    ;
     width: 100%;
     padding: 15px 0;
     display: none;
+
     .new-header__group {
         width: 40%;
         display: flex;
         justify-content: end;
-        &-el{
+
+        &-el {
             margin-left: 20px;
         }
     }
+
     &__map {
         cursor: pointer;
+
         .map-icon {
             width: 25px;
             height: 100%;
             fill: $white_color;
         }
     }
+
     .new-search {
         cursor: pointer;
+
         .search-icon {
             height: 100%;
             width: 25px;
             fill: $white_color;
         }
     }
-    .currency{
+
+    .currency {
         display: flex;
         align-items: center;
         color: $white_color;
@@ -409,12 +469,14 @@
         border-radius: 5px;
         padding: 5px;
         cursor: pointer;
-        .flag-icon{
+
+        .flag-icon {
             width: 18px;
             height: 18px;
             border-radius: 50%;
         }
-        span{
+
+        span {
             padding-left: 5px;
         }
     }
@@ -426,19 +488,23 @@
         &__logo {
             margin-left: 16px;
             width: 165px;
+
             a {
                 font-size: $extra-large;
                 text-decoration: none;
                 color: $white_color;
             }
         }
+
         &__search {
             margin-left: 10px;
             position: relative;
-        }    
+        }
+
         .profile {
             margin: 5px 0 5px;
         }
+
         .cart-icon {
             margin: 5px 0 5px;
         }
@@ -448,14 +514,17 @@
 @media (width<=1024px) {
     .normal-header {
         display: none;
-        
+
     }
+
     .new-header {
         display: flex;
+
         .flag-icon {
             position: static;
         }
     }
+
     .currency__list {
         position: absolute;
         width: 100%;
@@ -466,52 +535,61 @@
         box-shadow: none;
         background-color: $white_color;
         z-index: 1;
-        li{
+
+        li {
             cursor: pointer;
+
             &:first-of-type {
                 padding: 20px;
                 border-radius: 0;
                 display: flex;
                 justify-content: space-between;
-                .currency__close{
+
+                .currency__close {
                     display: block;
                 }
             }
+
             &:last-of-type {
                 border-radius: 0;
             }
+
             .currency__flag {
                 top: 16px;
                 width: 25px;
                 height: 25px;
             }
-            .currency__fullname{
+
+            .currency__fullname {
                 top: 20px;
             }
-            .currency__name{
+
+            .currency__name {
                 padding: 20px 0 15px 45px;
                 z-index: 3;
             }
         }
-        
+
     }
 }
 
 @media (width<=575px) {
     .new-header {
-        .header__logo{  
+        .header__logo {
             margin-left: 0;
             width: 165px;
+
             a {
                 font-size: $large;
-            } 
+            }
         }
-    }    
+    }
 }
+
 @media (width<=472px) {
     .new-header {
         .new-header__group {
-            &-el{
+            &-el {
                 margin-left: 5px;
             }
         }

@@ -1,16 +1,18 @@
-*{
+* {
     margin: 0;
     padding: 0;
     text-decoration: none;
     box-sizing: border-box;
-    transition: .2s ;
-    font-family: Arial,sans-serif;
+    transition: .2s;
+    font-family: Arial, sans-serif;
 }
-.main{
+
+.main {
     padding-top: 170px;
     min-width: 330px;
 }
-.container{
+
+.container {
     width: 100%;
     max-width: 1440px;
     padding: 0 15px;
@@ -19,7 +21,7 @@
 }
 
 @media (width<=1024px) {
-    .main{
+    .main {
         padding-top: 90px;
     }
 }

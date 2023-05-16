@@ -6,6 +6,7 @@
   color: $white_color;
   padding: 15px 0;
   position: relative;
+
   &__container {
     display: none;
     width: 100vw;
@@ -34,17 +35,20 @@
     background: $white_color;
     color: $black_color;
     padding: 10px;
-    &::-webkit-scrollbar{
+
+    &::-webkit-scrollbar {
       width: 6px;
       height: 6px;
     }
+
     &::-webkit-scrollbar-thumb {
-        border-radius: 6px;
-        background: $scrol-bar_thumb;
-        border: 0 solid;
+      border-radius: 6px;
+      background: $scrol-bar_thumb;
+      border: 0 solid;
     }
+
     &::-webkit-scrollbar-track {
-        background: $white_color;
+      background: $white_color;
     }
   }
 
@@ -53,7 +57,8 @@
     height: 25%;
     display: flex;
     position: relative;
-    &::after{
+
+    &::after {
       content: "";
       height: 1px;
       width: 50%;
@@ -62,7 +67,8 @@
       position: absolute;
       bottom: -5px;
     }
-    &:last-child:after{
+
+    &:last-child:after {
       display: none;
     }
   }
@@ -76,12 +82,13 @@
     img {
       width: 100%;
       height: auto;
-    }  
+    }
   }
 
   &__text {
     width: 30%;
     margin-left: 40px;
+
     &-title {
       margin-bottom: 7px;
     }
@@ -139,27 +146,31 @@
     color: $modal_map_btn_border_active_colar;
     z-index: 1;
   }
+
   &__active {
     display: flex;
   }
 
-  &__total{
+  &__total {
     position: absolute;
     bottom: 30px;
     right: 30px;
     color: $black_color;
     width: 30%;
   }
+
   &__sum {
     margin-top: 15px;
     font-size: $large;
   }
+
   &__buttons {
     margin-top: 35px;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
+
   &__pay {
     width: 49%;
     height: 32px;
@@ -176,9 +187,11 @@
       cursor: pointer;
     }
   }
-  &__clear-text{
+
+  &__clear-text {
     padding-left: 10px;
   }
+
   &__clear {
     width: 49%;
     height: 32px;
@@ -203,6 +216,7 @@
   align-items: center;
   width: 80px;
   margin-bottom: 15px;
+
   &__minus {
     width: 25px;
     height: 25px;
@@ -227,7 +241,8 @@
     }
   }
 }
-.not-active{
+
+.not-active {
   display: none;
 }
 
@@ -243,20 +258,24 @@
     z-index: 2;
     background: $white_color;
     color: $black_color;
+
     &__list {
       min-height: 96%;
       padding-bottom: 30px;
     }
-  }  
+  }
 }
+
 @media (width<=768px) {
   .basket {
     &__list {
       min-height: calc(100% - 208px);
     }
+
     &__item {
       justify-content: space-between;
-      &::after{
+
+      &::after {
         width: 100%;
       }
     }
@@ -268,6 +287,7 @@
     &__text {
       width: 45%;
       margin-left: 0;
+
       &-title {
         margin-bottom: 20px;
       }
@@ -281,24 +301,24 @@
       }
     }
 
-  &__buy {
-    width: 50%;
-    margin-bottom: 20px;
-  }
+    &__buy {
+      width: 50%;
+      margin-bottom: 20px;
+    }
 
-  &__delete {
-    width: 50%;
-    margin-bottom: 20px;
+    &__delete {
+      width: 50%;
+      margin-bottom: 20px;
+    }
+
+    &__total {
+      color: $black_color;
+      width: 100%;
+      background-color: $white_color;
+      bottom: 0;
+      right: 0;
+      padding: 10px;
+      border-top: 1px solid $black_color;
+    }
   }
-  
-  &__total{
-  color: $black_color;
-  width: 100%;
-  background-color: $white_color;
-  bottom: 0;
-  right: 0;
-  padding: 10px;
-  border-top: 1px solid $black_color;
-}
-}  
 }

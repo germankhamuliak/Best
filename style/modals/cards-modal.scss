@@ -1,24 +1,26 @@
-.cards-modal{
+.cards-modal {
     position: fixed;
     height: 660px;
     width: 500px;
-    top: calc(50% - 330px );
-    left: calc(50% - 250px );
+    top: calc(50% - 330px);
+    left: calc(50% - 250px);
     background: $white_color;
     visibility: hidden;
     opacity: 0;
     z-index: 2;
-    cursor:zoom-in;
+    cursor: zoom-in;
+
     img {
         width: 100%;
         vertical-align: top;
-        &:active{
+
+        &:active {
             transform: scale(1.5);
         }
     }
 }
 
-.cards-active{
+.cards-active {
     visibility: visible;
-    opacity: 1; 
+    opacity: 1;
 }

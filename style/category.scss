@@ -1,22 +1,26 @@
 .category {
     margin-bottom: 50px;
+
     &__content {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
     }
+
     &__card {
         width: 48%;
         border-radius: 16px;
         margin: 15px 0;
         overflow: hidden;
+
         img {
             width: 100%;
             vertical-align: top;
             transition: .7s ease;
         }
-        &:hover{
-            img{
+
+        &:hover {
+            img {
                 transform: scale(1.1);
             }
         }
@@ -24,8 +28,7 @@
 }
 
 @media (width<=1024px) {
-    .category{
+    .category {
         display: none;
     }
 }
-

@@ -1,31 +1,33 @@
-
 .side-catalog {
-    
-    &__content{
-    position: absolute;
-    bottom: 0;
-    left: -318px;
-    max-height: 100%;
-    display: flex;
-    flex-direction: column;
-    opacity: 0;
-    visibility: hidden;
-    
+
+    &__content {
+        position: absolute;
+        bottom: 0;
+        left: -318px;
+        max-height: 100%;
+        display: flex;
+        flex-direction: column;
+        opacity: 0;
+        visibility: hidden;
     }
+
     &__list {
         list-style: none;
         max-height: calc(100% - 133px);
         overflow-y: auto;
         padding-right: 0;
-        li{
+
+        li {
             padding: 16px 40px 16px 56px;
             cursor: pointer;
             background-color: $white_color;
             position: relative;
-            &:hover{
-                background-color: $modal_side-menu_color;  
+
+            &:hover {
+                background-color: $modal_side-menu_color;
             }
-            &::after{
+
+            &::after {
                 content: "";
                 position: absolute;
                 display: block;
@@ -38,24 +40,29 @@
                 transform: rotate(45deg);
             }
         }
-        span{
-            padding-right:60px;
+
+        span {
+            padding-right: 60px;
         }
-        &::-webkit-scrollbar{
+
+        &::-webkit-scrollbar {
             width: 6px;
             height: 6px;
         }
+
         &::-webkit-scrollbar-thumb {
             border-radius: 6px;
             background: $scrol-bar_thumb;
             border: 0 solid;
         }
+
         &::-webkit-scrollbar-track {
             background: $white_color;
         }
     }
 }
-.side-catalog__content-active{
+
+.side-catalog__content-active {
     left: 0;
     opacity: 1;
     visibility: visible;
@@ -73,25 +80,28 @@
     opacity: 0;
     visibility: hidden;
     transition: .8s ease;
-    cursor: pointer;   
+    cursor: pointer;
+
     &__content {
         background: $white_color;
         border-radius: 16px;
         opacity: 0;
         visibility: hidden;
         transition: .8s ease;
-        cursor:auto;
+        cursor: auto;
     }
 }
 
-.modal-visibl{
+.modal-visibl {
     opacity: 1;
     visibility: visible;
 }
+
 @media (width<=1200px) {
     .side-catalog__list {
         max-height: calc(100% - 128px);
     }
+
     .modal-side {
         top: 128px;
     }

@@ -10,8 +10,9 @@
     opacity: 0;
     visibility: hidden;
     transition: .8s ease;
-    cursor: pointer;   
+    cursor: pointer;
     z-index: 2;
+
     &__content {
         position: absolute;
         background: $white_color;
@@ -19,22 +20,25 @@
         opacity: 0;
         visibility: hidden;
         transition: .8s ease;
-        cursor:auto;
+        cursor: auto;
     }
 }
 
-.modal-visibl{
+.modal-visibl {
     opacity: 1;
     visibility: visible;
 }
-.moddal__content-visibl{
+
+.moddal__content-visibl {
     opacity: 1;
     visibility: visible;
 }
-.body{
+
+.body {
     transition: 0s;
 }
-.body-modal{
+
+.body-modal {
     padding-right: 17px;
     overflow-y: hidden;
 }
