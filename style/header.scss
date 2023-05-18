@@ -195,7 +195,7 @@
             fill: $header_search_active;
         }
 
-        .search__list {
+        .search__list, .search__list-2{
             opacity: 0;
             visibility: hidden;
             position: absolute;
