@@ -119,12 +119,15 @@
   opacity: 0;
   visibility: hidden;
 }
-
+.search-style{
+  justify-content: start;
+  column-gap: 2%;
+}
 @media (width<=1200px) {
   .cards__item {
     width: 23%;
 
-    &:last-child {
+    &:nth-child(15) {
       display: none;
     }
 

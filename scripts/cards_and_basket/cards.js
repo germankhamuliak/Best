@@ -61,20 +61,23 @@ btnsAddToCart.forEach((el, id) => {
 }
 
 //добавление карточек на страницу
-const addCards = () => {
-if(!cards.length){
+const addCards = (arr) => {
+if(arr==cards){
+  cardsList.classList.remove("search-style")
+}
+if(!arr.length){
 cartNumbers();  
 const request = new Request(URL, options);
 fetch(request)
   .then((res) => res.json())
   .then((data) => {
-    cards.splice(0, cards.length, ...data);
+    arr.splice(0, cards.length, ...data);
     localStorage.setItem("cards", JSON.stringify(data));
     renderCards()
   })} else{
 cartNumbers();
 cardsList.innerHTML = "";
-cards.forEach((el) => {
+arr.forEach((el) => {
   if(el.inBasket===false){
     el.amount = 1;
     cardsList.innerHTML += getCardDefHtml(el)
@@ -86,7 +89,7 @@ cards.forEach((el) => {
     addBasket();
   }});}
 }
-addCards();
+addCards(cards);
 
 
 
