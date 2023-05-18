@@ -1,109 +1,113 @@
 .search {
-    position: fixed;
-    top: 0;
-    left: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: $white_color;
+  padding: 15px;
+  display: none;
+
+  &__header {
+    display: flex;
+    align-items: center;
+  }
+
+  &__input {
     width: 100%;
-    height: 100%;
+    height: 30px;
+    padding: 4px 30px 4px 45px;
+    border: 0;
+    background-position: 20px;
+    background-size: 20px 20px;
+    background-color: $searh_bg_color;
+    border-radius: 28px 28px 28px 28px;
+    color: $white_color;
+    font-size: $search;
+    transition: 0.1s;
+    margin-right: 10px;
+    cursor: pointer;
+
+    &::placeholder {
+      color: $header_search_active;
+    }
+
+    &:focus-visible {
+      outline: none;
+      color: #000;
+    }
+
+    &:focus {
+      cursor: text;
+    }
+  }
+
+  &-input-icon {
+    fill: $header_search_active;
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    width: 20px;
+    height: 20px;
+  }
+
+  &__close {
+    text-decoration: none;
+    font-size: $small;
+    font-weight: $fat;
+    color: $modal_map_btn_border_active_colar;
+  }
+
+  &__list,
+  &__list_2 {
+    width: 100%;
+    list-style: none;
+    padding: 10px 0 30px;
     background-color: $white_color;
-    padding: 15px;
-    display: none;
+    transition: 0.1s;
+    visibility: hidden;
+    position: absolute;
+    z-index: 1;
 
-    &__header {
-        display: flex;
-        align-items: center;
-    }
+    li {
+      background-color: $white_color;
+      padding: 5px 36px 6px 5px;
+      border: 1px solid $white_color;
+      cursor: pointer;
+      font-size: $normal;
+      position: relative;
 
-    &__input {
-        width: 100%;
-        height: 30px;
-        padding: 4px 30px 4px 45px;
-        border: 0;
-        background-position: 20px;
-        background-size: 20px 20px;
-        background-color: $searh_bg_color;
-        border-radius: 28px 28px 28px 28px;
-        color: $white_color;
-        font-size: $search;
-        transition: 0.1s;
-        margin-right: 10px;
-        cursor: pointer;
+      &:hover {
+        border: 1px solid $header_problems_bg_color;
+      }
 
-        &::placeholder {
-            color: $header_search_active;
-        }
-
-        &:focus-visible {
-            outline: none;
-            color: #000;
-        }
-
-        &:focus {
-            cursor: text;
-        }
-    }
-
-    &-input-icon {
-        fill: $header_search_active;
+      &::after {
+        content: "";
         position: absolute;
-        top: 20px;
-        left: 25px;
-        width: 20px;
-        height: 20px;
+        display: block;
+        top: 10px;
+        right: 20px;
+        width: 10px;
+        height: 10px;
+        border-top: 1px solid $header_search_active;
+        border-right: 1px solid $header_search_active;
+        transform: rotate(45deg);
+      }
     }
 
-    &__close {
-        text-decoration: none;
-        font-size: $small;
-        font-weight: $fat;
-        color: $modal_map_btn_border_active_colar;
+    li:first-of-type {
+      cursor: auto;
+      border: 1px solid $white_color;
+      font-size: $extra_small;
+      color: $header_search_catalog;
+
+      &::after {
+        display: none;
+      }
     }
-
-    &__list {
-        width: 100%;
-        list-style: none;
-        padding: 10px 0 30px;
-        background-color: $white_color;
-        transition: 0.1s;
-
-        li {
-            background-color: $white_color;
-            padding: 5px 36px 6px 5px;
-            border: 1px solid $white_color;
-            cursor: pointer;
-            font-size: $normal;
-            position: relative;
-
-            &:hover {
-                border: 1px solid $header_problems_bg_color;
-            }
-
-            &::after {
-                content: "";
-                position: absolute;
-                display: block;
-                top: 10px;
-                right: 20px;
-                width: 10px;
-                height: 10px;
-                border-top: 1px solid $header_search_active;
-                border-right: 1px solid $header_search_active;
-                transform: rotate(45deg);
-            }
-        }
-
-        li:first-of-type {
-            cursor: auto;
-            border: 1px solid $white_color;
-            font-size: $extra_small;
-            color: $header_search_catalog;
-
-            &::after {
-                display: none;
-            }
-        }
-    }
+  }
 }
 
 .search-active {
-    display: block;
+  display: block;
 }
