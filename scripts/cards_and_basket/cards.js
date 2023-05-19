@@ -66,6 +66,7 @@ if(arr==cards){
   cardsList.classList.remove("search-style")
 }
 if(!arr.length){
+  cardsList.classList.remove("search-style")  
 cartNumbers();  
 const request = new Request(URL, options);
 fetch(request)

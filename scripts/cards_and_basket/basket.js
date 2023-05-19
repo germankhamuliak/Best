@@ -101,7 +101,7 @@ basketList.addEventListener("click", ({ target }) => {
           localStorage.setItem("cart", JSON.stringify(cart));
           cardsConnection(el)
           renderBasket();
-          addCards();
+          addCards(cards);
       }
     });
   }
@@ -122,7 +122,7 @@ basketList.addEventListener("click", ({ target }) => {
     cart.splice(itemDelId, 1);
     localStorage.setItem("cart", JSON.stringify(cart));
     renderBasket();
-    addCards();
+    addCards(cards);
   }
 });
 
@@ -159,7 +159,7 @@ basketClear.addEventListener("click", () => {
   cart.length = 0;
   localStorage.removeItem("cart");
   renderBasket();
-  addCards();
+  addCards(cards);
 });
 
 // отображение суммы
