@@ -62,9 +62,6 @@ btnsAddToCart.forEach((el, id) => {
 
 //добавление карточек на страницу
 const addCards = (arr) => {
-if(arr==cards){
-  cardsList.classList.remove("search-style")
-}
 if(!arr.length){
   cardsList.classList.remove("search-style")  
 cartNumbers();  

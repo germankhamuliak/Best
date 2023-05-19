@@ -21,11 +21,15 @@ const lettersFunc = () => {
 }
 
 document.addEventListener("click",({target})=>{
-  if(target.classList.contains('search__link')){
+  if(target.classList.contains('search__link')&&!target.classList.contains('first')){
     search.value = target.textContent;
     search.oninput();
-    addCards(suitableTitles)
-    cardsList.classList.add("search-style")
+    if(suitableTitles.length){
+      addCards(suitableTitles)
+      cardsList.classList.add("search-style")
+    } else{
+      addCards(cards)
+    }
     searchWindow.classList.remove("search-active")
     body.classList.remove("body-modal")
   }
