@@ -60,7 +60,7 @@
 
   &__list,
   &__list_2 {
-    width: 100%;
+    width: calc(100% - 15px);
     list-style: none;
     padding: 10px 0 30px;
     background-color: $white_color;
@@ -110,4 +110,7 @@
 
 .search-active {
   display: block;
+}
+.search__list-mobile{
+  visibility: visible;;
 }
