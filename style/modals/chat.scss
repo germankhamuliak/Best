@@ -51,14 +51,30 @@
     }
 
     &__body {
+        max-width: 100%;
         height: 85%;
         background: $chat_window_body_color;
-        border-radius: 15px;
+        border-radius: 10px;
         margin: 20px 0;
         display: flex;
         flex-direction: column;
-        justify-content: end;
         padding: 15px 20px;
+        overflow-y:scroll;
+
+        &::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            border-radius: 6px;
+            background: $scrol-bar_thumb;
+            border: 0 solid;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: $white_color;
+        }
     }
 
     &__hello {
@@ -131,7 +147,14 @@
             font-size: $small;
             cursor: pointer;
             padding: 5px;
-        }
+
+            &:hover{
+                background: $card_btn_hover_colar;
+            }
+            &:active{
+                background: $card_btn_active_colar;
+            }
+        }   
     }
 }
 

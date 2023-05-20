@@ -82,6 +82,7 @@ search.oninput = () => {
     searchIcon.classList.add("search-icon-active");
     searchList2.classList.remove("search__list-active");
     addCards(cards)
+    cardsList.classList.remove("search-style")
   }  
   if (search.value) {
     searchList.classList.remove("search__list-active");
