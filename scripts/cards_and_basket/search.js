@@ -91,8 +91,10 @@ search.oninput = () => {
     searchTitles();
     search.addEventListener('keydown', function(e) {
       if (e.keyCode === 13) {
-        addCards(suitableTitles);
-        cardsList.classList.add("search-style")
+        if(suitableTitles.length){
+          addCards(suitableTitles);
+          cardsList.classList.add("search-style")
+        }
       }})
 
 }};
